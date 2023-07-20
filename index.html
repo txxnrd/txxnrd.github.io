@@ -6,6 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		/* CSS code to style your page */
+		.center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    	}
 		body {
 			font-family: Arial, sans-serif;
 			background-color: #f1f1f1;
@@ -49,6 +54,69 @@
 			max-width: 100%;
 			height: auto;
 		}
+		
+		/* Media query for small devices */
+		@media only screen and (max-width: 600px) {
+			header {
+				padding: 10px;
+			}
+
+			h1 {
+				font-size: 24px;
+			}
+			h2 {
+				font-size: 22px;
+			}
+			h3 {
+				font-size: 18px;
+			}
+
+			main {
+				margin: 10px;
+				padding: 10px;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 1.3;
+			}
+
+			
+			div {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			
+			a > img {
+				height: 80%;
+				width: 60%;
+			}
+			
+			h3 {
+				margin-top: 10px;
+			}
+			
+			ul {
+				margin-top: 0;
+			}
+			
+			a > img {
+				margin-top: 10px;
+                
+			}
+			
+			ul > li {
+				margin-bottom: 10px;
+			}
+			
+			footer {
+				padding: 10px;
+				font-size: 14px;
+				text-align: center;
+				color: #333;
+			}
+		}
 	</style>
 </head>
 <body>
@@ -58,19 +126,21 @@
 	<main>
 		<div style="display: flex; align-items: center;">
 			<div style="flex-shrink: 0; margin-right: 20px;">
-				<img src="profile.jpg" alt="Profile picture" height="200px" width="200px">
+				<img src="img/profile.jpg" alt="Profile picture" height="200px" width="200px">
 			</div>
 			<div>
 				<h1>Welcome to introduction page of Taeyun</h1>
 				<p>Hi, my name is Taeyun Roh. I am a sophomore student based in Anam-dong, Seongbuk-gu, Seoul, Republic of Korea . I have recently began to study front-end develop.</p>
+				<p>I am currently in these clubs. <a href="https://kwebofficial.com">KWEB(Korea Univ Web Master)</a>, <a href="https://www.facebook.com/KUICS/?locale=ko_KR">KUICS(Korea Univ Institute of Computer Security) </a>, <a href="https://instagram.com/fccoming_official/">FC COMING</a></p>
 				<hr>
 				<p>Find more about me in</p>
 	
-		<div>
+		<div class="center">
 		<a href="https://blog.naver.com/nrbsld237"><img src="img/naver.png" height="140px" width="140px" alt="Naver Blog"></a>	
 		<a href="https://instagram.com/txx_nrd/"><img src="img/instagram.png" alt="Instagram" height="140px" width="140px"></a>
 		<a href="https://www.linkedin.com/in/roh-taeyun-018087233/"><img src="img/linkedin.png" alt="Linkedin" height="180px" width="180px"></a>
 		<a href="https://taeng-develop.tistory.com"><img src="img/tistory.png" height="140px" width="140px" alt="tistory"></a>	
+		<a href="https://github.com/txxnrd"><img src="img/깃허브.png" height="110px" width="110px" alt="github"></a>	
 	</div>
 				
 			</div>
@@ -86,7 +156,7 @@
 		<p>I entered Korea University in 2022 with a major of Computer Science and Engineering.</p>
 		<h2>Portfolio</h2>
 		<hr>
-		<h3>Data Analyst in Hiconsy (2021.12~2022.01)</h3>
+		<h3>Data Analyst in Hiconsy (2021.12~2023.01)</h3>
 		<ul>
 			<li><p>Worked as a Data analyst in Education Startup <a href="https://www.hiconsy.com">Hiconsy</a> which is now one of the biggest education companies in Korea</p></li>
 			<li><p>Belonged in data research team under Team Forest, performed tasks such as proposing web reform plan, student study pattern analysis,and student's studying material analysis</p></li>
@@ -103,12 +173,21 @@
 			<li><a href="img/4주차.pdf">Example of study material</a></li>
 		</ul>
 		
+		<h2>Project</h2>
+		<hr>
+		<h3>Visual Novel Game 두근두근 카이생의 모쏠 탈출기</h3>
+		<ul>
+			<li><a href="https://drive.google.com/drive/folders/1qK-3B5PjR6RC2tgLEHcYThnZjRE-q2XE">Click to download</a></li>
+		</ul>
+
 		<h2>Research</h2>
 		<hr>
 		<h3>Analysis of Traffic Accident Patterns in Daejeon and Development of Accident Frequency Prediction Model through Markov Process</h3>
 		<ul>
 			<li><a href="img/데이터 분석 최종결과 보고서(필수).pdf">Click to download</a></li>
 		</ul>
+		
+		
 		<h2>Contact</h2>
 		<hr>
 		<h3>Email</h3>
