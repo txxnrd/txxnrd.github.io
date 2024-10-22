@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>News - txxnrd.github.io</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>txxnrd.github.io</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <!-- <li><a href="contact.html">Contact</a></li> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="news-title">News</div>
+      <div id="news-container"></div>
+    </main>
+
+    <script>
+      function imageExists(imageUrl, callback) {
+        const img = new Image();
+        img.onload = () => callback(true);
+        img.onerror = () => callback(false);
+        img.src = imageUrl;
+      }
+      function addNewsItem(localPath, imageLink, title, description, date) {
+        const newsContainer = document.getElementById("news-container");
+
+        // 뉴스 카드 생성
+        const newsItem = document.createElement("div");
+        newsItem.className = "news-item";
+
+        const img = document.createElement("img");
+        img.alt = title;
+
+        // 뉴스 카드 내용 추가
+        const newsContent = document.createElement("div");
+        newsContent.className = "news-content";
+
+        const newsTitle = document.createElement("h3");
+        newsTitle.textContent = title;
+
+        const newsDescription = document.createElement("p");
+        newsDescription.textContent = description;
+
+        const newsDate = document.createElement("small");
+        newsDate.textContent = date;
+
+        // 뉴스 카드에 구성 요소 추가
+        newsContent.appendChild(newsTitle);
+        newsContent.appendChild(newsDescription);
+        newsContent.appendChild(newsDate);
+        newsItem.appendChild(img);
+        newsItem.appendChild(newsContent);
+        newsContainer.appendChild(newsItem);
+
+        // 이미지 로드
+        imageExists(localPath, (exists) => {
+          img.src = exists ? localPath : imageLink;
+        });
+      }
+      addNewsItem(
+        "",
+        "https://lh3.googleusercontent.com/Ik6XHzVfeI-3jLqK0Tb97am1d0Jt-MoYxX4jEz-VFTe1g4K0dqR2SZoYtTXtGWLH-uoHfqsgBFNkm5cxvkkSD5sjPMt5pfYsWm8x69oEGn9hX1ozcKewlknTa0acw0msPg=w1280",
+        "Poster Presentation at Korean Institute of communications and Information Sciences",
+        "Presented about a Paper Exploring the Secure Container for Permissioned Blockchains",
+        "2024-6"
+      );
+      addNewsItem(
+        "./img/blurting.jpeg",
+        "",
+        "Blurting ranked 73rd in App Store Social Networking Category",
+        "Blurting a dating application for college students has been ranked in the top 100 in the App Store Social Networking Category, which i have participated in the development as Frontend Lead Developer",
+        "2024-1"
+      );
+      // 뉴스 항목 추가
+      addNewsItem(
+        "./img/hackuton.jpeg",
+        "",
+        "Won Second Prize at HackUTon",
+        "By developing an application that predicts real-time crowd estimation project Noonchim, we won the second prize at the Korea University Hackathon",
+        "2023-8"
+      );
+    </script>
+  </body>
+</html>
