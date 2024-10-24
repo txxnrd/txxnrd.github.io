@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Blog - txxnrd.github.io</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="/index.html" class="logo">txxnrd.github.io</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"
+        ><span class="navicon"></span
+      ></label>
+      <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </header>
+    <main>
+      <div class="news-title">Blog</div>
+      <div class="blog-description">블로그 포스트를 확인해보세요!</div>
+      <div id="blog-container"></div>
+    </main>
+
+    <script src="postPage.js"></script>
+    <script>
+      function addBlogPost(title, summary, date, content) {
+        const blogContainer = document.getElementById("blog-container");
+
+        // 블로그 포스트 생성
+        const blogItem = document.createElement("div");
+        blogItem.className = "blog-item";
+
+        const blogTitle = document.createElement("h3");
+        blogTitle.textContent = title;
+
+        const blogSummary = document.createElement("p");
+        blogSummary.textContent = summary;
+
+        const blogDateContainer = document.createElement("div");
+        blogDateContainer.className = "blog-date-container";
+
+        const blogDate = document.createElement("small");
+        blogDate.textContent = date;
+
+        const arrowIcon = document.createElement("span");
+        arrowIcon.className = "arrow-icon";
+        arrowIcon.textContent = "\u2192";
+
+        // 블로그 포스트에 구성 요소 추가
+        blogItem.appendChild(blogTitle);
+        blogItem.appendChild(blogSummary);
+        blogItem.appendChild(blogDate);
+        blogDateContainer.appendChild(arrowIcon);
+        blogItem.appendChild(blogDateContainer);
+        blogContainer.appendChild(blogItem);
+
+        // 클릭 시 상세 페이지로 이동하는 기능 추가
+        blogItem.addEventListener("click", () => {
+          showBlogPost(title, summary, date, content);
+        });
+      }
+
+      // 블로그 포스트 추가
+      addBlogPost(
+        "Welcome to my website!",
+        "제 웹사이트에 오신 것을 환영합니다! 블로그 글은 차차 추가할 예정입니다.",
+        "2024-10",
+        "블로그 글 뭐 올릴까요? 추천해주세요!"
+      );
+    </script>
+  </body>
+</html>

@@ -1,6 +1,11 @@
+@font-face {
+  font-family: "nanum";
+  src: url("fonts/NanumGothic.ttf") format("truetype");
+}
+
 /* 기본 페이지 스타일 */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "nanum", sans-serif;
   background-color: #f1f1f1;
   margin: 0;
   padding: 0;
@@ -200,6 +205,111 @@ img {
 /* 메뉴 버튼 숨김 */
 .menu-btn {
   display: none;
+}
+
+/*블로그*/
+
+.blog-title {
+  font-size: 36px;
+  text-align: center;
+  margin-top: 40px;
+  color: #333;
+}
+.blog-description {
+  text-align: center;
+  font-size: 18px;
+  margin: 20px;
+  color: #777;
+}
+#blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.blog-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.blog-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.blog-item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+.blog-item p {
+  font-size: 16px;
+  color: #555;
+}
+.blog-item small {
+  display: block;
+  margin-top: 15px;
+  color: #aaa;
+}
+.blog-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.arrow-icon {
+  margin-left: auto;
+}
+
+/*blog post*/
+
+.blog-post-page {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+}
+.blog-post p {
+  font-size: 18px;
+  color: #555;
+}
+.blog-post small {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #aaa;
+}
+.blog-content {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.back-button:hover {
+  background-color: #fff;
+  color: #333;
 }
 /* Media query for small devices */
 @media only screen and (max-width: 600px) {

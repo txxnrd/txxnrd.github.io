@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
-    <title>Contact - txxnrd.github.io</title>
+    <title>Blog - txxnrd.github.io</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>txxnrd.github.io</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <header class="header">
+      <a href="/index.html" class="logo">txxnrd.github.io</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"
+        ><span class="navicon"></span
+      ></label>
+      <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
     </header>
     <main>
-      <h2>Contact</h2>
-      <p>여기에 연락처 정보를 추가하세요.</p>
+      <div class="news-title">Contact</div>
+      <div class="blog-description">
+        Feel free to contact whenever you want by my email nrbsld@korea.ac.kr
+      </div>
+      <div id="blog-container"></div>
     </main>
   </body>
 </html>
