@@ -1,12 +1,25 @@
+/* 색상 변수를 정의하여 테마 관리 용이 */
+:root {
+  --primary-color: #0a0b0b; /* 베이비 블루 */
+  --secondary-color: #121213; /* 라이트 스카이 블루 */
+  --accent-color: #121212; /* 스틸 블루 */
+  --background-color: #161616; /* 매우 연한 파란색 */
+  --text-color: #333333; /* 다크 그레이 */
+  --nav-text-color: #ffffff; /* 흰색 */
+  --nav-background-color: var(--primary-color);
+  --nav-hover-color: var(--secondary-color);
+}
+
 @font-face {
   font-family: "nanum";
-  src: url("fonts/NanumGothic.ttf") format("truetype");
+  src: url("fonts/NanumBarunGothic.ttf") format("truetype");
 }
 
 /* 기본 페이지 스타일 */
 body {
   font-family: "nanum", sans-serif;
-  background-color: #f1f1f1;
+  background-color: #fff;
+  color: var(--text-color);
   margin: 0;
   padding: 0;
 }
@@ -16,7 +29,23 @@ nav ul {
   padding: 0;
   display: flex;
   justify-content: center;
-  background-color: #444;
+  background-color: var(--nav-background-color);
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: var(--nav-text-color);
+  text-decoration: none;
+  font-size: 18px;
+  padding: 14px 20px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: var(--nav-hover-color);
 }
 
 /* 뉴스 섹션 스타일 */
@@ -39,7 +68,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px; /* 이미지와 텍스트 간 간격 추가 */
+  gap: 20px;
 }
 
 .news-item img {
@@ -47,7 +76,7 @@ main {
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
-  flex-shrink: 0; /* 이미지가 부모 요소 크기에 따라 축소되지 않도록 설정 */
+  flex-shrink: 0;
 }
 
 .news-content {
@@ -56,7 +85,7 @@ main {
 
 .news-content h3 {
   margin: 0;
-  font-size: 24px; /* 제목 크기 증가 */
+  font-size: 24px;
 }
 
 .news-content small {
@@ -66,8 +95,16 @@ main {
 }
 
 .news-content p {
-  margin-top: 20px; /* 설명을 제목에서 더 떨어지게 */
+  margin-top: 20px;
   font-size: 16px;
+}
+
+.news-title {
+  font-size: 40px;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
 .center {
@@ -77,107 +114,56 @@ main {
   flex-wrap: wrap;
 }
 
-nav {
-  margin-top: 10px;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #444;
-}
-
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 14px 20px;
-  display: block;
-}
-
-nav ul li a:hover {
-  background-color: #555;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-.news-title {
-  font-size: 40px; /* 글씨 크기 설정 */
-  text-align: center; /* 텍스트를 중앙으로 정렬 */
-  margin: 20px 0; /* 위아래 여백 추가 */
-  font-weight: bold; /* 굵은 글씨 */
-}
-
-nav ul li {
-  margin-left: 15px;
-}
-
 h1 {
   font-size: 36px;
   margin: 0;
 }
+
 h2 {
   font-size: 30px;
   margin: 0;
+  color: var(--primary-color);
 }
+
 h3 {
   font-size: 20px;
   margin: 0;
 }
-main {
-  margin: 20px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
+
 p {
   font-size: 18px;
   line-height: 1.5;
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
+
 .social-links {
   display: flex;
   justify-content: center;
   margin: 20px 0;
   flex-wrap: wrap;
 }
+
 .social-links a {
   margin: 10px;
   text-decoration: none;
 }
+
 .social-links img {
   width: 40px;
   height: 40px;
 }
 
 .header {
-  background-color: #333;
+  background-color: var(--nav-background-color);
   position: relative;
 }
 
 .header .logo {
-  color: #fff;
+  color: var(--nav-text-color);
   text-decoration: none;
   font-size: 20px;
   padding: 14px 20px;
@@ -196,7 +182,7 @@ img {
 }
 
 .header .menu li a {
-  color: #fff;
+  color: var(--nav-text-color);
   text-decoration: none;
   padding: 14px 20px;
   display: block;
@@ -207,20 +193,22 @@ img {
   display: none;
 }
 
-/*블로그*/
+/* 블로그 스타일 */
 
 .blog-title {
   font-size: 36px;
   text-align: center;
   margin-top: 40px;
-  color: #333;
+  color: var(--text-color);
 }
+
 .blog-description {
   text-align: center;
   font-size: 18px;
   margin: 20px;
   color: #777;
 }
+
 #blog-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -229,6 +217,7 @@ img {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .blog-item {
   background-color: #fff;
   padding: 20px;
@@ -236,24 +225,29 @@ img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .blog-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+
 .blog-item h3 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #333;
+  color: var(--text-color);
 }
+
 .blog-item p {
   font-size: 16px;
   color: #555;
 }
+
 .blog-item small {
   display: block;
   margin-top: 15px;
   color: #aaa;
 }
+
 .blog-date-container {
   display: flex;
   justify-content: space-between;
@@ -265,7 +259,7 @@ img {
   margin-left: auto;
 }
 
-/*blog post*/
+/* 블로그 포스트 페이지 */
 
 .blog-post-page {
   max-width: 800px;
@@ -278,19 +272,22 @@ img {
 
 .blog-post h2 {
   font-size: 32px;
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 10px;
 }
+
 .blog-post p {
   font-size: 18px;
   color: #555;
 }
+
 .blog-post small {
   display: block;
   margin-top: 10px;
   margin-bottom: 20px;
   color: #aaa;
 }
+
 .blog-content {
   font-size: 16px;
   color: #444;
@@ -301,17 +298,20 @@ img {
   display: inline-block;
   margin-top: 20px;
   padding: 10px 15px;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--accent-color);
+  color: var(--nav-text-color);
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .back-button:hover {
-  background-color: #fff;
-  color: #333;
+  background-color: var(--nav-hover-color);
+  color: var(--nav-text-color);
 }
-/* Media query for small devices */
+
+/* 미디어 쿼리 */
+
 @media only screen and (max-width: 600px) {
   .header {
     display: flex;
@@ -332,7 +332,7 @@ img {
 
   /* 햄버거 아이콘 스타일 */
   .navicon {
-    background: #fff;
+    background: var(--nav-text-color);
     display: block;
     height: 2px;
     width: 18px;
@@ -342,7 +342,7 @@ img {
   .navicon:before,
   .navicon:after {
     content: "";
-    background: #fff;
+    background: var(--nav-text-color);
     height: 2px;
     width: 18px;
     position: absolute;
@@ -362,7 +362,7 @@ img {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: #333;
+    background-color: var(--nav-background-color);
     position: absolute;
     top: 60px;
     left: 0;
@@ -392,37 +392,46 @@ img {
     transform: rotate(45deg);
     top: 0;
   }
+
   h1 {
     font-size: 24px;
   }
+
   h2 {
     font-size: 22px;
   }
+
   h3 {
     font-size: 18px;
   }
+
   main {
     margin: 10px;
     padding: 10px;
   }
+
   p {
     font-size: 16px;
     line-height: 1.3;
   }
+
   .social-links img {
     width: 30px;
     height: 30px;
   }
+
   .profile-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
   .profile-container img {
     margin-bottom: 20px;
   }
+
   nav ul li a {
-    color: #fff;
+    color: var(--nav-text-color);
     text-decoration: none;
     font-size: 12px;
     padding: 14px 25px;
@@ -430,11 +439,13 @@ img {
   }
 }
 
-/* 미디어 쿼리 */
+/* 뉴스 섹션의 미디어 쿼리 */
+
 @media only screen and (max-width: 600px) {
   .title {
     font-size: 10px;
   }
+
   .news-item {
     flex-direction: column;
     align-items: center;
