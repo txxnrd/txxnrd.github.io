@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Publications - txxnrd.github.io</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+      #blog-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .blog-item {
+        display: block;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #ffffff;
+      }
+
+      .blog-item h3 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+
+      .blog-item p {
+        margin: 5px 0;
+        line-height: 1.5;
+      }
+
+      .blog-item a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .blog-item a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/index.html" class="logo">txxnrd.github.io</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn">
+        <span class="navicon"></span>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/publications.html">Publications</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </header>
+
+    <main>
+      <div class="blog-title">Publications</div>
+      <div id="blog-container"></div>
+    </main>
+
+    <script>
+      // 데이터 입력 (여기서 제목, 저자, 컨퍼런스명, 연도 설정)
+      const publications = [
+        {
+          title:
+            "Analysis on Research for Data and Resource Heterogeneity in Split-federated Learning",
+          authors:
+            "Taeyun Roh, Seungwoo Jung, Yeonho Yoo, Sunjae Park, Gyeongsik Yang, Chuck Yoo",
+          conference: "한국정보과학회",
+          year: 2024,
+          pdfLink: "paper/splitfed.pdf",
+        },
+        {
+          title: "Exploring the Secure Container for Permissioned Blockchains",
+          authors:
+            "Yunkyung Kang, Taeyun Roh, Junseok Lee, Wonmi Choi, Yeonho Yoo, Gyeongsik Yang, & Chuck Yoo ",
+          conference: "한국통신학회",
+          year: 2024,
+          pdfLink: "paper/sec-container.pdf",
+        },
+      ];
+
+      // HTML 생성
+      const container = document.getElementById("blog-container");
+
+      publications.forEach((pub) => {
+        const item = document.createElement("div");
+        item.classList.add("blog-item");
+
+        // 'Taeyun Roh' 부분만 볼드 처리
+        const highlightedAuthors = pub.authors.replace(
+          /Taeyun Roh/g, // 대소문자 구분 시 'g' 플래그 사용
+          "<b>Taeyun Roh*</b>"
+        );
+
+        item.innerHTML = `
+          <h3>${pub.title}</h3>
+          <p>Authors: ${highlightedAuthors}</p>
+          <p>Conference: ${pub.conference}</p>
+          <p>Year: ${pub.year}</p>
+          <p>
+            ${
+              pub.pdfLink
+                ? `<a href="${pub.pdfLink}" style="color: #007bff; text-decoration: none; font-weight: bold">[pdf]</a>`
+                : ""
+            }
+          </p>
+        `;
+        container.appendChild(item);
+      });
+    </script>
+  </body>
+</html>
