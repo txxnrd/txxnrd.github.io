@@ -12,6 +12,9 @@
         gap: 20px;
         padding: 20px;
       }
+      .underline {
+        text-decoration: underline;
+      }
 
       .blog-item {
         display: block;
@@ -91,10 +94,10 @@
         const item = document.createElement("div");
         item.classList.add("blog-item");
 
-        // 'Taeyun Roh' 부분만 볼드 처리
+        // 'Taeyun Roh' 부분만 밑줄 처리
         const highlightedAuthors = pub.authors.replace(
-          /Taeyun Roh/g, // 대소문자 구분 시 'g' 플래그 사용
-          "<b>Taeyun Roh*</b>"
+          /Taeyun Roh/g,
+          '<span class="underline">Taeyun Roh</span>'
         );
 
         item.innerHTML = `
