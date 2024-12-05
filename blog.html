@@ -5,6 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
+    <script>
+      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+        fetchRemoteConfig: true,
+        autocapture: true,
+      });
+    </script>
+    <script>
+      amplitude.track("Blog");
+    </script>
   </head>
   <body>
     <header class="header">
@@ -17,6 +27,7 @@
         <li><a href="/index.html">Home</a></li>
         <li><a href="/news.html">News</a></li>
         <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/publications.html">Publications</a></li>
         <li><a href="/contact.html">Contact</a></li>
       </ul>
     </header>

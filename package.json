@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@amplitude/analytics-browser": "^2.11.9",
+    "dotenv": "^16.4.7"
+  }
+}
