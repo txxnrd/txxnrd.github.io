@@ -15,6 +15,10 @@
   src: url("fonts/NanumBarunGothic.ttf") format("truetype");
 }
 
+#langToggleImg {
+  filter: invert(100%);
+}
+
 /* 기본 페이지 스타일 */
 body {
   font-family: "nanum", sans-serif;
@@ -46,6 +50,11 @@ nav ul li a {
 
 nav ul li a:hover {
   background-color: var(--nav-hover-color);
+}
+
+.icon-img {
+  width: 40px;
+  height: 40px;
 }
 
 /* 뉴스 섹션 스타일 */
@@ -159,7 +168,6 @@ img {
 
 .header {
   background-color: var(--nav-background-color);
-  position: relative;
 }
 
 .header .logo {
@@ -170,11 +178,14 @@ img {
   display: inline-block;
 }
 
+/* 기본적으로 헤더 메뉴 표시 */
 .header .menu {
+  display: flex;
+  justify-content: flex-end; /* 메뉴를 오른쪽 정렬 */
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
-  float: right;
 }
 
 .header .menu li {
@@ -327,6 +338,8 @@ img {
   .menu-icon {
     display: inline-block;
     cursor: pointer;
+    align-items: center;
+    margin-left: 0px;
     padding: 14px 20px;
   }
 
@@ -339,6 +352,13 @@ img {
     position: relative;
   }
 
+  /* .menu {
+    flex-direction: column;
+  }
+
+  .menu li {
+    border-bottom: 1px solid #333;
+  } */
   .navicon:before,
   .navicon:after {
     content: "";
