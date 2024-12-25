@@ -336,8 +336,9 @@ img {
 
   /* 햄버거 메뉴 아이콘 표시 */
   .menu-icon {
-    display: inline-block;
+    display: flex;
     cursor: pointer;
+    justify-content: flex-end;
     align-items: center;
     margin-left: 0px;
     padding: 14px 20px;
