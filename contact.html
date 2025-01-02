@@ -17,18 +17,58 @@
     </script>
   </head>
   <body>
-    <header class="header">
-      <a href="/index.html" class="logo">txxnrd.github.io</a>
-      <input class="menu-btn" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn">
-        <span class="navicon"></span>
-      </label>
-      <ul class="menu">
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/news.html">News</a></li>
-        <li><a href="/publications.html">Publications</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
+    <header
+      class="header"
+      style="
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        background: #000;
+      "
+    >
+      <!-- 1) 왼쪽 끝: 로고 -->
+      <a href="/index.html" class="logo" style="color: #fff">
+        txxnrd.github.io
+      </a>
+
+      <!-- 2) 오른쪽 영역을 하나의 div로 감싸고, margin-left:auto; 로 우측 정렬 -->
+      <div
+        style="display: flex; align-items: center; margin-left: auto; gap: 10px"
+      >
+        <!-- 체크박스: 햄버거 메뉴 토글 -->
+        <input
+          class="menu-btn"
+          type="checkbox"
+          id="menu-btn"
+          style="display: none"
+        />
+
+        <!-- 언어 토글 버튼 -->
+        <button
+          id="langToggle"
+          style="background: none; border: none; cursor: pointer"
+        >
+          <img
+            id="langToggleImg"
+            src="img/world.png"
+            alt="Toggle Language"
+            style="width: 20px; height: 20px"
+          />
+        </button>
+
+        <!-- 햄버거 아이콘 (label) -->
+        <label class="menu-icon" for="menu-btn" style="cursor: pointer">
+          <span class="navicon"></span>
+        </label>
+
+        <!-- 실제 메뉴 -->
+        <ul class="menu" style="margin: 0; padding: 0; list-style: none">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/news.html">News</a></li>
+          <li><a href="/publications.html">Publications</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
     </header>
     <main>
       <div class="news-title">Contact</div>
