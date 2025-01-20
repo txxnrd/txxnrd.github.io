@@ -95,7 +95,7 @@
             </div>
             <div>
                 <h1 data-i18n="welcome">Welcome to the introduction page of Taeyun</h1>
-                <p data-i18n="aboutMe">Hi, my name is Taeyun Roh(노태윤). I am a Junior student based in Anam-dong, Seongbuk-gu, Seoul, Republic of Korea. I am currently interested in On-Device Machine Learning</p>
+                <p data-i18n="aboutMe">I’m an Undergraduate Researcher in the Graduate school of Electrical Engineering at KAIST (<a href="https://nmsl.kaist.ac.kr/">NMSL Lab</a>), where I am fortunate to be advised by Prof. <a href="https://sites.google.com/site/wewantsj/">Sung Ju LEE</a>. Prior to studying at KAIST, I studied machine learning under the guidance of Prof. <a href="https://gsyang33.github.io/">Gyeongsik Yang.</a></p>
                 <p data-i18n="more">Find more about me:</p>
                 <div class="social-links">
                     <!-- <a href="https://blog.naver.com/nrbsld237">
@@ -320,7 +320,7 @@
       },
       "en": {
         "welcome": "Welcome to the introduction page of Taeyun",
-        "aboutMe": "Hi, my name is Taeyun Roh(노태윤). I am a Senior student based in Anam-dong, Seongbuk-gu, Seoul, Republic of Korea. I am currently interested in On-Device Machine Learning",
+		"aboutMe": `I’m an Undergraduate Researcher in the Graduate school of Electrical Engineering at KAIST (<a href="https://nmsl.kaist.ac.kr/">NMSL Lab</a>), where I am fortunate to be advised by Prof. <a href="https://sites.google.com/site/wewantsj/">Sung-Ju LEE</a>. Prior to studying at KAIST, I studied machine learning under the guidance of Prof. <a href="https://gsyang33.github.io/">Gyeongsik Yang.</a>`,
         "more": "Find more about me:",
 		"Education": "Education",
 		"Korea_University": "Korea University",
@@ -333,17 +333,20 @@
 
     };
 
+
+
     // 2) 현재 언어 상태 확인 (localStorage에서 가져오거나, 없으면 'en'으로 가정)
     let currentLang = localStorage.getItem("preferredLang") || "en";
 
     // 3) 언어에 맞춰 번역 적용
-    function applyTranslations(lang) {
-      const elements = document.querySelectorAll("[data-i18n]");
-      elements.forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        el.textContent = langData[lang][key] || ""; 
-      });
-    }
+    // 3) 언어에 맞춰 번역 적용
+function applyTranslations(lang) {
+	const elements = document.querySelectorAll("[data-i18n]");
+	elements.forEach(el => {
+	  const key = el.getAttribute("data-i18n");
+	  el.innerHTML = langData[lang][key] || ""; // textContent 대신 innerHTML 사용
+	});
+  }
     // 페이지 로드 후 바로 적용
     applyTranslations(currentLang);
 
