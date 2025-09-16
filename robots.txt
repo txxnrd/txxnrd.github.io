@@ -1,0 +1,13 @@
+# Robots.txt for txxnrd.github.io
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://txxnrd.github.io/sitemap.xml
+
+# Block access to certain directories if needed
+# Disallow: /private/
+# Disallow: /tmp/ 
