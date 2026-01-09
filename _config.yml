@@ -1,0 +1,23 @@
+# GitHub Pages 설정
+title: 노태윤(Taeyun Roh) - AI Researcher
+description: 고려대학교 DMIS 석사과정 학생으로 Large Language Models, Speculative Decoding, Information Retrieval을 연구합니다.
+url: https://txxnrd.github.io
+baseurl: ""
+
+# SEO 관련 설정
+author: 노태윤 (Taeyun Roh)
+image: /img/profile.jpg
+
+# Social Media
+twitter:
+  username: 
+  card: summary_large_image
+
+# 플러그인 (GitHub Pages에서 지원하는 것들)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# 기본 설정
+lang: ko-KR
+timezone: Asia/Seoul 
