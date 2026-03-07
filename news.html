@@ -1,167 +1,135 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <title>News - txxnrd.github.io</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
-    <script>
-      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
-        fetchRemoteConfig: true,
-        autocapture: true,
-      });
-    </script>
-    <script>
-      amplitude.track("news");
-    </script>
-  </head>
-  <body>
-    <header
-      class="header"
-      style="
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        background: #000;
-      "
-    >
-      <!-- 1) 왼쪽 끝: 로고 -->
-      <a href="/index.html" class="logo" style="color: #fff">
-        txxnrd.github.io
-      </a>
-
-      <!-- 2) 오른쪽 영역을 하나의 div로 감싸고, margin-left:auto; 로 우측 정렬 -->
-      <div
-        style="display: flex; align-items: center; margin-left: auto; gap: 10px"
-      >
-        <!-- 체크박스: 햄버거 메뉴 토글 -->
-        <input
-          class="menu-btn"
-          type="checkbox"
-          id="menu-btn"
-          style="display: none"
-        />
-
-        <!-- 언어 토글 버튼 -->
-        <!-- <button
-          id="langToggle"
-          style="background: none; border: none; cursor: pointer"
-        >
-          <img
-            id="langToggleImg"
-            src="img/world.png"
-            alt="Toggle Language"
-            style="width: 20px; height: 20px"
-          />
-        </button> -->
-
-        <!-- 햄버거 아이콘 (label) -->
-        <label class="menu-icon" for="menu-btn" style="cursor: pointer">
-          <span class="navicon"></span>
-        </label>
-
-        <!-- 실제 메뉴 -->
-        <ul class="menu" style="margin: 0; padding: 0; list-style: none">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/news.html">News</a></li>
-          <li><a href="/publications.html">Publications</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
+<head>
+  <title>News | Taeyun Roh</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recent news and milestones from Taeyun Roh.">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
+  <script>
+    window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+      fetchRemoteConfig: true,
+      autocapture: true,
+    });
+    amplitude.track("news");
+  </script>
+</head>
+<body class="sub-page">
+  <div class="page-shell">
+    <header class="site-header">
+      <a href="/index.html" class="site-logo">Taeyun Roh</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/index.html">Home</a>
+        <a href="/news.html" class="is-active">News</a>
+        <a href="/publications.html">Publications</a>
+      </nav>
     </header>
-    <main>
-      <div class="news-title">News</div>
-      <div id="news-container"></div>
+
+    <main class="sub-main">
+      <section class="page-hero">
+        <p class="eyebrow">Updates</p>
+        <h1>News</h1>
+        <p class="page-intro">Recent milestones, awards, presentations, and project updates.</p>
+      </section>
+
+      <section class="stack-list" id="news-container" aria-label="News list"></section>
     </main>
+  </div>
 
-    <script>
-      function imageExists(imageUrl, callback) {
-        const img = new Image();
-        img.onload = () => callback(true);
-        img.onerror = () => callback(false);
-        img.src = imageUrl;
-      }
-      function addNewsItem(localPath, imageLink, title, description, date) {
-        const newsContainer = document.getElementById("news-container");
+  <script>
+    function imageExists(imageUrl, callback) {
+      const img = new Image();
+      img.onload = () => callback(true);
+      img.onerror = () => callback(false);
+      img.src = imageUrl;
+    }
 
-        // 뉴스 카드 생성
-        const newsItem = document.createElement("div");
-        newsItem.className = "news-item";
+    function addNewsItem(localPath, imageLink, title, description, date) {
+      const newsContainer = document.getElementById("news-container");
+      const newsItem = document.createElement("article");
+      newsItem.className = "news-card";
 
-        const img = document.createElement("img");
-        img.alt = title;
+      const preview = document.createElement("div");
+      preview.className = "news-card-media";
 
-        // 뉴스 카드 내용 추가
-        const newsContent = document.createElement("div");
-        newsContent.className = "news-content";
+      const img = document.createElement("img");
+      img.alt = title;
+      preview.appendChild(img);
 
-        const newsTitle = document.createElement("h3");
-        newsTitle.textContent = title;
+      const newsContent = document.createElement("div");
+      newsContent.className = "news-card-body";
 
-        const newsDescription = document.createElement("p");
-        newsDescription.textContent = description;
+      const newsDate = document.createElement("p");
+      newsDate.className = "news-card-date";
+      newsDate.textContent = date;
 
-        const newsDate = document.createElement("small");
-        newsDate.textContent = date;
+      const newsTitle = document.createElement("h2");
+      newsTitle.textContent = title;
 
-        // 뉴스 카드에 구성 요소 추가
-        newsContent.appendChild(newsTitle);
-        newsContent.appendChild(newsDescription);
-        newsContent.appendChild(newsDate);
-        newsItem.appendChild(img);
-        newsItem.appendChild(newsContent);
-        newsContainer.appendChild(newsItem);
+      const newsDescription = document.createElement("p");
+      newsDescription.className = "news-card-text";
+      newsDescription.textContent = description;
 
-        // 이미지 로드
-        imageExists(localPath, (exists) => {
-          img.src = exists ? localPath : imageLink;
-        });
-      }
+      newsContent.appendChild(newsDate);
+      newsContent.appendChild(newsTitle);
+      newsContent.appendChild(newsDescription);
+      newsItem.appendChild(preview);
+      newsItem.appendChild(newsContent);
+      newsContainer.appendChild(newsItem);
 
-      addNewsItem(
-        "./img/capstone.jpg",
-        "",
-        "Won First Prize at Korea University Capstone Design Competition",
-        "Participated as an AI Engineer in the project NEWSQRAB, optimizing RAG pipeline for an automated short video creation service using AI",
-        "2025-7"
-      );
-      addNewsItem(
-        "./img/next.jpeg",
-        "",
-        "Won Second Prize at Korea University NEXT Software Competition",
-        "Participated as an AI Engineer in the project NEWSQRAB, an automated short video creation service using AI",
-        "2025-6"
-      );
-      addNewsItem(
-        "./img/award.png",
-        "",
-        "3rd Place Award in the Undergraduate Category at the 2024 KIISE Conference",
-        "Awarded for the paper 'Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning'",
-        "2025-2"
-      );
-      addNewsItem(
-        "./img/poster.jpg",
-        "",
-        "Poster Presentation at Korean Institute of communications and Information Sciences",
-        "Presented about a Paper Exploring the Secure Container for Permissioned Blockchains",
-        "2024-6"
-      );
-      addNewsItem(
-        "./img/blurting.jpeg",
-        "",
-        "Blurting ranked 73rd in App Store Social Networking Category",
-        "Blurting a dating application for college students has been ranked in the top 100 in the App Store Social Networking Category, which i have participated in the development as Frontend Lead Developer",
-        "2024-1"
-      );
-      // 뉴스 항목 추가
-      addNewsItem(
-        "./img/hackuton.jpeg",
-        "",
-        "Won Second Prize at HacKUton",
-        "By developing an application that predicts real-time crowd estimation project Noonchi, we won the second prize at the Korea University Hackathon",
-        "2023-8"
-      );
-    </script>
-  </body>
+      imageExists(localPath, (exists) => {
+        img.src = exists ? localPath : imageLink;
+      });
+    }
+
+    addNewsItem(
+      "./img/capstone.jpg",
+      "",
+      "Won First Prize at Korea University Capstone Design Competition",
+      "Participated as an AI engineer in NEWSQRAB, optimizing a RAG pipeline for an automated short-form video creation service.",
+      "July 2025"
+    );
+
+    addNewsItem(
+      "./img/next.jpeg",
+      "",
+      "Won Second Prize at Korea University NEXT Software Competition",
+      "Contributed as an AI engineer to NEWSQRAB, an automated short-form video creation service using AI.",
+      "June 2025"
+    );
+
+    addNewsItem(
+      "./img/award.png",
+      "",
+      "3rd Place Award in the Undergraduate Category at the 2024 KIISE Conference",
+      "Awarded for the paper 'Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning'.",
+      "February 2025"
+    );
+
+    addNewsItem(
+      "./img/poster.jpg",
+      "",
+      "Poster Presentation at Korean Institute of Communications and Information Sciences",
+      "Presented work on secure container design for permissioned blockchains.",
+      "June 2024"
+    );
+
+    addNewsItem(
+      "./img/blurting.jpeg",
+      "",
+      "Blurting ranked 73rd in the App Store Social Networking category",
+      "Participated in the development of Blurting, a college-student dating application, as frontend lead developer.",
+      "January 2024"
+    );
+
+    addNewsItem(
+      "./img/hackuton.jpeg",
+      "",
+      "Won Second Prize at HacKUton",
+      "Developed Noonchi, an application for real-time crowd estimation, and received second prize at the Korea University hackathon.",
+      "August 2023"
+    );
+  </script>
+</body>
 </html>

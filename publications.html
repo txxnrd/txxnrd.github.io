@@ -1,170 +1,96 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <title>Publications - txxnrd.github.io</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <style>
-      #blog-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-      }
-      .underline {
-        text-decoration: underline;
-      }
-
-      .blog-item {
-        display: block;
-        border: 1px solid #ccc;
-        padding: 15px;
-        border-radius: 5px;
-        background-color: #ffffff;
-      }
-
-      .blog-item h3 {
-        margin: 0;
-        font-size: 1.5em;
-      }
-
-      .blog-item p {
-        margin: 5px 0;
-        line-height: 1.5;
-      }
-
-      .blog-item a {
-        color: #007bff;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .blog-item a:hover {
-        text-decoration: underline;
-      }
-    </style>
-    <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
-    <script>
-      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
-        fetchRemoteConfig: true,
-        autocapture: true,
-      });
-    </script>
-    <script>
-      amplitude.track("Publication");
-    </script>
-  </head>
-  <body>
-    <header
-      class="header"
-      style="
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        background: #000;
-      "
-    >
-      <!-- 1) 왼쪽 끝: 로고 -->
-      <a href="/index.html" class="logo" style="color: #fff">
-        txxnrd.github.io
-      </a>
-
-      <!-- 2) 오른쪽 영역을 하나의 div로 감싸고, margin-left:auto; 로 우측 정렬 -->
-      <div
-        style="display: flex; align-items: center; margin-left: auto; gap: 10px"
-      >
-        <!-- 체크박스: 햄버거 메뉴 토글 -->
-        <input
-          class="menu-btn"
-          type="checkbox"
-          id="menu-btn"
-          style="display: none"
-        />
-
-        <!-- 언어 토글 버튼
-        <button
-          id="langToggle"
-          style="background: none; border: none; cursor: pointer"
-        >
-          <img
-            id="langToggleImg"
-            src="img/world.png"
-            alt="Toggle Language"
-            style="width: 20px; height: 20px"
-          />
-        </button> -->
-
-        <!-- 햄버거 아이콘 (label) -->
-        <label class="menu-icon" for="menu-btn" style="cursor: pointer">
-          <span class="navicon"></span>
-        </label>
-
-        <!-- 실제 메뉴 -->
-        <ul class="menu" style="margin: 0; padding: 0; list-style: none">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/news.html">News</a></li>
-          <li><a href="/publications.html">Publications</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
+<head>
+  <title>Publications | Taeyun Roh</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Publications and research manuscripts by Taeyun Roh.">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
+  <script>
+    window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+      fetchRemoteConfig: true,
+      autocapture: true,
+    });
+    amplitude.track("Publication");
+  </script>
+</head>
+<body class="sub-page">
+  <div class="page-shell">
+    <header class="site-header">
+      <a href="/index.html" class="site-logo">Taeyun Roh</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/index.html">Home</a>
+        <a href="/news.html">News</a>
+        <a href="/publications.html" class="is-active">Publications</a>
+      </nav>
     </header>
 
-    <main>
-      <div class="news-title">Publications</div>
-      <div id="blog-container"></div>
+    <main class="sub-main">
+      <section class="page-hero">
+        <p class="eyebrow">Research Output</p>
+        <h1>Publications</h1>
+        <p class="page-intro">Selected papers and manuscripts related to machine learning systems and LLM-based agents.</p>
+      </section>
+
+      <section class="stack-list" id="publication-list" aria-label="Publication list"></section>
     </main>
+  </div>
 
-    <script>
-      // 데이터 입력 (여기서 제목, 저자, 컨퍼런스명, 연도 설정)
-      const publications = [
-        {
-          title:
-            "Analysis on Research for Data and Resource Heterogeneity in Split-federated Learning",
-          authors:
-            "Taeyun Roh, Seungwoo Jung, Yeonho Yoo, Sunjae Park, Gyeongsik Yang, Chuck Yoo",
-          conference: "한국정보과학회",
-          year: 2024,
-          pdfLink: "paper/splitfed.pdf",
-        },
-        {
-          title: "Exploring the Secure Container for Permissioned Blockchains",
-          authors:
-            "Yunkyung Kang, Taeyun Roh, Junseok Lee, Wonmi Choi, Yeonho Yoo, Gyeongsik Yang, & Chuck Yoo ",
-          conference: "한국통신학회",
-          year: 2024,
-          pdfLink: "paper/sec-container.pdf",
-        },
-      ];
+  <script>
+    const publications = [
+      {
+        title: "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
+        authors: "Anonymous",
+        venue: "Under review",
+        year: 2026,
+        pdfLink: "",
+        status: "Under review",
+      },
+      {
+        title: "Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning",
+        authors: "Taeyun Roh, Seungwoo Jung, Yeonho Yoo, Sunjae Park, Gyeongsik Yang, Chuck Yoo",
+        venue: "KIISE",
+        year: 2024,
+        pdfLink: "paper/splitfed.pdf",
+        status: "Published",
+      },
+      {
+        title: "Exploring the Secure Container for Permissioned Blockchains",
+        authors: "Yunkyung Kang, Taeyun Roh, Junseok Lee, Wonmi Choi, Yeonho Yoo, Gyeongsik Yang, Chuck Yoo",
+        venue: "KICS",
+        year: 2024,
+        pdfLink: "paper/sec-container.pdf",
+        status: "Published",
+      }
+    ];
 
-      // HTML 생성
-      const container = document.getElementById("blog-container");
+    const container = document.getElementById("publication-list");
 
-      publications.forEach((pub) => {
-        const item = document.createElement("div");
-        item.classList.add("blog-item");
+    publications.forEach((pub) => {
+      const item = document.createElement("article");
+      item.className = "publication-card";
 
-        // 'Taeyun Roh' 부분만 밑줄 처리
-        const highlightedAuthors = pub.authors.replace(
-          /Taeyun Roh/g,
-          '<span class="underline">Taeyun Roh</span>'
-        );
+      const highlightedAuthors = pub.authors.replace(
+        /Taeyun Roh/g,
+        '<span class="author-highlight">Taeyun Roh</span>'
+      );
 
-        item.innerHTML = `
-          <h3>${pub.title}</h3>
-          <p>Authors: ${highlightedAuthors}</p>
-          <p>Conference: ${pub.conference}</p>
-          <p>Year: ${pub.year}</p>
-          <p>
-            ${
-              pub.pdfLink
-                ? `<a href="${pub.pdfLink}" style="color: #007bff; text-decoration: none; font-weight: bold">[pdf]</a>`
-                : ""
-            }
-          </p>
-        `;
-        container.appendChild(item);
-      });
-    </script>
-  </body>
+      item.innerHTML = `
+        <div class="publication-header">
+          <p class="publication-status">${pub.status}</p>
+          <p class="publication-year">${pub.year}</p>
+        </div>
+        <h2>${pub.title}</h2>
+        <p class="publication-authors">${highlightedAuthors}</p>
+        <div class="publication-meta">
+          <span>${pub.venue}</span>
+        </div>
+        ${pub.pdfLink ? `<a class="publication-link" href="${pub.pdfLink}">View PDF</a>` : ``}
+      `;
+
+      container.appendChild(item);
+    });
+  </script>
+</body>
 </html>
