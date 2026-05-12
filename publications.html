@@ -8,7 +8,12 @@
       name="description"
       content="Publications and research manuscripts by Taeyun Roh."
     />
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") === "night" ? "night" : "day";
+    </script>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
       window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
@@ -22,11 +27,23 @@
     <div class="page-shell">
       <header class="site-header">
         <a href="/index.html" class="site-logo">Taeyun Roh</a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="/index.html">Home</a>
-          <a href="/news.html">News</a>
-          <a href="/publications.html" class="is-active">Publications</a>
-        </nav>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/index.html">Home</a>
+            <a href="/news.html">News</a>
+            <a href="/publications.html" class="is-active">Publications</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="밤 테마로 전환"
+            aria-pressed="false"
+            title="밤 모드"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
       </header>
 
       <main class="sub-main">
