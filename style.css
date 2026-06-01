@@ -714,6 +714,12 @@ img {
   fill: currentColor;
 }
 
+.project-page {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
+    sans-serif;
+}
+
 .project-hero {
   display: flex;
   flex-direction: column;
