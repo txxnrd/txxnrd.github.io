@@ -102,6 +102,7 @@
           venue: "ACL 2026 findings",
           year: 2026,
           pdfLink: "https://arxiv.org/abs/2603.15421",
+          projectLink: "/CLAG/",
           status: "Published",
         },
         {
@@ -135,6 +136,16 @@
           /Taeyun Roh/g,
           '<span class="author-highlight">Taeyun Roh</span>',
         );
+        const publicationActions = [
+          pub.pdfLink
+            ? `<a class="publication-link" href="${pub.pdfLink}" target="_blank" rel="noreferrer">View Paper</a>`
+            : "",
+          pub.projectLink
+            ? `<a class="publication-link" href="${pub.projectLink}">Project Page</a>`
+            : "",
+        ]
+          .filter(Boolean)
+          .join("");
 
         item.innerHTML = `
         <div class="publication-header">
@@ -146,7 +157,7 @@
         <div class="publication-meta">
           <span>${pub.venue}</span>
         </div>
-        ${pub.pdfLink ? `<a class="publication-link" href="${pub.pdfLink}">View Paper</a>` : ``}
+        ${publicationActions ? `<div class="publication-actions">${publicationActions}</div>` : ``}
       `;
 
         container.appendChild(item);

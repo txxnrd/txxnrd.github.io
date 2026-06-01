@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>CLAG | Taeyun Roh</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Project page for CLAG, an agent-driven clustering memory framework for small language model agents."
+    />
+    <link rel="canonical" href="https://txxnrd.github.io/CLAG/" />
+
+    <meta
+      name="keywords"
+      content="CLAG, agentic memory, small language model agents, LLM agents, memory clustering, Taeyun Roh"
+    />
+    <meta name="author" content="Taeyun Roh" />
+    <meta property="og:title" content="CLAG | Taeyun Roh" />
+    <meta
+      property="og:description"
+      content="Adaptive memory organization via agent-driven clustering for small language model agents."
+    />
+    <meta
+      property="og:image"
+      content="https://txxnrd.github.io/img/clag-framework.png"
+    />
+    <meta property="og:url" content="https://txxnrd.github.io/CLAG/" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CLAG | Taeyun Roh" />
+    <meta
+      name="twitter:description"
+      content="Adaptive memory organization via agent-driven clustering for small language model agents."
+    />
+    <meta
+      name="twitter:image"
+      content="https://txxnrd.github.io/img/clag-framework.png"
+    />
+
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") === "night" ? "night" : "day";
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <script defer src="/theme.js"></script>
+    <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
+    <script>
+      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+        fetchRemoteConfig: true,
+        autocapture: true,
+      });
+      amplitude.track("CLAG Project");
+    </script>
+  </head>
+  <body class="sub-page project-page">
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/index.html" class="site-logo">Taeyun Roh</a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/index.html">Home</a>
+            <a href="/news.html">News</a>
+            <a href="/publications.html">Publications</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="밤 테마로 전환"
+            aria-pressed="false"
+            title="밤 모드"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="sub-main">
+        <section class="project-hero">
+          <div class="project-hero-copy">
+            <p class="eyebrow">Findings of ACL 2026</p>
+            <h1>CLAG: Adaptive Memory Organization</h1>
+            <p class="project-authors">
+              Taeyun Roh<sup>1</sup>, Wonjune Jang<sup>2</sup>, Junha
+              Jung<sup>1,3</sup>, Jaewoo Kang<sup>1,3</sup>
+            </p>
+            <p class="project-affiliations">
+              <sup>1</sup>Korea University &middot; <sup>2</sup>Myongji
+              University &middot; <sup>3</sup>AIGEN Sciences
+            </p>
+            <p class="page-intro">
+              CLAG is a memory framework for small language model agents. It
+              replaces a single global memory pool with agent-driven semantic
+              clusters, localized memory evolution, and cluster-aware retrieval
+              so limited-capacity agents receive less distractor context.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button button-primary project-action"
+                href="https://arxiv.org/abs/2603.15421"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="button-icon" aria-hidden="true">
+                  <svg class="button-icon-svg" viewBox="0 0 24 24">
+                    <path
+                      d="M7 3.5h7.3L19 8.2v12.3H7V3.5Zm7 0v5h5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.8"
+                    />
+                    <path
+                      d="M10 14.7h6M10 17.5h4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-width="1.8"
+                    />
+                  </svg>
+                </span>
+                <span>arXiv</span>
+              </a>
+              <a
+                class="button button-secondary project-action"
+                href="https://github.com/dmis-lab/CLAG"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="button-icon" aria-hidden="true">
+                  <svg class="button-icon-svg" viewBox="0 0 24 24">
+                    <path
+                      d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.53.1.72-.23.72-.52v-1.82c-2.94.64-3.56-1.24-3.56-1.24-.48-1.21-1.17-1.53-1.17-1.53-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.62 2.46 1.15 3.06.88.09-.68.37-1.15.67-1.42-2.35-.27-4.81-1.17-4.81-5.22 0-1.15.41-2.08 1.08-2.81-.11-.27-.47-1.37.1-2.85 0 0 .88-.28 2.89 1.07a9.93 9.93 0 0 1 5.27 0c2-1.35 2.88-1.07 2.88-1.07.57 1.48.21 2.58.1 2.85.68.73 1.08 1.66 1.08 2.81 0 4.06-2.47 4.95-4.83 5.21.38.33.72.98.72 1.97v2.92c0 .29.19.63.73.52A10.5 10.5 0 0 0 12 1.5Z"
+                    />
+                  </svg>
+                </span>
+                <span>GitHub</span>
+              </a>
+              <a
+                class="button button-secondary project-action"
+                href="https://www.linkedin.com/posts/taeyun-roh-018087233_acl2026-share-7446954574449590272---qz/?utm_source=share&utm_medium=member_desktop&amp;rcm=ACoAADo1p1QBTZmI60h01Tq5J1mCM2Gk_v9J4FU"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="button-icon" aria-hidden="true">
+                  <svg class="button-icon-svg" viewBox="0 0 24 24">
+                    <path
+                      d="M6.14 8.86A1.86 1.86 0 1 1 6.14 5.14a1.86 1.86 0 0 1 0 3.72Zm-1.6 1.56h3.2V20h-3.2v-9.58Zm5.2 0h3.06v1.31h.04c.43-.81 1.47-1.66 3.03-1.66 3.24 0 3.84 2.13 3.84 4.9V20h-3.2v-4.45c0-1.06-.02-2.42-1.48-2.42-1.48 0-1.71 1.16-1.71 2.35V20h-3.2v-9.58Z"
+                    />
+                  </svg>
+                </span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <figure class="project-hero-figure">
+            <img
+              src="/img/clag-motivation.png"
+              alt="Conceptual comparison between global memory systems and CLAG's localized evolution and retrieval."
+              width="1800"
+              height="1013"
+            />
+          </figure>
+        </section>
+
+        <section class="project-section project-two-column">
+          <div>
+            <p class="card-label">Problem</p>
+            <h2>Global memory pools become noisy as agents accumulate history.</h2>
+          </div>
+          <div class="project-text">
+            <p>
+              Existing agent memory systems usually store past observations,
+              actions, tool outputs, and feedback in one global retrieval pool.
+              As the buffer grows, retrieval becomes more likely to surface
+              semantically plausible but task-irrelevant memories, while memory
+              evolution can update records using topic-mixed neighborhoods.
+            </p>
+            <p>
+              This is especially costly for small language models, which are
+              more sensitive to irrelevant context. CLAG keeps the benefits of
+              self-evolving memory, but constrains updates and retrieval to
+              semantically coherent neighborhoods.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Method</p>
+            <h2>Agent-controlled clustering for long-horizon memory</h2>
+          </div>
+          <div class="method-grid">
+            <article class="method-card">
+              <span>01</span>
+              <h3>Agentic Routing</h3>
+              <p>
+                New memories are first filtered by vector distance, then an SLM
+                router selects the best semantic cluster using cluster profiles.
+                If similarity is too low, CLAG creates a new cluster.
+              </p>
+            </article>
+            <article class="method-card">
+              <span>02</span>
+              <h3>Localized Evolution</h3>
+              <p>
+                Linking, rewriting, and consolidation are performed only inside
+                the routed cluster. This preserves topic consistency and avoids
+                global pairwise comparisons.
+              </p>
+            </article>
+            <article class="method-card">
+              <span>03</span>
+              <h3>Two-Stage Retrieval</h3>
+              <p>
+                CLAG first selects relevant clusters from profile summaries and
+                tags, then retrieves fine-grained evidence only from those
+                clusters to suppress distractors.
+              </p>
+            </article>
+          </div>
+          <figure class="project-figure">
+            <img
+              src="/img/clag-framework.png"
+              alt="Overview of CLAG with agentic routing, localized evolution, and two-stage retrieval."
+              width="1800"
+              height="900"
+            />
+          </figure>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Results</p>
+            <h2>Stronger answer quality on Qwen3-0.6B</h2>
+            <p>
+              On Qwen3-0.6B, CLAG reports the best F1 and BLEU-1 across LoCoMo,
+              HotpotQA, and BioASQ. The largest gain appears on BioASQ, where
+              dense biomedical terminology makes global similarity search prone
+              to distractors.
+            </p>
+          </div>
+
+          <p class="table-caption-text">
+            Final-answer performance on Qwen3-0.6B.
+          </p>
+          <div class="table-wrap">
+            <table class="project-table project-performance-table">
+              <caption class="sr-only">
+                Final-answer performance on Qwen3-0.6B.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2">Model</th>
+                  <th scope="col" rowspan="2">Method</th>
+                  <th scope="colgroup" colspan="2">LoCoMo</th>
+                  <th scope="colgroup" colspan="2">HotpotQA</th>
+                  <th scope="colgroup" colspan="2">BioASQ</th>
+                </tr>
+                <tr>
+                  <th scope="col">F1</th>
+                  <th scope="col">BLEU-1</th>
+                  <th scope="col">F1</th>
+                  <th scope="col">BLEU-1</th>
+                  <th scope="col">F1</th>
+                  <th scope="col">BLEU-1</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="rowgroup" rowspan="5" class="model-cell">
+                    Qwen3-0.6B
+                  </th>
+                  <th scope="row">RAG</th>
+                  <td>12.9</td>
+                  <td>10.39</td>
+                  <td>11.75</td>
+                  <td>11.17</td>
+                  <td>2.4</td>
+                  <td>1.71</td>
+                </tr>
+                <tr>
+                  <th scope="row">A-mem</th>
+                  <td>14.29</td>
+                  <td>11.8</td>
+                  <td>12.04</td>
+                  <td>10.65</td>
+                  <td>3.61</td>
+                  <td>2.83</td>
+                </tr>
+                <tr>
+                  <th scope="row">GAM</th>
+                  <td>16.05</td>
+                  <td>13.24</td>
+                  <td>7.81</td>
+                  <td>6.69</td>
+                  <td>3.40</td>
+                  <td>3.37</td>
+                </tr>
+                <tr>
+                  <th scope="row">MemoryOS</th>
+                  <td>4.30</td>
+                  <td>3.24</td>
+                  <td>9.02</td>
+                  <td>7.34</td>
+                  <td>3.12</td>
+                  <td>1.29</td>
+                </tr>
+                <tr class="is-ours">
+                  <th scope="row">CLAG (Ours)</th>
+                  <td>20.99</td>
+                  <td>17.88</td>
+                  <td>15.50</td>
+                  <td>14.33</td>
+                  <td>22.01</td>
+                  <td>17.23</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <section class="result-block">
+            <div class="project-section-heading">
+              <p class="card-label">Retrieval Quality</p>
+              <h3>BioASQ E-F1: 25.11</h3>
+              <p>
+                CLAG improves biomedical evidence retrieval over RAG and A-mem
+                by narrowing the search space before fine-grained retrieval.
+              </p>
+            </div>
+            <p class="table-caption-text">
+              BioASQ retrieval quality on Qwen3-0.6B.
+            </p>
+            <div class="table-wrap">
+              <table class="project-table compact-table">
+                <caption class="sr-only">
+                  BioASQ retrieval quality on Qwen3-0.6B.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Method</th>
+                    <th scope="col">E-Prec</th>
+                    <th scope="col">E-Recall</th>
+                    <th scope="col">E-F1</th>
+                    <th scope="col">R@5</th>
+                    <th scope="col">R@10</th>
+                    <th scope="col">nDCG@10</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">RAG</th>
+                    <td>4.60</td>
+                    <td>1.65</td>
+                    <td>2.29</td>
+                    <td>1.48</td>
+                    <td>1.65</td>
+                    <td>20.19</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">A-mem</th>
+                    <td>4.40</td>
+                    <td>1.59</td>
+                    <td>2.20</td>
+                    <td>1.48</td>
+                    <td>1.59</td>
+                    <td>21.27</td>
+                  </tr>
+                  <tr class="is-ours">
+                    <th scope="row">CLAG (Ours)</th>
+                    <td>33.35</td>
+                    <td>32.64</td>
+                    <td>25.11</td>
+                    <td>25.90</td>
+                    <td>32.64</td>
+                    <td>56.17</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="result-block">
+            <div class="project-section-heading">
+              <p class="card-label">Ablation</p>
+              <h3>Agentic clustering beats K-Means</h3>
+              <p>
+                On BioASQ, agent-driven clustering outperforms geometric
+                clustering strategies that rely only on embedding proximity.
+              </p>
+            </div>
+            <p class="table-caption-text">
+              Clustering strategy ablation on BioASQ with Qwen3-0.6B.
+            </p>
+            <div class="table-wrap">
+              <table class="project-table compact-table">
+                <caption class="sr-only">
+                  Clustering strategy ablation on BioASQ with Qwen3-0.6B.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Clustering Strategy</th>
+                    <th scope="col">F1</th>
+                    <th scope="col">BLEU-1</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Cosine-based Clustering</th>
+                    <td>14.78</td>
+                    <td>12.53</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">K-Means Clustering</th>
+                    <td>15.64</td>
+                    <td>13.36</td>
+                  </tr>
+                  <tr class="is-ours">
+                    <th scope="row">CLAG (Ours)</th>
+                    <td>22.01</td>
+                    <td>17.23</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section class="project-section project-two-column">
+          <div>
+            <p class="card-label">Takeaway</p>
+            <h2>A practical memory layer for limited-capacity agents</h2>
+          </div>
+          <div class="project-text">
+            <p>
+              CLAG treats memory organization as part of the agent loop rather
+              than as offline preprocessing. Each cluster becomes a
+              self-contained unit with a topic summary, descriptive tags, and
+              representative memories.
+            </p>
+            <p>
+              The key idea is to delegate memory routing and organization
+              directly to the agent, letting small language model agents build
+              semantically coherent memory units and retrieve from the right
+              local context. This agent-driven organization is the central
+              reason CLAG improves answer quality without relying on a larger
+              backbone model.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Case Study</p>
+            <h2>Why cluster-aware retrieval matters</h2>
+            <p>
+              Appendix E analyzes a LoCoMo example where relevant memories are
+              buried among unrelated dialogue notes. CLAG first selects the
+              literature-related cluster, then retrieves the evidence needed to
+              answer the question.
+            </p>
+          </div>
+
+          <div class="case-query-card">
+            <p>
+              <strong>Query.</strong> Which two mystery novels does Tim
+              particularly enjoy writing about?
+            </p>
+            <p><strong>Ground Truth.</strong> Harry Potter and Game of Thrones</p>
+          </div>
+
+          <div class="case-study-grid">
+            <article class="case-study-card">
+              <h3>Generated responses</h3>
+              <p class="table-caption-text">
+                Only CLAG identifies both titles mentioned in the dialogue.
+              </p>
+              <div class="table-wrap">
+                <table class="project-table case-table">
+                  <caption class="sr-only">
+                    Only CLAG identifies both titles mentioned in the dialogue.
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Method</th>
+                      <th scope="col">Prediction</th>
+                      <th scope="col">Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="is-correct">
+                      <th scope="row">CLAG (Ours)</th>
+                      <td>Harry Potter and Game of Thrones</td>
+                      <td>Correct ✓</td>
+                    </tr>
+                    <tr class="is-wrong">
+                      <th scope="row">RAG</th>
+                      <td>Not mentioned in the conversation.</td>
+                      <td>Wrong ✕</td>
+                    </tr>
+                    <tr class="is-wrong">
+                      <th scope="row">A-mem</th>
+                      <td>Tim's favorite two mystery novels are not mentioned.</td>
+                      <td>Wrong ✕</td>
+                    </tr>
+                    <tr class="is-wrong">
+                      <th scope="row">GAM</th>
+                      <td>Not mentioned in the conversation.</td>
+                      <td>Wrong ✕</td>
+                    </tr>
+                    <tr class="is-wrong">
+                      <th scope="row">MemoryOS</th>
+                      <td>Tim writes about both fantasy and mystery novels.</td>
+                      <td>Wrong ✕</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="case-study-card">
+              <h3>Semantic clustering and pruning</h3>
+              <p class="table-caption-text">
+                CLAG reduces the search space from 680 to 119 notes before
+                fine-grained retrieval.
+              </p>
+              <div class="table-wrap">
+                <table class="project-table case-table">
+                  <caption class="sr-only">
+                    CLAG reduces the search space from 680 to 119 notes before
+                    fine-grained retrieval.
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Cluster ID</th>
+                      <th scope="col">Profile</th>
+                      <th scope="col">Count</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="is-correct">
+                      <th scope="row">0</th>
+                      <td>Speaker discusses how books create new worlds</td>
+                      <td>119</td>
+                      <td>Selected ✓</td>
+                    </tr>
+                    <tr class="is-wrong">
+                      <th scope="row">1</th>
+                      <td>Impact of basketball on community growth</td>
+                      <td>231</td>
+                      <td>Pruned ✕</td>
+                    </tr>
+                    <tr class="is-wrong">
+                      <th scope="row">2</th>
+                      <td>Experience of meeting teammates after a trip</td>
+                      <td>330</td>
+                      <td>Pruned ✕</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Resources</p>
+            <h2>Citation</h2>
+          </div>
+          <pre class="citation-block"><code>@article{roh2026clag,
+  title={CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents},
+  author={Roh, Taeyun and Jang, Wonjune and Jung, Junha and Kang, Jaewoo},
+  journal={arXiv preprint arXiv:2603.15421},
+  year={2026}
+}</code></pre>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
