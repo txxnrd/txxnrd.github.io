@@ -999,6 +999,15 @@ img {
   background: rgba(142, 75, 44, 0.08);
 }
 
+.project-table .method-highlight {
+  background: rgba(142, 75, 44, 0.08);
+}
+
+.project-table .method-highlight th,
+.project-table .method-highlight td {
+  color: var(--text);
+}
+
 .project-table .is-ours th,
 .project-table .is-ours td {
   color: var(--text);

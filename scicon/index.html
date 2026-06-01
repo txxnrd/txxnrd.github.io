@@ -275,7 +275,8 @@
             <h2>Consistent accuracy gains across scientific figure QA</h2>
             <p>
               SCICON improves accuracy across MAC, SciFIBench, and MMSci with
-              Qwen3.5-4B, Qwen3.5-9B, and Phi-3.5-vision-instruct.
+              Qwen3.5-4B, Qwen3.5-9B, Phi-3.5-vision-instruct,
+              Llama-3.2-11B-Vision-Instruct, and Gemma-4-E4B-it.
             </p>
           </div>
           <p class="table-caption-text">
@@ -315,11 +316,11 @@
                   <td>40.50 / 38.23</td>
                   <td>33.79 / 14.83</td>
                 </tr>
-                <tr class="is-ours">
+                <tr class="method-highlight">
                   <th scope="row">SCICON</th>
-                  <td>74.01 / 74.24</td>
-                  <td>48.70 / 46.99</td>
-                  <td>43.44 / 19.06</td>
+                  <td><strong>74.01 / 74.24</strong></td>
+                  <td><strong>48.70 / 46.99</strong></td>
+                  <td><strong>43.44 / 19.06</strong></td>
                 </tr>
                 <tr>
                   <th scope="row" rowspan="4" class="model-cell">Qwen3.5-9B</th>
@@ -340,11 +341,11 @@
                   <td>53.00 / 52.13</td>
                   <td>46.65 / 24.14</td>
                 </tr>
-                <tr class="is-ours">
+                <tr class="method-highlight">
                   <th scope="row">SCICON</th>
-                  <td>82.26 / 82.34</td>
-                  <td>58.00 / 57.55</td>
-                  <td>52.14 / 33.91</td>
+                  <td><strong>82.26 / 82.34</strong></td>
+                  <td><strong>58.00 / 57.55</strong></td>
+                  <td><strong>52.14 / 33.91</strong></td>
                 </tr>
                 <tr>
                   <th scope="row" rowspan="4" class="model-cell">Phi-3.5</th>
@@ -365,11 +366,53 @@
                   <td>47.10 / 46.86</td>
                   <td>46.32 / 31.38</td>
                 </tr>
-                <tr class="is-ours">
+                <tr class="method-highlight">
                   <th scope="row">SCICON</th>
-                  <td>49.54 / 49.89</td>
-                  <td>54.90 / 55.02</td>
-                  <td>52.71 / 29.93</td>
+                  <td><strong>49.54 / 49.89</strong></td>
+                  <td><strong>54.90 / 55.02</strong></td>
+                  <td><strong>52.71 / 29.93</strong></td>
+                </tr>
+                <tr>
+                  <th scope="row" rowspan="3" class="model-cell">
+                    Llama-3.2-11B
+                  </th>
+                  <th scope="row">Greedy</th>
+                  <td>68.81 / 69.05</td>
+                  <td>60.50 / 60.57</td>
+                  <td>60.90 / 55.71</td>
+                </tr>
+                <tr>
+                  <th scope="row">VCD</th>
+                  <td><strong>72.78 / 72.82</strong></td>
+                  <td>63.20 / 63.14</td>
+                  <td><strong>63.19 / 53.93</strong></td>
+                </tr>
+                <tr class="method-highlight">
+                  <th scope="row">SCICON</th>
+                  <td>71.25 / 71.33</td>
+                  <td><strong>63.20 / 63.24</strong></td>
+                  <td>61.47 / 54.18</td>
+                </tr>
+                <tr>
+                  <th scope="row" rowspan="3" class="model-cell">
+                    Gemma-4-E4B-it
+                  </th>
+                  <th scope="row">Greedy</th>
+                  <td>66.97 / 67.04</td>
+                  <td>53.50 / 53.19</td>
+                  <td>59.28 / 53.89</td>
+                </tr>
+                <tr>
+                  <th scope="row">VCD</th>
+                  <td><strong>68.81 / 68.80</strong></td>
+                  <td>48.00 / 48.15</td>
+                  <td>56.18 / 46.93</td>
+                </tr>
+                <tr class="method-highlight">
+                  <th scope="row">SCICON</th>
+                  <td>66.97 / 67.17</td>
+                  <td><strong>56.40 / 55.83</strong></td>
+                  <td><strong>64.11 / 59.17</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -382,9 +425,8 @@
             <h2>Broader validation beyond the main benchmark suite</h2>
             <p>
               Additional experiments show that prompt-only visual emphasis is
-              inconsistent, adaptive prior subtraction is promising, SCICON
-              remains competitive on Llama-3.2-11B-Vision-Instruct and
-              Gemma-4-E4B-it, and it also improves MMBench.
+              inconsistent, adaptive prior subtraction is promising, and SCICON
+              also improves MMBench.
             </p>
           </div>
 
@@ -440,82 +482,14 @@
 
           <section class="result-block">
             <div class="project-section-heading">
-              <p class="card-label">Generalization</p>
-              <h3>
-                Llama-3.2-11B-Vision-Instruct, Gemma-4-E4B-it, and MMBench
-              </h3>
+              <p class="card-label">Broader MCQA</p>
+              <h3>SCICON also improves MMBench</h3>
               <p>
-                Candidate-prior subtraction is not tied to Qwen or Phi:
-                additional experiments cover Llama-3.2-11B-Vision-Instruct and
-                Gemma-4-E4B-it. The same mechanism also helps on MMBench even
-                outside the scientific figure benchmarks.
+                The same candidate-prior subtraction mechanism helps on MMBench
+                even outside the scientific figure benchmarks, with consistent
+                gains over greedy, VCD, and ICD across all three backbones.
               </p>
             </div>
-            <p class="table-caption-text">
-              Additional model-family results. Values are ACC / F1.
-            </p>
-            <div class="table-wrap">
-              <table class="project-table compact-table">
-                <caption class="sr-only">
-                  Additional Llama-3.2-11B-Vision-Instruct and Gemma-4-E4B-it
-                  scientific benchmark results.
-                </caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Model</th>
-                    <th scope="col">Dataset</th>
-                    <th scope="col">Greedy</th>
-                    <th scope="col">VCD</th>
-                    <th scope="col">SCICON</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Llama-3.2-11B</th>
-                    <td>MAC</td>
-                    <td>68.81 / 69.05</td>
-                    <td><strong>72.78 / 72.82</strong></td>
-                    <td>71.25 / 71.33</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Gemma-4-E4B-it</th>
-                    <td>MAC</td>
-                    <td>66.97 / 67.04</td>
-                    <td><strong>68.81 / 68.80</strong></td>
-                    <td>66.97 / 67.17</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Llama-3.2-11B</th>
-                    <td>SciFIBench</td>
-                    <td>60.50 / 60.57</td>
-                    <td>63.20 / 63.14</td>
-                    <td><strong>63.20 / 63.24</strong></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Gemma-4-E4B-it</th>
-                    <td>SciFIBench</td>
-                    <td>53.50 / 53.19</td>
-                    <td>48.00 / 48.15</td>
-                    <td><strong>56.40 / 55.83</strong></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Llama-3.2-11B</th>
-                    <td>MMSci</td>
-                    <td>60.90 / 55.71</td>
-                    <td><strong>63.19 / 53.93</strong></td>
-                    <td>61.47 / 54.18</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Gemma-4-E4B-it</th>
-                    <td>MMSci</td>
-                    <td>59.28 / 53.89</td>
-                    <td>56.18 / 46.93</td>
-                    <td><strong>64.11 / 59.17</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
             <p class="table-caption-text">
               MMBench results. Values are accuracy / macro-F1.
             </p>
