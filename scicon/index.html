@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>SCICON | Taeyun Roh</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Project page for SCICON, a training-free contrastive decoding method for scientific figure multiple-choice QA."
+    />
+    <link rel="canonical" href="https://txxnrd.github.io/scicon/" />
+
+    <meta
+      name="keywords"
+      content="SCICON, scientific figure QA, multiple-choice QA, contrastive decoding, visual grounding, choice-induced prior bias"
+    />
+    <meta name="author" content="Taeyun Roh" />
+    <meta property="og:title" content="SCICON | Taeyun Roh" />
+    <meta
+      property="og:description"
+      content="Training-free contrastive decoding against choice-induced priors in scientific figure MCQA."
+    />
+    <meta
+      property="og:image"
+      content="https://txxnrd.github.io/img/scicon-method.png"
+    />
+    <meta property="og:url" content="https://txxnrd.github.io/scicon/" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SCICON | Taeyun Roh" />
+    <meta
+      name="twitter:description"
+      content="Training-free contrastive decoding for scientific figure multiple-choice QA."
+    />
+    <meta
+      name="twitter:image"
+      content="https://txxnrd.github.io/img/scicon-method.png"
+    />
+
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") === "night" ? "night" : "day";
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <script defer src="/theme.js"></script>
+    <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
+    <script>
+      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+        fetchRemoteConfig: true,
+        autocapture: true,
+      });
+      amplitude.track("SCICON Project");
+    </script>
+  </head>
+  <body class="sub-page project-page">
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/index.html" class="site-logo">Taeyun Roh</a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/index.html">Home</a>
+            <a href="/news.html">News</a>
+            <a href="/publications.html">Publications</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="밤 테마로 전환"
+            aria-pressed="false"
+            title="밤 모드"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="sub-main">
+        <section class="project-hero">
+          <div class="project-hero-copy">
+            <p class="eyebrow">Preprint &middot; COLM 2026 Submission</p>
+            <h1>SCICON: When Choices Become Priors</h1>
+            <p class="project-authors">
+              Taeyun Roh<sup>1</sup>, Eun-yeong Jo<sup>2</sup>, Wonjune
+              Jang<sup>3</sup>, Jaewoo Kang<sup>1,4</sup>
+            </p>
+            <p class="project-affiliations">
+              <sup>1</sup>Korea University &middot; <sup>2</sup>Konkuk
+              University &middot; <sup>3</sup>Myongji University &middot;
+              <sup>4</sup>AIGEN Sciences
+            </p>
+            <p class="page-intro">
+              SCICON is a training-free contrastive decoding method for
+              scientific figure multiple-choice QA. It subtracts each option's
+              text-only preference from its image-conditioned score, suppressing
+              answer choices that look scientifically plausible but are not
+              grounded in the figure.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button button-primary project-action"
+                href="https://arxiv.org/abs/2603.28026"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="button-icon" aria-hidden="true">
+                  <svg class="button-icon-svg" viewBox="0 0 24 24">
+                    <path
+                      d="M7 3.5h7.3L19 8.2v12.3H7V3.5Zm7 0v5h5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.8"
+                    />
+                    <path
+                      d="M10 14.7h6M10 17.5h4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-width="1.8"
+                    />
+                  </svg>
+                </span>
+                <span>arXiv</span>
+              </a>
+              <a
+                class="button button-secondary project-action"
+                href="https://github.com/dmis-lab/SciCON"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="button-icon" aria-hidden="true">
+                  <svg class="button-icon-svg" viewBox="0 0 24 24">
+                    <path
+                      d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.53.1.72-.23.72-.52v-1.82c-2.94.64-3.56-1.24-3.56-1.24-.48-1.21-1.17-1.53-1.17-1.53-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.62 2.46 1.15 3.06.88.09-.68.37-1.15.67-1.42-2.35-.27-4.81-1.17-4.81-5.22 0-1.15.41-2.08 1.08-2.81-.11-.27-.47-1.37.1-2.85 0 0 .88-.28 2.89 1.07a9.93 9.93 0 0 1 5.27 0c2-1.35 2.88-1.07 2.88-1.07.57 1.48.21 2.58.1 2.85.68.73 1.08 1.66 1.08 2.81 0 4.06-2.47 4.95-4.83 5.21.38.33.72.98.72 1.97v2.92c0 .29.19.63.73.52A10.5 10.5 0 0 0 12 1.5Z"
+                    />
+                  </svg>
+                </span>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <figure class="project-hero-figure scicon-hero-figure">
+            <img
+              src="/img/scicon-method.png"
+              alt="SCICON method overview showing multimodal score, text-only score, and contrastive candidate score."
+              width="682"
+              height="495"
+            />
+          </figure>
+        </section>
+
+        <section class="project-section project-two-column">
+          <div>
+            <p class="card-label">Problem</p>
+            <h2>Answer choices can become misleading scientific priors.</h2>
+          </div>
+          <div class="project-text">
+            <p>
+              Scientific figure MCQA asks models to reason over charts,
+              multipanel figures, microscopy, biomedical images, and symbolic
+              diagrams. In this setting, the answer choices themselves often
+              encode plausible hypotheses, trends, mechanisms, or experimental
+              interpretations.
+            </p>
+            <p>
+              This creates choice-induced prior bias: a model may prefer an
+              option because it sounds scientifically reasonable from the
+              question and choices alone, even when the figure supports a
+              different answer.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Method</p>
+            <h2>Subtract the text-only prior at inference time</h2>
+            <p>
+              For each candidate answer, SCICON compares the model's score with
+              the figure against the score obtained after removing the figure.
+              The final candidate score is computed as
+              <strong>image-conditioned score - alpha x text-only score</strong>.
+            </p>
+          </div>
+          <div class="method-grid">
+            <article class="method-card">
+              <span>01</span>
+              <h3>Multimodal scoring</h3>
+              <p>
+                Score every answer candidate using the original question,
+                choices, and scientific figure.
+              </p>
+            </article>
+            <article class="method-card">
+              <span>02</span>
+              <h3>Text-only prior</h3>
+              <p>
+                Remove the figure and score the same candidates again to expose
+                option preference induced by text alone.
+              </p>
+            </article>
+            <article class="method-card">
+              <span>03</span>
+              <h3>Contrastive decision</h3>
+              <p>
+                Subtract the text-only candidate score so choices favored mainly
+                by textual plausibility are demoted.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Motivation</p>
+            <h2>Wrong answers stay closer to the text-only prior</h2>
+            <p>
+              Preliminary experiments show that correct predictions move farther
+              away from text-only preference, while wrong predictions remain
+              more aligned with it.
+            </p>
+          </div>
+          <p class="table-caption-text">
+            Distance between multimodal and text-only answer distributions with
+            Qwen3.5-4B.
+          </p>
+          <div class="table-wrap">
+            <table class="project-table compact-table">
+              <caption class="sr-only">
+                Distance between multimodal and text-only answer distributions.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Dataset</th>
+                  <th scope="col">JS Correct</th>
+                  <th scope="col">JS Wrong</th>
+                  <th scope="col">Cosine Correct</th>
+                  <th scope="col">Cosine Wrong</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">MAC</th>
+                  <td>0.2477</td>
+                  <td>0.1448</td>
+                  <td>0.5559</td>
+                  <td>0.7218</td>
+                </tr>
+                <tr>
+                  <th scope="row">SciFIBench</th>
+                  <td>0.1161</td>
+                  <td>0.0728</td>
+                  <td>0.7623</td>
+                  <td>0.8253</td>
+                </tr>
+                <tr>
+                  <th scope="row">MMSci</th>
+                  <td>0.0870</td>
+                  <td>0.0536</td>
+                  <td>0.8005</td>
+                  <td>0.8790</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Results</p>
+            <h2>Consistent accuracy gains across scientific figure QA</h2>
+            <p>
+              SCICON improves accuracy across MAC, SciFIBench, and MMSci with
+              Qwen3.5-4B, Qwen3.5-9B, and Phi-3.5-vision-instruct.
+            </p>
+          </div>
+          <p class="table-caption-text">
+            Main scientific figure MCQA results. Values are ACC / macro-F1.
+          </p>
+          <div class="table-wrap">
+            <table class="project-table project-performance-table">
+              <caption class="sr-only">
+                Main scientific figure multiple-choice QA results.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Backbone</th>
+                  <th scope="col">Method</th>
+                  <th scope="col">MAC</th>
+                  <th scope="col">SciFIBench</th>
+                  <th scope="col">MMSci</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" rowspan="4" class="model-cell">Qwen3.5-4B</th>
+                  <th scope="row">Greedy</th>
+                  <td>69.72 / 70.75</td>
+                  <td>46.20 / 44.93</td>
+                  <td>38.83 / 19.41</td>
+                </tr>
+                <tr>
+                  <th scope="row">VCD</th>
+                  <td>68.50 / 68.77</td>
+                  <td>45.40 / 44.00</td>
+                  <td>40.85 / 26.58</td>
+                </tr>
+                <tr>
+                  <th scope="row">ICD</th>
+                  <td>58.41 / 58.57</td>
+                  <td>40.50 / 38.23</td>
+                  <td>33.79 / 14.83</td>
+                </tr>
+                <tr class="is-ours">
+                  <th scope="row">SCICON</th>
+                  <td>74.01 / 74.24</td>
+                  <td>48.70 / 46.99</td>
+                  <td>43.44 / 19.06</td>
+                </tr>
+                <tr>
+                  <th scope="row" rowspan="4" class="model-cell">Qwen3.5-9B</th>
+                  <th scope="row">Greedy</th>
+                  <td>81.35 / 81.40</td>
+                  <td>55.10 / 54.67</td>
+                  <td>46.54 / 27.34</td>
+                </tr>
+                <tr>
+                  <th scope="row">VCD</th>
+                  <td>81.96 / 81.92</td>
+                  <td>55.90 / 55.55</td>
+                  <td>49.29 / 32.35</td>
+                </tr>
+                <tr>
+                  <th scope="row">ICD</th>
+                  <td>81.04 / 81.01</td>
+                  <td>53.00 / 52.13</td>
+                  <td>46.65 / 24.14</td>
+                </tr>
+                <tr class="is-ours">
+                  <th scope="row">SCICON</th>
+                  <td>82.26 / 82.34</td>
+                  <td>58.00 / 57.55</td>
+                  <td>52.14 / 33.91</td>
+                </tr>
+                <tr>
+                  <th scope="row" rowspan="4" class="model-cell">Phi-3.5</th>
+                  <th scope="row">Greedy</th>
+                  <td>42.81 / 42.02</td>
+                  <td>48.60 / 48.47</td>
+                  <td>47.78 / 34.43</td>
+                </tr>
+                <tr>
+                  <th scope="row">VCD</th>
+                  <td>43.73 / 43.27</td>
+                  <td>53.50 / 53.75</td>
+                  <td>51.95 / 34.59</td>
+                </tr>
+                <tr>
+                  <th scope="row">ICD</th>
+                  <td>42.81 / 41.60</td>
+                  <td>47.10 / 46.86</td>
+                  <td>46.32 / 31.38</td>
+                </tr>
+                <tr class="is-ours">
+                  <th scope="row">SCICON</th>
+                  <td>49.54 / 49.89</td>
+                  <td>54.90 / 55.02</td>
+                  <td>52.71 / 29.93</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Additional Evidence</p>
+            <h2>Broader validation beyond the main benchmark suite</h2>
+            <p>
+              Additional experiments show that prompt-only visual emphasis is
+              inconsistent, adaptive prior subtraction is promising, SCICON
+              remains competitive on Llama-3.2-11B-Vision-Instruct and
+              Gemma-4-E4B-it, and it also improves MMBench.
+            </p>
+          </div>
+
+          <section class="result-block">
+            <div class="project-section-heading">
+              <p class="card-label">Adaptive SCICON</p>
+              <h3>Dynamic alpha can improve strong Qwen3.5-9B results</h3>
+              <p>
+                SCICON-ada sets alpha from the similarity between image-
+                conditioned and text-only answer distributions. This strengthens
+                prior subtraction when the two distributions are highly aligned.
+              </p>
+            </div>
+            <p class="table-caption-text">
+              SCICON-ada results on Qwen3.5-9B. Values are ACC / F1.
+            </p>
+            <div class="table-wrap">
+              <table class="project-table compact-table">
+                <caption class="sr-only">
+                  SCICON-ada results on Qwen3.5-9B.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Dataset</th>
+                    <th scope="col">Greedy</th>
+                    <th scope="col">SCICON</th>
+                    <th scope="col">SCICON-ada</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">MAC</th>
+                    <td>81.35 / 81.40</td>
+                    <td>82.26 / 82.34</td>
+                    <td><strong>83.49 / 83.58</strong></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">SciFIBench</th>
+                    <td>55.10 / 54.67</td>
+                    <td>58.00 / 57.55</td>
+                    <td><strong>58.80 / 58.58</strong></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">MMSci</th>
+                    <td>46.54 / 29.05</td>
+                    <td>52.14 / 33.91</td>
+                    <td><strong>56.29 / 35.41</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="result-block">
+            <div class="project-section-heading">
+              <p class="card-label">Generalization</p>
+              <h3>
+                Llama-3.2-11B-Vision-Instruct, Gemma-4-E4B-it, and MMBench
+              </h3>
+              <p>
+                Candidate-prior subtraction is not tied to Qwen or Phi:
+                additional experiments cover Llama-3.2-11B-Vision-Instruct and
+                Gemma-4-E4B-it. The same mechanism also helps on MMBench even
+                outside the scientific figure benchmarks.
+              </p>
+            </div>
+            <p class="table-caption-text">
+              Additional model-family results. Values are ACC / F1.
+            </p>
+            <div class="table-wrap">
+              <table class="project-table compact-table">
+                <caption class="sr-only">
+                  Additional Llama-3.2-11B-Vision-Instruct and Gemma-4-E4B-it
+                  scientific benchmark results.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Model</th>
+                    <th scope="col">Dataset</th>
+                    <th scope="col">Greedy</th>
+                    <th scope="col">VCD</th>
+                    <th scope="col">SCICON</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Llama-3.2-11B</th>
+                    <td>MAC</td>
+                    <td>68.81 / 69.05</td>
+                    <td><strong>72.78 / 72.82</strong></td>
+                    <td>71.25 / 71.33</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Gemma-4-E4B-it</th>
+                    <td>MAC</td>
+                    <td>66.97 / 67.04</td>
+                    <td><strong>68.81 / 68.80</strong></td>
+                    <td>66.97 / 67.17</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Llama-3.2-11B</th>
+                    <td>SciFIBench</td>
+                    <td>60.50 / 60.57</td>
+                    <td>63.20 / 63.14</td>
+                    <td><strong>63.20 / 63.24</strong></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Gemma-4-E4B-it</th>
+                    <td>SciFIBench</td>
+                    <td>53.50 / 53.19</td>
+                    <td>48.00 / 48.15</td>
+                    <td><strong>56.40 / 55.83</strong></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Llama-3.2-11B</th>
+                    <td>MMSci</td>
+                    <td>60.90 / 55.71</td>
+                    <td><strong>63.19 / 53.93</strong></td>
+                    <td>61.47 / 54.18</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Gemma-4-E4B-it</th>
+                    <td>MMSci</td>
+                    <td>59.28 / 53.89</td>
+                    <td>56.18 / 46.93</td>
+                    <td><strong>64.11 / 59.17</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="table-caption-text">
+              MMBench results. Values are accuracy / macro-F1.
+            </p>
+            <div class="table-wrap">
+              <table class="project-table compact-table">
+                <caption class="sr-only">
+                  MMBench results.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Backbone</th>
+                    <th scope="col">Greedy</th>
+                    <th scope="col">VCD</th>
+                    <th scope="col">ICD</th>
+                    <th scope="col">SCICON</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Qwen3.5-4B</th>
+                    <td>0.7438 / 0.7443</td>
+                    <td>0.7535 / 0.7540</td>
+                    <td>0.7048 / 0.7045</td>
+                    <td><strong>0.7616 / 0.7617</strong></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Qwen3.5-9B</th>
+                    <td>0.7648 / 0.7643</td>
+                    <td>0.7810 / 0.7809</td>
+                    <td>0.7288 / 0.7284</td>
+                    <td><strong>0.7914 / 0.7908</strong></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Phi-3.5</th>
+                    <td>0.7923 / 0.7944</td>
+                    <td>0.7976 / 0.7987</td>
+                    <td>0.7789 / 0.7816</td>
+                    <td><strong>0.8018 / 0.8022</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Analysis</p>
+            <h2>SCICON mainly helps by recovering gold answers</h2>
+            <p>
+              Corrected cases show strong gold uplift and positive visual
+              evidence margins. Harmed cases usually arise when the text-only
+              prior already points to the correct answer, so subtracting it can
+              remove useful signal.
+            </p>
+          </div>
+          <div class="case-study-grid">
+            <article class="case-study-card">
+              <h3>Gold-answer recovery</h3>
+              <p class="table-caption-text">
+                Corrected cases show visual support for the gold answer.
+              </p>
+              <div class="table-wrap">
+                <table class="project-table case-table">
+                  <caption class="sr-only">
+                    Gold-answer recovery analysis.
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Dataset</th>
+                      <th scope="col">Gold Uplift</th>
+                      <th scope="col">Visual Margin</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="is-correct">
+                      <th scope="row">MAC</th>
+                      <td>1.568</td>
+                      <td>2.088</td>
+                    </tr>
+                    <tr class="is-correct">
+                      <th scope="row">SciFIBench</th>
+                      <td>1.273</td>
+                      <td>1.171</td>
+                    </tr>
+                    <tr class="is-correct">
+                      <th scope="row">MMSci</th>
+                      <td>1.301</td>
+                      <td>1.197</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="case-study-card">
+              <h3>When subtraction can hurt</h3>
+              <p class="table-caption-text">
+                Harmed cases often have a useful text-only prior.
+              </p>
+              <div class="table-wrap">
+                <table class="project-table case-table">
+                  <caption class="sr-only">
+                    Text-prior gold hit and harmed prior alignment analysis.
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Dataset</th>
+                      <th scope="col">Gold Hit</th>
+                      <th scope="col">Harmed Alignment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">MAC</th>
+                      <td>0.733</td>
+                      <td>0.846</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">SciFIBench</th>
+                      <td>0.739</td>
+                      <td>0.887</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MMSci</th>
+                      <td>0.798</td>
+                      <td>0.896</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="project-section project-two-column">
+          <div>
+            <p class="card-label">Takeaway</p>
+            <h2>A simple inference-time fix for scientific MCQA bias</h2>
+          </div>
+          <div class="project-text">
+            <p>
+              SCICON treats the answer options themselves as a measurable prior.
+              By estimating that prior with a text-only pass and subtracting it,
+              the method encourages models to choose answers supported by the
+              scientific figure rather than by option plausibility.
+            </p>
+            <p>
+              The idea is intentionally lightweight: it requires no training and
+              only one additional text-only scoring pass, making it a practical
+              alternative to contrastive methods that require another full
+              multimodal forward pass.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="project-section-heading">
+            <p class="card-label">Resources</p>
+            <h2>Citation</h2>
+          </div>
+          <pre class="citation-block"><code>@article{roh2026choices,
+  title={When Choices Become Priors: Contrastive Decoding for Scientific Figure Multiple-Choice QA},
+  author={Roh, Taeyun and Jo, Eun-yeong and Jang, Wonjune and Kang, Jaewoo},
+  journal={arXiv preprint arXiv:2603.28026},
+  year={2026}
+}</code></pre>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -814,6 +814,10 @@ img {
   width: 100%;
 }
 
+.scicon-hero-figure {
+  width: min(70%, 760px);
+}
+
 .project-hero-figure img,
 .project-figure img {
   width: 100%;
