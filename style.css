@@ -999,13 +999,20 @@ img {
   background: rgba(142, 75, 44, 0.08);
 }
 
-.project-table .method-highlight {
+.project-table .method-highlight,
+.project-table .method-highlight th,
+.project-table .method-highlight td {
   background: rgba(142, 75, 44, 0.08);
 }
 
 .project-table .method-highlight th,
 .project-table .method-highlight td {
   color: var(--text);
+  font-weight: 400;
+}
+
+.project-table .method-highlight th {
+  font-weight: 700;
 }
 
 .project-table .is-ours th,
