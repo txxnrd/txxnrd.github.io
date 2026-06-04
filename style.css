@@ -739,12 +739,13 @@ img {
 }
 
 .project-hero-copy h1 {
-  max-width: none;
-  margin: 0;
-  font-size: 2.8rem;
-  line-height: 1.08;
+  max-width: 1040px;
+  margin: 0 auto;
+  font-size: 2.35rem;
+  line-height: 1.12;
   letter-spacing: 0;
-  white-space: nowrap;
+  text-wrap: balance;
+  white-space: normal;
 }
 
 .project-hero .eyebrow {
