@@ -133,6 +133,10 @@ function displayText(value = "") {
   return value
     .replace(/\s*\(https?:\/\/[^)\s]+\)/g, "")
     .replace(/https?:\/\/\S+/g, "")
+    .replace(/\bF or\b/g, "For")
+    .replace(/\bQu ick l inks\b/g, "Quick links")
+    .replace(/\ba s of\b/g, "as of")
+    .replace(/\b(\d+)\s+(st|nd|rd|th)\b/g, "$1$2")
     .replace(/\s{2,}/g, " ")
     .trim();
 }
@@ -391,6 +395,107 @@ function renderGenericPage(page) {
   const introLinks = page.sections[0]?.blocks?.flatMap((block) => block.links || []) || [];
   const sections = page.sections.slice(1).map((section) => renderSection(section)).join("");
   return `<main class="page">${renderPageHead(page, "DMIS Lab", introLinks)}<div class="section-grid">${sections}</div></main>`;
+}
+
+function cleanResearchTitle(title = "") {
+  if (/biomedical/i.test(title)) return "Biomedical AI";
+  if (/natural language|nlp/i.test(title)) return "Natural Language Processing";
+  if (/graph/i.test(title)) return "Graph & ML";
+  return displayText(title);
+}
+
+function linkDomain(href = "") {
+  if (href.startsWith("#")) return "DMIS";
+  try {
+    return new URL(href).hostname.replace(/^www\./, "");
+  } catch {
+    return "Link";
+  }
+}
+
+function renderResearchOverview(page) {
+  const introText = "Biomedical AI, NLP, and Graph & ML are the main research directions of DMIS Lab.";
+  const areas = page.sections.slice(1).map((section) => {
+    const keywordBlock = section.blocks.find((block) => block.type === "heading-3" && /keywords/i.test(block.text));
+    const descriptionBlock = section.blocks.find((block) => block.type === "paragraph" && block.text.length > 140);
+    const detailLink =
+      section.blocks.flatMap((block) => block.links || []).find((link) => link.href.startsWith("#research/"))?.href || "#research";
+    const highlights = section.blocks
+      .filter((block) => block.type === "paragraph" && !(block.links || []).some((link) => !link.href.startsWith("#")))
+      .map((block) => displayText(block.text))
+      .filter((text) => text && text !== displayText(descriptionBlock?.text || "") && !/^More news/i.test(text) && !/^For prospective/i.test(text) && text !== "News & Research")
+      .slice(0, 2);
+    return {
+      title: cleanResearchTitle(section.title),
+      keywords: displayText((keywordBlock?.text || "").replace(/^Keywords:\s*/i, "")),
+      description: displayText(descriptionBlock?.text || ""),
+      detailLink,
+      highlights,
+    };
+  });
+  const resources = page.sections
+    .slice(1)
+    .flatMap((section) =>
+      section.blocks.flatMap((block) =>
+        (block.links || [])
+          .filter((link) => !link.href.startsWith("#"))
+          .map((link) => ({ label: link.label, href: link.href, area: cleanResearchTitle(section.title) })),
+      ),
+    )
+    .filter((resource, index, list) => list.findIndex((item) => item.href === resource.href) === index)
+    .slice(0, 8);
+
+  return `<main class="page research-page">
+    ${renderPageHead(page, "Research")}
+    <section class="research-intro-panel">
+      <div>
+        <p class="page-kicker">Overview</p>
+        <h2>Research Overview</h2>
+        <p>${escapeHtml(introText)}</p>
+      </div>
+      <a class="research-primary-link" href="#publications">Publications</a>
+    </section>
+    <div class="research-area-grid">
+      ${areas
+        .map(
+          (area) => `<article class="research-area-card">
+            <div class="research-card-top">
+              <span class="research-dot"></span>
+              <h2>${escapeHtml(area.title)}</h2>
+            </div>
+            ${area.keywords ? `<p class="research-keywords">${escapeHtml(area.keywords)}</p>` : ""}
+            <p>${escapeHtml(area.description)}</p>
+            ${
+              area.highlights.length
+                ? `<ul class="research-highlights">${area.highlights.map((highlight) => `<li>${escapeHtml(highlight)}</li>`).join("")}</ul>`
+                : ""
+            }
+            <a class="research-card-link" href="${escapeHtml(area.detailLink)}">View research</a>
+          </article>`,
+        )
+        .join("")}
+    </div>
+    ${
+      resources.length
+        ? `<section class="quick-links-panel">
+            <div class="quick-links-head">
+              <p class="page-kicker">Resources</p>
+              <h2>Quick Links</h2>
+            </div>
+            <div class="resource-grid">
+              ${resources
+                .map(
+                  (resource) => `<a class="resource-card" href="${escapeHtml(resource.href)}"${linkTarget(resource.href)}>
+                    <strong>${escapeHtml(linkLabel(resource))}</strong>
+                    <span>${escapeHtml(resource.area)} · ${escapeHtml(linkDomain(resource.href))}</span>
+                  </a>`,
+                )
+                .join("")}
+            </div>
+          </section>`
+        : ""
+    }
+  </main>`;
 }
 
 function renderHome(page) {
@@ -707,12 +812,96 @@ function renderAlumni(alumni = []) {
   </section>`;
 }
 
+function splitHeadingGroups(blocks = []) {
+  const groups = [];
+  let current = null;
+  blocks.forEach((block) => {
+    if (block.type.startsWith("heading")) {
+      current = { title: displayText(block.text), blocks: [], links: block.links || [] };
+      groups.push(current);
+      return;
+    }
+    if (!current) {
+      current = { title: "Overview", blocks: [], links: [] };
+      groups.push(current);
+    }
+    current.blocks.push(block);
+  });
+  return groups;
+}
+
+function renderProfilePanel(group, className = "") {
+  if (!group) return "";
+  const items = group.blocks.filter((block) => block.type === "paragraph").map((block) => displayText(block.text)).filter(Boolean);
+  return `<section class="profile-panel ${className}">
+    <h2>${escapeHtml(group.title)}</h2>
+    <ul class="profile-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+  </section>`;
+}
+
+function awardItems(blocks = []) {
+  const items = [];
+  let current = null;
+  blocks.forEach((block) => {
+    const text = displayText(block.text);
+    if (!text) return;
+    if (/^\[/.test(text)) {
+      current = { title: text, details: [] };
+      items.push(current);
+      return;
+    }
+    if (current) current.details.push(text);
+  });
+  return items;
+}
+
+function renderAwards(group) {
+  if (!group) return "";
+  const awards = awardItems(group.blocks);
+  return `<section class="profile-panel profile-awards">
+    <div class="profile-panel-head">
+      <p class="page-kicker">Selected Achievements</p>
+      <h2>${escapeHtml(group.title)}</h2>
+    </div>
+    <div class="award-grid">
+      ${awards
+        .map(
+          (award) => `<article class="award-card">
+            <h3>${escapeHtml(award.title)}</h3>
+            <ul>${award.details.map((detail) => `<li>${escapeHtml(detail)}</li>`).join("")}</ul>
+          </article>`,
+        )
+        .join("")}
+    </div>
+  </section>`;
+}
+
+function renderProfileTextPanel(group, kicker) {
+  if (!group) return "";
+  return `<section class="profile-panel profile-text-panel">
+    <p class="page-kicker">${escapeHtml(kicker)}</p>
+    <h2>${escapeHtml(group.title)}</h2>
+    ${group.blocks
+      .filter((block) => block.type === "paragraph")
+      .map((block) => `<p>${escapeHtml(displayText(block.text))}</p>`)
+      .join("")}
+  </section>`;
+}
+
 function renderProfile(page) {
   const portrait = page.sections.flatMap((section) => section.images)[0];
-  const sections = page.sections
-    .map((section, index) => ({ ...section, images: index === 1 ? [] : section.images }))
-    .map((section, index) => renderSection(section, { skipFirstHeading: index === 0 }))
-    .join("");
+  const introBlocks = page.sections[0].blocks;
+  const contactLinks = introBlocks.flatMap((block) => block.links || []);
+  const introLines = introBlocks.filter((block) => block.type === "paragraph").map((block) => displayText(block.text));
+  const phone = introLines.join(" ").match(/Phone:\s*([^,]+)/i)?.[1] || "+82-2-3290-4840";
+  const detailGroups = splitHeadingGroups(page.sections[1].blocks);
+  const narrativeGroups = splitHeadingGroups(page.sections[2].blocks);
+  const education = detailGroups.find((group) => group.title === "Education");
+  const experience = detailGroups.find((group) => group.title === "Work Experience");
+  const affiliations = detailGroups.find((group) => group.title === "Other Affiliations");
+  const awards = narrativeGroups.find((group) => group.title === "Awards");
+  const biography = narrativeGroups.find((group) => group.title === "Biography");
+  const interests = narrativeGroups.find((group) => group.title === "Research Interests");
   return `<main class="page">
     ${renderPageHead(page)}
     <div class="profile-layout">
@@ -721,9 +910,34 @@ function renderProfile(page) {
         <div class="profile-card-body">
           <h2>Prof. Jaewoo Kang</h2>
           <p>Department of Computer Science and Engineering, Korea University</p>
+          ${renderLinks(contactLinks)}
         </div>
       </aside>
-      <div class="section-grid">${sections}</div>
+      <div class="profile-content">
+        <section class="profile-summary">
+          <p class="page-kicker">Principal Investigator</p>
+          <h2>Jaewoo Kang, Ph.D</h2>
+          <div class="profile-contact-grid">
+            <div><span>Department</span><strong>Computer Science and Engineering</strong></div>
+            <div><span>University</span><strong>Korea University</strong></div>
+            <div><span>Email</span><strong>kangj@korea.ac.kr</strong></div>
+            <div><span>Phone</span><strong>${escapeHtml(phone)}</strong></div>
+          </div>
+          <div class="profile-tags">
+            <span>Biomedical AI</span>
+            <span>Data Mining</span>
+            <span>Large-scale Information Systems</span>
+          </div>
+        </section>
+        <div class="profile-panel-grid">
+          ${renderProfilePanel(education)}
+          ${renderProfilePanel(experience)}
+          ${renderProfilePanel(affiliations)}
+        </div>
+        ${renderProfileTextPanel(biography, "Biography")}
+        ${renderProfileTextPanel(interests, "Research")}
+        ${renderAwards(awards)}
+      </div>
     </div>
   </main>`;
 }
@@ -736,6 +950,7 @@ function renderRoute(options = {}) {
   if (page.kind === "home") body = renderHome(page);
   else if (page.kind === "people") body = renderPeople(page);
   else if (page.kind === "publications") body = renderPublications(page);
+  else if (page.kind === "research" && page.route === "research") body = renderResearchOverview(page);
   else if (page.kind === "profile") body = renderProfile(page);
   else body = renderGenericPage(page);
 
