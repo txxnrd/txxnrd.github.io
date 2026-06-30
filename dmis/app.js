@@ -136,13 +136,35 @@ function displayText(value = "") {
     .replace(/\bF or\b/g, "For")
     .replace(/\bQu ick l inks\b/g, "Quick links")
     .replace(/\ba s of\b/g, "as of")
+    .replace(/\bY ein Park\b/g, "Yein Park")
+    .replace(/\bJ aewoo Kang\b/g, "Jaewoo Kang")
+    .replace(/\bC hangsik Kim\b/g, "Changsik Kim")
+    .replace(/\bD a nqi Chen\b/g, "Danqi Chen")
+    .replace(/\bWon J in Yoon\b/g, "Wonjin Yoon")
+    .replace(/\bS uyoung Oh\b/g, "Suyoung Oh")
+    .replace(/\bJunseok Cho e\b/g, "Junseok Choe")
+    .replace(/\bYonghwa Cho i\b/g, "Yonghwa Choi")
+    .replace(/\bH omepage\b/g, "Homepage")
+    .replace(/\bBioi nformatics\b/g, "Bioinformatics")
+    .replace(/\bAd vances\b/g, "Advances")
+    .replace(/\bChall enge\b/g, "Challenge")
+    .replace(/\bS hort\b/g, "Short")
+    .replace(/\bIJCA I\b/g, "IJCAI")
+    .replace(/\bTB A\b/g, "TBA")
+    .replace(/\bMechanis m\b/g, "Mechanism")
+    .replace(/\bAugu st\b/g, "August")
+    .replace(/\bSa n D iego\b/g, "San Diego")
+    .replace(/\bT wo\b/g, "Two")
+    .replace(/\bT hree\b/g, "Three")
     .replace(/\b(\d+)\s+(st|nd|rd|th)\b/g, "$1$2")
+    .replace(/\b2\s+022\b/g, "2022")
+    .replace(/\b2\s+01\s+8\b/g, "2018")
     .replace(/\s{2,}/g, " ")
     .trim();
 }
 
 function linkLabel(link) {
-  const label = link.label || "Link";
+  const label = displayText(link.label || "Link");
   if (label.toLowerCase() === "arxiv") return "arXiv";
   if (!/^https?:\/\//i.test(label)) return label;
   try {
@@ -179,7 +201,7 @@ function renderLinkContent(link) {
 }
 
 function normalizePublicationText(value = "") {
-  return value
+  return displayText(value)
     .toLowerCase()
     .replaceAll("&amp;", "and")
     .replace(/[’']/g, "")
@@ -647,7 +669,7 @@ function renderPublications(page) {
     papers: group.papers.filter(publicationMatchesFilter),
   }));
   const publicationYears = uniqueYears(allGroups.flatMap((group) => group.papers.map((paper) => paper.block.text)));
-  const topGroups = groups.filter((group) => ["Preprints", "In Press"].includes(group.title));
+  const topGroups = ["Preprints", "In Press"].map((title) => groups.find((group) => group.title === title)).filter(Boolean);
   const journalGroup = groups.find((group) => group.title === "Journal Articles");
   const conferenceGroup = groups.find((group) => group.title === "Conference Proceedings");
   const otherGroups = groups.filter(
@@ -658,7 +680,9 @@ function renderPublications(page) {
     <div class="publication-controls">
       ${renderFilterControls("publications", "Search publications", publicationYears)}
     </div>
-    ${topGroups.map((group) => renderPublicationGroup(group, "wide")).join("")}
+    <div class="publication-parallel publication-parallel-top">
+      ${topGroups.map((group) => renderPublicationGroup(group, "column")).join("")}
+    </div>
     <div class="publication-parallel">
       ${renderPublicationGroup(journalGroup, "column")}
       ${renderPublicationGroup(conferenceGroup, "column")}
@@ -670,16 +694,19 @@ function renderPublications(page) {
 function publicationMatchesFilter(item) {
   const filter = filters.publications;
   const parsed = parsePublication(item.block.text);
-  const matchesQuery = !filter.query || item.block.text.toLowerCase().includes(filter.query.toLowerCase());
+  const searchableText = displayText(item.block.text).toLowerCase();
+  const query = displayText(filter.query).toLowerCase();
+  const matchesQuery = !query || searchableText.includes(query);
   const matchesYear = filter.year === "All" || parsed.year === filter.year;
   return matchesQuery && matchesYear;
 }
 
 function parsePublication(text) {
-  const parts = text.split(/(?<=\.)\s+/).filter(Boolean);
+  const cleanText = displayText(text);
+  const parts = cleanText.split(/(?<=\.)\s+/).filter(Boolean);
   const authors = parts.length > 1 ? parts[0].replace(/\.$/, "") : "";
-  const rest = parts.length > 1 ? parts.slice(1).join(" ") : text;
-  const yearMatch = text.match(/\b(19|20)\d{2}\b/g);
+  const rest = parts.length > 1 ? parts.slice(1).join(" ") : cleanText;
+  const yearMatch = cleanText.match(/\b(19|20)\d{2}\b/g);
   const year = yearMatch ? yearMatch[yearMatch.length - 1] : "";
   const venuePattern =
     /\b(Preprint|ACL|EACL|EMNLP|ICML|ICLR|KDD|MICCAI|AAAI|NeurIPS|ISMB\/ECCB|ISMB|CIKM|BIBM|Bioinformatics|Bioinformatics Advances|npj|Journal|Nature|Scientific Reports|Scientific Data|Briefings|Database|IEEE|Frontiers|JAMIA|Information Sciences|Expert Systems|PLOS|PLoS|Neural Networks|Cell Systems|Nucleic Acids Research|Genes|BMC|Human Genomics|Proteins|Scientometrics|Soft Computing|Biology Direct|Computational Statistics|Communications of the ACM|Security and Communication Networks|Wireless Personal Communications|Technological Forecasting and Social Change|WWW|IJCAI|PAKDD)\b.*$/i;
