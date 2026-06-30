@@ -371,7 +371,7 @@ function renderPageHead(page, kicker = "DMIS Lab", extraLinks = []) {
       ${pageDescription(page) ? `<p class="page-description">${escapeHtml(pageDescription(page))}</p>` : ""}
       ${renderLinks(extraLinks)}
     </div>
-    <a class="source-link" href="${escapeHtml(page.url)}" target="_blank" rel="noreferrer">Original page</a>
+    <a class="source-link" href="${escapeHtml(page.url)}" target="_blank" rel="noreferrer">Source</a>
   </div>`;
 }
 
@@ -449,8 +449,7 @@ function renderResearchOverview(page) {
     ${renderPageHead(page, "Research")}
     <section class="research-intro-panel">
       <div>
-        <p class="page-kicker">Overview</p>
-        <h2>Research Overview</h2>
+        <h2>Overview</h2>
         <p>${escapeHtml(introText)}</p>
       </div>
       <a class="research-primary-link" href="#publications">Publications</a>
@@ -470,7 +469,7 @@ function renderResearchOverview(page) {
                 ? `<ul class="research-highlights">${area.highlights.map((highlight) => `<li>${escapeHtml(highlight)}</li>`).join("")}</ul>`
                 : ""
             }
-            <a class="research-card-link" href="${escapeHtml(area.detailLink)}">View research</a>
+            <a class="research-card-link" href="${escapeHtml(area.detailLink)}">Read more</a>
           </article>`,
         )
         .join("")}
@@ -571,7 +570,7 @@ function renderNewsItem(section) {
   const date = parseDate(textBlock?.text || "");
   const links = section.blocks.flatMap((block) => block.links || []);
   const images = section.images || [];
-  return `<article class="news-item">
+  return `<article class="news-item ${images.length ? "has-media" : ""}">
     <div class="news-date"><strong>${escapeHtml(date.month)}</strong><span>${escapeHtml(date.year)}</span></div>
     <div class="news-copy"><p>${escapeHtml(displayText(textBlock?.text || ""))}</p>${renderLinks(links)}</div>
     ${
@@ -582,7 +581,7 @@ function renderNewsItem(section) {
                 `<img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt || "DMIS Lab news image")}" loading="lazy" />`,
             )
             .join("")}</div>`
-        : `<div class="news-media"></div>`
+        : ""
     }
   </article>`;
 }
@@ -718,7 +717,7 @@ function renderPublicationItem(item) {
   if (item.type === "heading") {
     return `<section class="publication-section">
       <div>
-        <p class="page-kicker">Publication Group</p>
+        <p class="page-kicker">Publications</p>
         <h2>${escapeHtml(item.text)}</h2>
       </div>
       ${renderLinks(item.links)}
@@ -753,7 +752,7 @@ function renderPublicationGroup(group, variant) {
   return `<section class="publication-group ${isColumn ? "publication-group-column" : "publication-group-wide"}">
     <div class="publication-group-head">
       <div>
-        <p class="page-kicker">Publication Group</p>
+        <p class="page-kicker">${group.papers.length} ${group.papers.length === 1 ? "paper" : "papers"}</p>
         <h2>${escapeHtml(group.title)}</h2>
       </div>
       ${renderLinks(group.links)}
