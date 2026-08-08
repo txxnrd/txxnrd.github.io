@@ -90,6 +90,7 @@
         title,
         description,
         date,
+        postLink = "",
       ) {
         const newsContainer = document.getElementById(containerId);
         const newsItem = document.createElement("article");
@@ -118,6 +119,7 @@
         newsContent.appendChild(newsDate);
         newsContent.appendChild(newsTitle);
         newsContent.appendChild(newsDescription);
+
         newsItem.appendChild(preview);
         newsItem.appendChild(newsContent);
         newsContainer.appendChild(newsItem);
@@ -126,6 +128,16 @@
           img.src = exists ? localPath : imageLink;
         });
       }
+
+      addNewsItem(
+        "news-container",
+        "./img/SRA.png",
+        "",
+        "Joining Samsung Research America as an AI Research Intern",
+        "I will be staying in Mountain View this fall working on memory systems for AI agents",
+        "Fall 2026",
+        "https://lnkd.in/p/gpwSCMm8",
+      );
 
       addNewsItem(
         "news-container",
