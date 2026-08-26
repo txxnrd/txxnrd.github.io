@@ -61,8 +61,9 @@ const arxivEntries = [
     addToPreprints: true,
   },
   {
-    title: "When Choices Become Priors: Contrastive Decoding for Scientific Figure Multiple-Choice QA",
-    authors: "Taeyun Roh, Eunji Jo, Wonjune Jang, Jaewoo Kang",
+    title: "BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA",
+    authors:
+      "Taeyun Roh, Suhyeong Park, Dongyoung Lee, Eunyeong Jo, Wonjune Jang, Junha Jung, Jaewoo Kang",
     venue: "Preprint",
     year: "2026",
     arxivId: "2603.28026",
