@@ -61,6 +61,18 @@
           id="publication-list"
           aria-label="Publication list"
         ></section>
+
+        <details class="news-archive publication-archive">
+          <summary>
+            <span>Domestic</span>
+            <span class="news-archive-count">2 papers</span>
+          </summary>
+          <section
+            class="stack-list"
+            id="domestic-publication-list"
+            aria-label="Domestic publication list"
+          ></section>
+        </details>
       </main>
     </div>
 
@@ -107,6 +119,9 @@
           projectLink: "/CLAG/",
           status: "Published",
         },
+      ];
+
+      const domesticPublications = [
         {
           title:
             "Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning",
@@ -114,7 +129,7 @@
             "Taeyun Roh, Seungwoo Jung, Yeonho Yoo, Sunjae Park, Gyeongsik Yang, Chuck Yoo",
           venue: "KIISE",
           year: 2024,
-          pdfLink: "paper/splitfed.pdf",
+          pdfLink: "https://txxnrd.github.io/paper/splitfed.pdf",
           status: "Published",
         },
         {
@@ -123,14 +138,12 @@
             "Yunkyung Kang, Taeyun Roh, Junseok Lee, Wonmi Choi, Yeonho Yoo, Gyeongsik Yang, Chuck Yoo",
           venue: "KICS",
           year: 2024,
-          pdfLink: "paper/sec-container.pdf",
+          pdfLink: "https://txxnrd.github.io/paper/sec-container.pdf",
           status: "Published",
         },
       ];
 
-      const container = document.getElementById("publication-list");
-
-      publications.forEach((pub) => {
+      function renderPublication(pub, container) {
         const item = document.createElement("article");
         item.className = "publication-card";
 
@@ -163,7 +176,17 @@
       `;
 
         container.appendChild(item);
-      });
+      }
+
+      const container = document.getElementById("publication-list");
+      const domesticContainer = document.getElementById(
+        "domestic-publication-list",
+      );
+
+      publications.forEach((pub) => renderPublication(pub, container));
+      domesticPublications.forEach((pub) =>
+        renderPublication(pub, domesticContainer),
+      );
     </script>
   </body>
 </html>

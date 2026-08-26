@@ -1,152 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <title>News | Taeyun Roh</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Recent news and milestones from Taeyun Roh.">
-  <script>
-    document.documentElement.dataset.theme =
-      localStorage.getItem("theme") === "night" ? "night" : "day";
-  </script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script defer src="theme.js"></script>
-  <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
-  <script>
-    window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
-      fetchRemoteConfig: true,
-      autocapture: true,
-    });
-    amplitude.track("news");
-  </script>
-</head>
-<body class="sub-page">
-  <div class="page-shell">
-    <header class="site-header">
-      <a href="/index.html" class="site-logo">Taeyun Roh</a>
-      <div class="site-header-actions">
-        <nav class="site-nav" aria-label="Primary">
-          <a href="/index.html">Home</a>
-          <a href="/news.html" class="is-active">News</a>
-          <a href="/publications.html">Publications</a>
-        </nav>
-        <button
-          class="theme-toggle"
-          type="button"
-          data-theme-toggle
-          aria-label="밤 테마로 전환"
-          aria-pressed="false"
-          title="밤 모드"
-        >
-          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
-        </button>
-      </div>
-    </header>
-
-    <main class="sub-main">
-      <section class="page-hero">
-        <p class="eyebrow">Updates</p>
-        <h1>News</h1>
-        <p class="page-intro">Recent milestones, awards, presentations, and project updates.</p>
-      </section>
-
-      <section class="stack-list" id="news-container" aria-label="News list"></section>
-    </main>
-  </div>
-
-  <script>
-    function imageExists(imageUrl, callback) {
-      const img = new Image();
-      img.onload = () => callback(true);
-      img.onerror = () => callback(false);
-      img.src = imageUrl;
-    }
-
-    function addNewsItem(localPath, imageLink, title, description, date) {
-      const newsContainer = document.getElementById("news-container");
-      const newsItem = document.createElement("article");
-      newsItem.className = "news-card";
-
-      const preview = document.createElement("div");
-      preview.className = "news-card-media";
-
-      const img = document.createElement("img");
-      img.alt = title;
-      preview.appendChild(img);
-
-      const newsContent = document.createElement("div");
-      newsContent.className = "news-card-body";
-
-      const newsDate = document.createElement("p");
-      newsDate.className = "news-card-date";
-      newsDate.textContent = date;
-
-      const newsTitle = document.createElement("h2");
-      newsTitle.textContent = title;
-
-      const newsDescription = document.createElement("p");
-      newsDescription.className = "news-card-text";
-      newsDescription.textContent = description;
-
-      newsContent.appendChild(newsDate);
-      newsContent.appendChild(newsTitle);
-      newsContent.appendChild(newsDescription);
-      newsItem.appendChild(preview);
-      newsItem.appendChild(newsContent);
-      newsContainer.appendChild(newsItem);
-
-      imageExists(localPath, (exists) => {
-        img.src = exists ? localPath : imageLink;
+  <head>
+    <title>News | Taeyun Roh</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Recent news and milestones from Taeyun Roh."
+    />
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") === "night" ? "night" : "day";
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script defer src="theme.js"></script>
+    <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
+    <script>
+      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+        fetchRemoteConfig: true,
+        autocapture: true,
       });
-    }
+      amplitude.track("news");
+    </script>
+  </head>
+  <body class="sub-page">
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/index.html" class="site-logo">Taeyun Roh</a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/index.html">Home</a>
+            <a href="/news.html" class="is-active">News</a>
+            <a href="/publications.html">Publications</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="밤 테마로 전환"
+            aria-pressed="false"
+            title="밤 모드"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </header>
 
-    addNewsItem(
-      "./img/capstone.jpg",
-      "",
-      "Won First Prize at Korea University Capstone Design Competition",
-      "Participated as an AI engineer in NEWSQRAB, optimizing a RAG pipeline for an automated short-form video creation service.",
-      "July 2025"
-    );
+      <main class="sub-main">
+        <section class="page-hero">
+          <p class="eyebrow">Updates</p>
+          <h1>News</h1>
+          <p class="page-intro">
+            Recent milestones, awards, presentations, and project updates.
+          </p>
+        </section>
 
-    addNewsItem(
-      "./img/next.jpeg",
-      "",
-      "Won Second Prize at Korea University NEXT Software Competition",
-      "Contributed as an AI engineer to NEWSQRAB, an automated short-form video creation service using AI.",
-      "June 2025"
-    );
+        <section
+          class="stack-list"
+          id="news-container"
+          aria-label="News list"
+        ></section>
 
-    addNewsItem(
-      "./img/award.png",
-      "",
-      "3rd Place Award in the Undergraduate Category at the 2024 KIISE Conference",
-      "Awarded for the paper 'Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning'.",
-      "February 2025"
-    );
+        <details class="news-archive">
+          <summary>
+            <span>Undergraduate News</span>
+            <span class="news-archive-count">6 updates</span>
+          </summary>
+          <section
+            class="stack-list"
+            id="undergraduate-news-container"
+            aria-label="Undergraduate news list"
+          ></section>
+        </details>
+      </main>
+    </div>
 
-    addNewsItem(
-      "./img/poster.jpg",
-      "",
-      "Poster Presentation at Korean Institute of Communications and Information Sciences",
-      "Presented work on secure container design for permissioned blockchains.",
-      "June 2024"
-    );
+    <script>
+      function imageExists(imageUrl, callback) {
+        const img = new Image();
+        img.onload = () => callback(true);
+        img.onerror = () => callback(false);
+        img.src = imageUrl;
+      }
 
-    addNewsItem(
-      "./img/blurting.jpeg",
-      "",
-      "Blurting ranked 73rd in the App Store Social Networking category",
-      "Participated in the development of Blurting, a college-student dating application, as frontend lead developer.",
-      "January 2024"
-    );
+      function addNewsItem(
+        containerId,
+        localPath,
+        imageLink,
+        title,
+        description,
+        date,
+        postLink = "",
+      ) {
+        const newsContainer = document.getElementById(containerId);
+        const newsItem = document.createElement("article");
+        newsItem.className = "news-card";
 
-    addNewsItem(
-      "./img/hackuton.jpeg",
-      "",
-      "Won Second Prize at HacKUton",
-      "Developed Noonchi, an application for real-time crowd estimation, and received second prize at the Korea University hackathon.",
-      "August 2023"
-    );
-  </script>
-</body>
+        const preview = document.createElement("div");
+        preview.className = "news-card-media";
+        const img = document.createElement("img");
+        img.alt = title;
+        preview.appendChild(img);
+
+        const newsContent = document.createElement("div");
+        newsContent.className = "news-card-body";
+
+        const newsDate = document.createElement("p");
+        newsDate.className = "news-card-date";
+        newsDate.textContent = date;
+
+        const newsTitle = document.createElement("h2");
+        newsTitle.textContent = title;
+
+        const newsDescription = document.createElement("p");
+        newsDescription.className = "news-card-text";
+        newsDescription.textContent = description;
+
+        newsContent.appendChild(newsDate);
+        newsContent.appendChild(newsTitle);
+        newsContent.appendChild(newsDescription);
+
+        newsItem.appendChild(preview);
+        newsItem.appendChild(newsContent);
+        newsContainer.appendChild(newsItem);
+
+        imageExists(localPath, (exists) => {
+          img.src = exists ? localPath : imageLink;
+        });
+      }
+
+      addNewsItem(
+        "news-container",
+        "./img/SRA.png",
+        "",
+        "Joining Samsung Research America as an AI Research Intern",
+        "I will be staying in Mountain View this fall working on memory systems for AI agents",
+        "Fall 2026",
+        "https://lnkd.in/p/gpwSCMm8",
+      );
+
+      addNewsItem(
+        "news-container",
+        "./img/ACL.png",
+        "",
+        "Presented CLAG at ACL 2026 Findings",
+        "Presented 'CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents' at ACL 2026 Findings in San Diego, USA.",
+        "July 2026",
+      );
+
+      addNewsItem(
+        "news-container",
+        "./img/ICML.png",
+        "",
+        "Presented at ICML 2026 Workshop on Structured Data for Health",
+        "Presented 'Distilling Expert-level Planning for Real-world Diabetes Prescribing' at the ICML 2026 Workshop on Structured Data for Health in Seoul, Korea.",
+        "July 2026",
+      );
+
+      addNewsItem(
+        "undergraduate-news-container",
+        "./img/capstone.jpg",
+        "",
+        "Won First Prize at Korea University Capstone Design Competition",
+        "Participated as an AI engineer in NEWSQRAB, optimizing a RAG pipeline for an automated short-form video creation service.",
+        "July 2025",
+      );
+
+      addNewsItem(
+        "undergraduate-news-container",
+        "./img/next.jpeg",
+        "",
+        "Won Second Prize at Korea University NEXT Software Competition",
+        "Contributed as an AI engineer to NEWSQRAB, an automated short-form video creation service using AI.",
+        "June 2025",
+      );
+
+      addNewsItem(
+        "undergraduate-news-container",
+        "./img/award.png",
+        "",
+        "3rd Place Award in the Undergraduate Category at the 2024 KIISE Conference",
+        "Awarded for the paper 'Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning'.",
+        "February 2025",
+      );
+
+      addNewsItem(
+        "undergraduate-news-container",
+        "./img/poster.jpg",
+        "",
+        "Poster Presentation at Korean Institute of Communications and Information Sciences",
+        "Presented work on secure container design for permissioned blockchains.",
+        "June 2024",
+      );
+
+      addNewsItem(
+        "undergraduate-news-container",
+        "./img/blurting.jpeg",
+        "",
+        "Blurting ranked 73rd in the App Store Social Networking category",
+        "Participated in the development of Blurting, a college-student dating application, as frontend lead developer.",
+        "January 2024",
+      );
+
+      addNewsItem(
+        "undergraduate-news-container",
+        "./img/hackuton.jpeg",
+        "",
+        "Won Second Prize at HacKUton",
+        "Developed Noonchi, an application for real-time crowd estimation, and received second prize at the Korea University hackathon.",
+        "August 2023",
+      );
+    </script>
+  </body>
 </html>
