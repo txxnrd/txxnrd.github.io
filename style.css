@@ -929,8 +929,36 @@ img {
   width: 100%;
 }
 
-.scicon-hero-figure {
-  width: min(70%, 760px);
+.buzzy-hero-figure {
+  width: min(100%, 1080px);
+}
+
+.project-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.project-metric {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-strong);
+}
+
+.project-metric strong {
+  display: block;
+  color: var(--accent-strong);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.project-metric span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .project-hero-figure img,
@@ -1371,7 +1399,8 @@ main {
   }
 
   .method-grid,
-  .case-study-grid {
+  .case-study-grid,
+  .project-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1460,7 +1489,8 @@ main {
   }
 
   .method-grid,
-  .case-study-grid {
+  .case-study-grid,
+  .project-metrics {
     grid-template-columns: 1fr;
   }
 
