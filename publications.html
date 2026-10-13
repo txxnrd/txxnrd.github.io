@@ -12,7 +12,7 @@
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") === "night" ? "night" : "day";
     </script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css?v=20261013" />
     <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
@@ -80,14 +80,35 @@
       const publications = [
         {
           title:
+            "Learning How to Remember: Memory Modality Selection for GUI Agents",
+          authors:
+            "Taeyun Roh, Suhyeong Park, Gijin Kim, Wonjune Jang, Jaewoo Kang",
+          venue: "Manuscript",
+          venueClass: "manuscript",
+          year: 2026,
+          projectLink: "/switchmem/",
+          codeLink: "https://github.com/dmis-lab/SwitchMem",
+          status: "Manuscript",
+          figure: "/switchmem/assets/framework.png",
+          figureAlt: "SwitchMem framework for choosing text or visual memories for GUI agents",
+          figureWidth: 1650,
+          figureHeight: 780,
+        },
+        {
+          title:
             "BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA",
           authors:
             "Taeyun Roh, Suhyeong Park, Dongyoung Lee, Eunyeong Jo, Wonjune Jang, Junha Jung, Jaewoo Kang",
           venue: "arXiv preprint",
+          venueClass: "arxiv",
           year: 2026,
           pdfLink: "https://arxiv.org/abs/2603.28026",
           projectLink: "/buzzy/",
           status: "Preprint",
+          figure: "/img/publications/buzzy-framework.png",
+          figureAlt: "BUZZY framework for contrastive scoring of multimodal multiple-choice answers",
+          figureWidth: 1190,
+          figureHeight: 467,
         },
         {
           title:
@@ -95,10 +116,15 @@
           authors:
             "Junha Jung, Minbyul Jeong, Suhyeon Lim, Sungwook Jung, Jaehoon Yun, Taeyun Roh, Mujeen Sung, Jaewoo Kang",
           venue: "EMNLP 2026 Main",
+          venueClass: "emnlp",
           year: 2026,
           pdfLink: "https://arxiv.org/abs/2606.31825",
           projectLink: "https://jungjunha.github.io/MRPO-page/",
           status: "Accepted",
+          figure: "/img/publications/mrpo-overview.png",
+          figureAlt: "MRPO framework with step-aware rewards for medical multimodal reasoning",
+          figureWidth: 1170,
+          figureHeight: 665,
         },
         {
           title:
@@ -106,19 +132,29 @@
           authors:
             "Yein Park, Sihyeon Park, Taeyun Roh, Mujeen Sung, Jaehoon Yun, Sooyeon Lee, Sanghoon Lee, Jaewoo Kang",
           venue: "ICML 2026 Workshop SD4H",
+          venueClass: "icml",
           year: 2026,
           pdfLink: "https://openreview.net/forum?id=WZvLoCILdg",
           status: "Accepted",
+          figure: "/img/publications/diabetes-framework.png",
+          figureAlt: "Expert planning distillation, search-augmented reinforcement learning, and clinical inference workflow for diabetes prescribing",
+          figureWidth: 1310,
+          figureHeight: 690,
         },
         {
           title:
             "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
           authors: "Taeyun Roh, Wonjune Jang, Junha Jung, Jaewoo Kang",
-          venue: "ACL 2026 findings",
+          venue: "ACL 2026 Findings",
+          venueClass: "acl",
           year: 2026,
           pdfLink: "https://arxiv.org/abs/2603.15421",
           projectLink: "/CLAG/",
           status: "Published",
+          figure: "/img/clag-framework.png",
+          figureAlt: "CLAG framework for agent-driven clustering and adaptive memory organization",
+          figureWidth: 1800,
+          figureHeight: 900,
         },
       ];
 
@@ -129,18 +165,28 @@
           authors:
             "Taeyun Roh, Seungwoo Jung, Yeonho Yoo, Sunjae Park, Gyeongsik Yang, Chuck Yoo",
           venue: "KIISE",
+          venueClass: "kiise",
           year: 2024,
           pdfLink: "https://txxnrd.github.io/paper/splitfed.pdf",
           status: "Published",
+          figure: "/img/publications/splitfed-comparison.png",
+          figureAlt: "Comparison table of data and resource heterogeneity methods in split-federated learning",
+          figureWidth: 668,
+          figureHeight: 260,
         },
         {
           title: "Exploring the Secure Container for Permissioned Blockchains",
           authors:
             "Yunkyung Kang, Taeyun Roh, Junseok Lee, Wonmi Choi, Yeonho Yoo, Gyeongsik Yang, Chuck Yoo",
           venue: "KICS",
+          venueClass: "kics",
           year: 2024,
           pdfLink: "https://txxnrd.github.io/paper/sec-container.pdf",
           status: "Published",
+          figure: "/img/publications/secure-container.png",
+          figureAlt: "Architecture comparison of virtual machines, native containers, and Kata containers",
+          figureWidth: 860,
+          figureHeight: 270,
         },
       ];
 
@@ -159,6 +205,9 @@
           pub.projectLink
             ? `<a class="publication-link" href="${pub.projectLink}">Project Page</a>`
             : "",
+          pub.codeLink
+            ? `<a class="publication-link" href="${pub.codeLink}" target="_blank" rel="noreferrer">GitHub</a>`
+            : "",
         ]
           .filter(Boolean)
           .join("");
@@ -168,12 +217,18 @@
           <p class="publication-status">${pub.status}</p>
           <p class="publication-year">${pub.year}</p>
         </div>
-        <h2>${pub.title}</h2>
-        <p class="publication-authors">${highlightedAuthors}</p>
-        <div class="publication-meta">
-          <span>${pub.venue}</span>
+        <div class="publication-copy">
+          <h2>${pub.title}</h2>
+          <p class="publication-authors">${highlightedAuthors}</p>
+          <div class="publication-meta">
+            <span class="publication-venue venue-${pub.venueClass}">${pub.venue}</span>
+          </div>
+          ${publicationActions ? `<div class="publication-actions">${publicationActions}</div>` : ``}
         </div>
-        ${publicationActions ? `<div class="publication-actions">${publicationActions}</div>` : ``}
+        <a class="publication-figure" href="${pub.figure}" target="_blank" rel="noreferrer" aria-label="Enlarge figure: ${pub.title}">
+          <img src="${pub.figure}" alt="${pub.figureAlt}" width="${pub.figureWidth}" height="${pub.figureHeight}" loading="lazy" decoding="async" />
+          <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
+        </a>
       `;
 
         container.appendChild(item);

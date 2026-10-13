@@ -634,6 +634,7 @@ img {
 }
 
 .publication-header {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -651,6 +652,71 @@ img {
   align-items: center;
   gap: 10px;
   font-size: 0.98rem;
+}
+
+.publication-card {
+  grid-template-columns: minmax(0, 1fr) 280px;
+  column-gap: 28px;
+}
+
+.publication-copy {
+  min-width: 0;
+}
+
+.publication-venue {
+  display: inline-flex;
+  padding: 7px 12px;
+  border: 1px solid rgba(var(--venue-rgb), 0.22);
+  border-radius: 9px;
+  background: rgba(var(--venue-rgb), 0.09);
+  color: rgb(var(--venue-rgb));
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.venue-manuscript { --venue-rgb: 103, 78, 33; }
+.venue-arxiv { --venue-rgb: 105, 65, 153; }
+.venue-emnlp { --venue-rgb: 38, 84, 158; }
+.venue-icml { --venue-rgb: 39, 106, 61; }
+.venue-acl { --venue-rgb: 151, 65, 33; }
+.venue-kiise { --venue-rgb: 26, 107, 116; }
+.venue-kics { --venue-rgb: 155, 54, 99; }
+
+:root[data-theme="night"] .venue-manuscript { --venue-rgb: 231, 196, 123; }
+:root[data-theme="night"] .venue-arxiv { --venue-rgb: 199, 163, 241; }
+:root[data-theme="night"] .venue-emnlp { --venue-rgb: 144, 184, 247; }
+:root[data-theme="night"] .venue-icml { --venue-rgb: 144, 211, 161; }
+:root[data-theme="night"] .venue-acl { --venue-rgb: 244, 170, 133; }
+:root[data-theme="night"] .venue-kiise { --venue-rgb: 123, 207, 211; }
+:root[data-theme="night"] .venue-kics { --venue-rgb: 240, 156, 192; }
+
+.publication-figure {
+  display: grid;
+  gap: 10px;
+  align-self: center;
+  padding: 12px;
+  border: 1px solid rgba(72, 56, 35, 0.14);
+  border-radius: 14px;
+  background: #fff;
+  text-decoration: none;
+}
+
+.publication-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.publication-figure-caption {
+  color: #665f55;
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+.publication-figure:hover,
+.publication-figure:focus-visible {
+  border-color: var(--accent);
 }
 
 .publication-link {
@@ -1386,6 +1452,11 @@ main {
 }
 
 @media (max-width: 960px) {
+  .publication-card {
+    grid-template-columns: minmax(0, 1fr) 230px;
+    column-gap: 20px;
+  }
+
   .hero-card {
     grid-template-columns: 1fr;
   }
@@ -1454,6 +1525,15 @@ main {
 }
 
 @media (max-width: 720px) {
+  .publication-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .publication-figure {
+    width: min(100%, 320px);
+    justify-self: center;
+  }
+
   .page-shell {
     width: min(calc(100% - 20px), var(--content-width));
     padding-top: 16px;
