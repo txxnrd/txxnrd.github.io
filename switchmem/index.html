@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwitchMem: Learning How to Remember | GUI Agent Memory</title>
+    <meta name="description" content="SwitchMem learns to select textual or visual memory at each GUI interaction step, improving a frozen agent across AITW, LearnGUI, and MobileMiniWoB++." />
+    <meta name="keywords" content="SwitchMem, GUI agents, agent memory, memory modality selection, vision-language models, D-CoE" />
+    <link rel="canonical" href="https://txxnrd.github.io/switchmem/" />
+    <link rel="icon" type="image/svg+xml" href="/switchmem/assets/favicon.svg" />
+    <meta property="og:title" content="SwitchMem: Learning How to Remember" />
+    <meta property="og:description" content="Memory modality is a step-dependent decision. SwitchMem learns when a GUI agent should remember in text or images." />
+    <meta property="og:image" content="https://txxnrd.github.io/switchmem/assets/framework.png" />
+    <meta property="og:image:alt" content="SwitchMem's offline preference learning and step-wise memory routing framework." />
+    <meta property="og:url" content="https://txxnrd.github.io/switchmem/" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SwitchMem: Learning How to Remember" />
+    <meta name="twitter:description" content="Adaptive text and image memory selection for GUI agents." />
+    <meta name="twitter:image" content="https://txxnrd.github.io/switchmem/assets/framework.png" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("theme") === "night" ? "night" : "day";
+      } catch {
+        document.documentElement.dataset.theme = "day";
+      }
+    </script>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/switchmem/switchmem.css" />
+    <script defer src="/theme.js"></script>
+  </head>
+  <body class="sub-page project-page switchmem-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/index.html" class="site-logo">Taeyun Roh</a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/index.html">Home</a>
+            <a href="/news.html">News</a>
+            <a href="/publications.html">Publications</a>
+          </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to night theme" aria-pressed="false" title="Night mode">
+            <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="sub-main" id="main">
+        <section class="project-hero" aria-labelledby="project-title">
+          <div class="project-hero-copy">
+            <p class="eyebrow">SwitchMem &middot; GUI Agent Memory</p>
+            <h1 id="project-title">Learning How to Remember:<br />Memory Modality Selection for GUI Agents</h1>
+            <p class="project-authors">Anonymous ACL submission</p>
+            <p class="page-intro">
+              The same experience can help an agent differently when presented
+              as text or an image. <strong>SwitchMem</strong> learns to select
+              the memory modality that fits each interaction step, giving a
+              frozen GUI agent the right representation of its past experience.
+            </p>
+            <div class="hero-actions">
+              <button class="button button-primary project-action" type="button" disabled aria-disabled="true" title="arXiv link coming soon">
+                <span class="button-icon" aria-hidden="true">
+                  <svg class="button-icon-svg" viewBox="0 0 24 24">
+                    <path d="M7 3.5h7.3L19 8.2v12.3H7V3.5Zm7 0v5h5M10 14.7h6M10 17.5h4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+                  </svg>
+                </span>
+                <span>arXiv</span>
+              </button>
+              <a class="button button-secondary project-action" href="https://github.com/dmis-lab/SwitchMem" target="_blank" rel="noreferrer">
+                <span class="button-icon" aria-hidden="true">
+                  <svg class="button-icon-svg" viewBox="0 0 24 24">
+                    <path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.53.1.72-.23.72-.52v-1.82c-2.94.64-3.56-1.24-3.56-1.24-.48-1.21-1.17-1.53-1.17-1.53-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.62 2.46 1.15 3.06.88.09-.68.37-1.15.67-1.42-2.35-.27-4.81-1.17-4.81-5.22 0-1.15.41-2.08 1.08-2.81-.11-.27-.47-1.37.1-2.85 0 0 .88-.28 2.89 1.07a9.93 9.93 0 0 1 5.27 0c2-1.35 2.88-1.07 2.88-1.07.57 1.48.21 2.58.1 2.85.68.73 1.08 1.66 1.08 2.81 0 4.06-2.47 4.95-4.83 5.21.38.33.72.98.72 1.97v2.92c0 .29.19.63.73.52A10.5 10.5 0 0 0 12 1.5Z" />
+                  </svg>
+                </span>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+          <figure class="project-hero-figure switchmem-hero-figure">
+            <a href="/switchmem/assets/framework.png" target="_blank" rel="noreferrer" aria-label="Open the SwitchMem framework figure at full resolution">
+              <img src="/switchmem/assets/framework.png" alt="Offline training contrasts the actor's Text and Image hidden states to create a preference target. At inference, a shared pairwise MLP selects one memory modality for the frozen actor." width="1650" height="780" fetchpriority="high" />
+            </a>
+            <figcaption>Learn a preference signal offline. Select one memory modality at each step. <span>Figure 5 in the paper.</span></figcaption>
+          </figure>
+          <nav class="project-jump-links" aria-label="On this page">
+            <a href="#observation">Observation</a>
+            <a href="#method">Method</a>
+            <a href="#results">Results</a>
+            <a href="#analysis">Analysis</a>
+            <a href="#resources">Resources</a>
+          </nav>
+        </section>
+
+        <section class="project-section project-two-column" aria-labelledby="problem-title">
+          <div>
+            <p class="card-label">Problem</p>
+            <h2 id="problem-title">One memory modality cannot fit every step.</h2>
+          </div>
+          <div class="project-text">
+            <p>
+              GUI agents reuse demonstrations to navigate unfamiliar interfaces
+              and avoid repeated errors. Most memory systems commit to a fixed
+              representation: text, screenshots, or both together.
+            </p>
+            <p>
+              Text offers a compact semantic abstraction, while images preserve
+              layout and appearance. Their usefulness changes with the current
+              interface and the action the agent needs to take. SwitchMem treats
+              this choice as part of the interaction loop.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section" id="observation" aria-labelledby="observation-title">
+          <div class="project-section-heading">
+            <p class="card-label">Motivating Observation</p>
+            <h2 id="observation-title">Neither text nor images consistently dominate.</h2>
+            <p>
+              With the retrieved demonstration held fixed, Text and Image each
+              win on substantial subsets of interaction steps. A step-wise
+              oracle reveals the headroom left by a fixed memory policy.
+            </p>
+          </div>
+          <div class="observation-grid">
+            <article class="observation-card">
+              <h3>A nearly even split</h3>
+              <p class="observation-note">Share of non-tied steps by preferred modality.</p>
+              <div class="preference-row">
+                <strong>AITW</strong>
+                <div class="preference-bar" role="img" aria-label="AITW: Text wins on 48.0 percent, Image on 52.0 percent of non-tied steps.">
+                  <span class="text-share" style="--share: 48%">48.0%</span>
+                  <span class="image-share" style="--share: 52%">52.0%</span>
+                </div>
+              </div>
+              <div class="preference-row">
+                <strong>LearnGUI</strong>
+                <div class="preference-bar" role="img" aria-label="LearnGUI: Text wins on 47.7 percent, Image on 52.3 percent of non-tied steps.">
+                  <span class="text-share" style="--share: 47.7%">47.7%</span>
+                  <span class="image-share" style="--share: 52.3%">52.3%</span>
+                </div>
+              </div>
+              <p class="modality-legend"><span><i class="text-key" aria-hidden="true"></i> Text memory</span><span><i class="image-key" aria-hidden="true"></i> Image memory</span></p>
+              <p class="observation-source">Figure 2 in the paper.</p>
+            </article>
+            <article class="observation-card">
+              <h3>The cost of a fixed choice</h3>
+              <p class="observation-note">Action score (%), best fixed modality → step-wise oracle.</p>
+              <dl class="oracle-comparison">
+                <div><dt>AITW</dt><dd><span>49.3</span><span aria-hidden="true">→</span><strong>55.9</strong></dd></div>
+                <div><dt>LearnGUI</dt><dd><span>37.4</span><span aria-hidden="true">→</span><strong>43.4</strong></dd></div>
+              </dl>
+              <p class="observation-source">Figure 3 in the paper. The oracle uses ground-truth scores to choose between two generated actions; it is an analysis reference.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="project-section" id="method" aria-labelledby="method-title">
+          <div class="project-section-heading">
+            <p class="card-label">Method</p>
+            <h2 id="method-title">From hidden-state shifts to a memory router.</h2>
+            <p>
+              SwitchMem uses the actor's internal response to memory modality
+              as supervision. A lightweight pairwise router then predicts
+              this preference from the current GUI state and the retrieved
+              memory candidates.
+            </p>
+          </div>
+          <div class="method-grid">
+            <article class="method-card">
+              <span>01 &middot; Observe</span>
+              <h3>Directional CoE</h3>
+              <p>
+                Run the frozen actor with Text and Image versions of the same
+                retrieved demonstration. Keep the signed hidden-state shift
+                <strong>h<sup>I</sup> − h<sup>T</sup></strong> at the final prompt
+                token. Deeper layers expose a stronger modality-preference signal.
+              </p>
+            </article>
+            <article class="method-card">
+              <span>02 &middot; Learn</span>
+              <h3>Preference supervision</h3>
+              <p>
+                Standardize the final-layer shift, reduce it to 64 dimensions
+                with PCA, and fit a logistic probe on sampled action preferences.
+                Its continuous decision value becomes the target for training
+                a shared MLP scorer.
+              </p>
+            </article>
+            <article class="method-card">
+              <span>03 &middot; Select</span>
+              <h3>Step-wise routing</h3>
+              <p>
+                Score both memory candidates against the current-state
+                representation. Select Image when the score difference reaches
+                the calibrated threshold; otherwise select Text. Pass the
+                chosen memory to the frozen actor to generate its next action.
+              </p>
+            </article>
+          </div>
+          <div class="routing-rule">
+            <span class="card-label">Routing Rule</span>
+            <p><strong>r = q<sup>I</sup> − q<sup>T</sup></strong><span class="routing-divider" aria-hidden="true"></span><span><strong>r ≥ τ</strong>: Image memory &nbsp; / &nbsp; otherwise: Text memory</span></p>
+          </div>
+          <p class="section-note">
+            The main experiments use a frozen Qwen3.5-9B actor and
+            Qwen3-VL-Embedding-2B for retrieval and memory embeddings. Both
+            candidates represent the same top-1 retrieved demonstration.
+          </p>
+        </section>
+
+        <section class="project-section" id="results" aria-labelledby="results-title">
+          <div class="project-section-heading">
+            <p class="card-label">Main Results</p>
+            <h2 id="results-title">Strongest performance across three GUI benchmarks.</h2>
+            <p>
+              SwitchMem improves over every fixed memory condition and the
+              evaluated memory-augmentation baselines with the same frozen
+              Qwen3.5-9B actor.
+            </p>
+          </div>
+          <div class="project-metrics" role="list" aria-label="SwitchMem scores and gains over the strongest fixed memory condition">
+            <div class="project-metric" role="listitem"><strong>51.420<span class="metric-unit">%</span></strong><span>AITW action score</span><p class="metric-gain">+2.120 points over Image</p></div>
+            <div class="project-metric" role="listitem"><strong>38.131<span class="metric-unit">%</span></strong><span>LearnGUI action score</span><p class="metric-gain">+0.690 points over Image</p></div>
+            <div class="project-metric" role="listitem"><strong>63.043<span class="metric-unit">%</span></strong><span>MobileMiniWoB++ task success</span><p class="metric-gain">+2.173 points over Both</p></div>
+          </div>
+          <p class="table-caption-text" id="main-results-caption">Table 1 in the paper. All rows below use Qwen3.5-9B. Scores are percentages; higher is better.</p>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable main results table">
+            <table class="project-table compact-table" aria-describedby="main-results-caption">
+              <caption class="sr-only">Qwen3.5-9B performance on AITW, LearnGUI, and MobileMiniWoB++.</caption>
+              <thead><tr><th scope="col">Method</th><th scope="col">AITW</th><th scope="col">LearnGUI</th><th scope="col">MobileMiniWoB++</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">No memory</th><td>41.920</td><td>23.485</td><td>58.696</td></tr>
+                <tr><th scope="row">RAG-GUI</th><td>18.300</td><td>24.186</td><td>9.783</td></tr>
+                <tr><th scope="row">M3A</th><td>17.200</td><td>20.899</td><td>41.304</td></tr>
+                <tr><th scope="row">AppAgent</th><td>14.780</td><td>31.104</td><td>25.000</td></tr>
+                <tr><th scope="row">Text memory</th><td>48.760</td><td>35.638</td><td>53.261</td></tr>
+                <tr><th scope="row">Image memory</th><td>49.300</td><td>37.441</td><td>57.609</td></tr>
+                <tr><th scope="row">Both modalities</th><td>47.080</td><td>26.919</td><td>60.870</td></tr>
+                <tr><th scope="row">EchoTrail</th><td>45.900</td><td>27.286</td><td>55.435</td></tr>
+                <tr><th scope="row">AGMem</th><td>45.380</td><td>28.366</td><td>52.174</td></tr>
+                <tr class="is-ours"><th scope="row">SwitchMem (Ours)</th><td>51.420</td><td>38.131</td><td>63.043</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="section-note">
+            AITW and LearnGUI use benchmark-specific step-level action scores.
+            MobileMiniWoB++ measures closed-loop task success (58/92 tasks).
+            Its router weights are transferred from LearnGUI; the threshold is
+            calibrated without actions, rewards, or task-success labels.
+          </p>
+        </section>
+
+        <section class="project-section" aria-labelledby="routing-title">
+          <div class="project-section-heading">
+            <p class="card-label">Routing Behavior</p>
+            <h2 id="routing-title">The choice changes within a trajectory.</h2>
+            <p>
+              SwitchMem frequently uses both modalities over the course of a
+              task, while retaining a chosen modality for consecutive steps.
+              Its policy adapts to interface state rather than assigning one
+              modality to the entire task.
+            </p>
+          </div>
+          <p class="table-caption-text" id="routing-caption">Table 2 in the paper. Dual-modality trajectories use Text on some steps and Image on others.</p>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable routing behavior table">
+            <table class="project-table compact-table" aria-describedby="routing-caption">
+              <caption class="sr-only">Within-trajectory memory routing behavior.</caption>
+              <thead><tr><th scope="col">Benchmark</th><th scope="col">Dual-modality<br />trajectories (%)</th><th scope="col">Image-routed<br />steps (%)</th><th scope="col">Mean switches<br />per trajectory</th><th scope="col">Mean run<br />length (steps)</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">AITW</th><td>83.8</td><td>36.5</td><td>1.72</td><td>2.42</td></tr>
+                <tr><th scope="row">LearnGUI</th><td>90.8</td><td>81.3</td><td>1.79</td><td>4.95</td></tr>
+                <tr><th scope="row">MobileMiniWoB++</th><td>57.8</td><td>76.3</td><td>1.56</td><td>4.50</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="project-section" id="analysis" aria-labelledby="analysis-title">
+          <div class="project-section-heading">
+            <p class="card-label">Analysis</p>
+            <h2 id="analysis-title">Useful routing depends on which step gets which memory.</h2>
+            <p>
+              Actor-derived preference supervision outperforms simpler routing
+              targets. SwitchMem also beats ratio-matched random selection at
+              every evaluated intermediate Image-use rate on LearnGUI: gains
+              come from assigning modalities to appropriate steps.
+            </p>
+          </div>
+          <figure class="project-figure">
+            <a href="/switchmem/assets/routing-analysis.png" target="_blank" rel="noreferrer" aria-label="Open the routing ablation, modality budget, and latency analysis at full resolution">
+              <img src="/switchmem/assets/routing-analysis.png" alt="LearnGUI analysis: SwitchMem scores 38.131 versus 37.441 for Image memory, exceeds ratio-matched random routing, and attains the highest action score in the latency comparison." width="1527" height="483" loading="lazy" />
+            </a>
+            <figcaption>Routing supervision, modality budgets, and the latency–performance trade-off on LearnGUI. <span>Figure 7 in the paper.</span></figcaption>
+          </figure>
+          <div class="method-grid">
+            <article class="method-card"><span>UI Density</span><h3>Visually dense screens</h3><p>Image memory becomes more useful when fine-grained layouts contain dense UI elements. SwitchMem increases Image selection in these states.</p></article>
+            <article class="method-card"><span>Action Context</span><h3>Function-oriented actions</h3><p>The Image-over-Text utility gap grows for actions governing interface functionality, task status, or system navigation.</p></article>
+            <article class="method-card"><span>Trajectory Progress</span><h3>Evolving interfaces</h3><p>Image memory becomes more useful after the initial state, as interface changes introduce visual details that textual abstraction may lose.</p></article>
+          </div>
+          <p class="section-note">
+            At inference, SwitchMem obtains a current-state hidden representation
+            for routing and then generates an action with the selected memory.
+            It avoids evaluating both memory-conditioned action prompts online.
+            The latency comparison uses the same RTX PRO 6000 GPU for all methods.
+          </p>
+        </section>
+
+        <section class="project-section" aria-labelledby="generalization-title">
+          <div class="project-section-heading">
+            <p class="card-label">Generalization</p>
+            <h2 id="generalization-title">The routing formulation works with a GUI-specialized actor.</h2>
+            <p>
+              Applying the preference-construction and routing protocol to
+              UI-TARS-7B-SFT also produces the best scores across all three
+              benchmarks, exceeding its strongest fixed memory condition.
+            </p>
+          </div>
+          <p class="table-caption-text" id="generalization-caption">Table 3 in the paper. UI-TARS-7B-SFT scores (%).</p>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable UI-TARS generalization results table">
+            <table class="project-table compact-table" aria-describedby="generalization-caption">
+              <caption class="sr-only">SwitchMem with the UI-TARS-7B-SFT actor.</caption>
+              <thead><tr><th scope="col">Memory</th><th scope="col">AITW</th><th scope="col">LearnGUI</th><th scope="col">MobileMiniWoB++</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">No memory</th><td>29.980</td><td>25.705</td><td>23.913</td></tr>
+                <tr><th scope="row">Text</th><td>32.640</td><td>38.230</td><td>32.609</td></tr>
+                <tr><th scope="row">Image</th><td>30.440</td><td>40.997</td><td>33.696</td></tr>
+                <tr class="is-ours"><th scope="row">SwitchMem (Ours)</th><td>33.680</td><td>41.055</td><td>36.957</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="project-section project-two-column" aria-labelledby="takeaway-title">
+          <div>
+            <p class="card-label">Takeaway</p>
+            <h2 id="takeaway-title">How an agent remembers is part of how it acts.</h2>
+          </div>
+          <div class="project-text">
+            <p>
+              Retrieving a relevant experience is only part of the problem.
+              Choosing its representation matters too. Memory modality
+              preference varies across steps and is reflected in the actor's
+              internal representations.
+            </p>
+            <p>
+              SwitchMem turns that signal into a practical routing policy,
+              combining the complementary strengths of text and image memory
+              while providing a single memory modality for each action.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section project-two-column" id="resources" aria-labelledby="resources-title">
+          <div><p class="card-label">Resources</p><h2 id="resources-title">Follow the project.</h2></div>
+          <div class="project-text">
+            <p><strong>Learning How to Remember: Memory Modality Selection for GUI Agents</strong><br />Anonymous ACL submission.</p>
+            <div class="hero-actions">
+              <a class="button button-secondary" href="https://github.com/dmis-lab/SwitchMem" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="project-footer"><a href="#project-title">Back to top ↑</a><span>SwitchMem &middot; Learning How to Remember</span></footer>
+    </div>
+  </body>
+</html>
