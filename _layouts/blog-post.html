@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' | escape }}">
+  <head>
+    {% include blog-head.html %}
+  </head>
+  <body class="sub-page blog-page blog-post-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-shell">
+      {% include blog-header.html %}
+      <main class="sub-main post-main" id="main-content">
+        <a class="post-back-link" href="{{ '/blog.html' | relative_url }}"><span aria-hidden="true">←</span> All posts</a>
+        <article class="blog-post" aria-labelledby="post-title">
+          <header class="post-header">
+            <p class="eyebrow">Notes &amp; writing</p>
+            <h1 id="post-title">{{ page.title | escape }}</h1>
+            {% if page.description and page.description != '' %}<p class="post-description">{{ page.description | escape }}</p>{% endif %}
+            {% assign word_count = content | strip_html | number_of_words %}
+            {% assign reading_minutes = word_count | plus: 199 | divided_by: 200 %}
+            {% if reading_minutes < 1 %}{% assign reading_minutes = 1 %}{% endif %}
+            <div class="post-meta">
+              <span class="post-author">Taeyun Roh</span>
+              <time datetime="{{ page.date | date_to_xmlschema }}">{% if page.date_label %}{{ page.date_label | escape }}{% else %}{{ page.date | date: "%B %-d, %Y" }}{% endif %}</time>
+              <span>{{ reading_minutes }} min read</span>
+            </div>
+            {% if page.tags.size > 0 %}
+            <ul class="blog-tags" aria-label="Tags">
+              {% for tag in page.tags %}<li class="blog-tag">{{ tag | escape }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+          </header>
+
+          {% if page.cover and page.cover != '' %}
+          <figure class="post-cover"><img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title | escape }}" decoding="async" fetchpriority="high" /></figure>
+          {% endif %}
+
+          <div class="post-content">{{ content }}</div>
+        </article>
+
+        {% if page.previous or page.next %}
+        <nav class="post-pagination" aria-label="More posts">
+          {% if page.previous %}
+          <a class="post-adjacent post-previous" href="{{ page.previous.url | relative_url }}"><span>← Older note</span><strong>{{ page.previous.title | escape }}</strong></a>
+          {% endif %}
+          {% if page.next %}
+          <a class="post-adjacent post-next" href="{{ page.next.url | relative_url }}"><span>Newer note →</span><strong>{{ page.next.title | escape }}</strong></a>
+          {% endif %}
+        </nav>
+        {% endif %}
+
+        <section class="post-comments" id="comments-section" hidden aria-labelledby="comments-title">
+          <h2 id="comments-title">Discussion</h2>
+          <div id="post-comments"
+            data-post-id="{{ page.comment_id | default: page.slug | escape }}"
+            data-enabled="{{ site.comments.enabled }}"
+            data-repo="{{ site.comments.repo | escape }}"
+            data-repo-id="{{ site.comments.repo_id | escape }}"
+            data-category="{{ site.comments.category | escape }}"
+            data-category-id="{{ site.comments.category_id | escape }}"></div>
+        </section>
+      </main>
+      {% include blog-footer.html %}
+    </div>
+  </body>
+</html>

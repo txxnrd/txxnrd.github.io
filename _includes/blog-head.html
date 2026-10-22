@@ -1,0 +1,35 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ page.title | escape }} | Taeyun Roh</title>
+{% assign meta_description = page.description | default: page.excerpt | default: "Notes and writing by Taeyun Roh." | strip_html | normalize_whitespace | truncate: 180 %}
+<meta name="description" content="{{ meta_description | escape }}" />
+<meta name="author" content="Taeyun Roh" />
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
+<link rel="alternate" type="application/atom+xml" title="Taeyun Roh — Blog" href="{{ '/feed.xml' | relative_url }}" />
+<link rel="icon" type="image/png" href="{{ '/img/taeyun.png' | relative_url }}" />
+<meta property="og:site_name" content="Taeyun Roh" />
+<meta property="og:title" content="{{ page.title | escape }}" />
+<meta property="og:description" content="{{ meta_description | escape }}" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="og:type" content="{% if page.layout == 'blog-post' %}article{% else %}website{% endif %}" />
+{% if page.cover and page.cover != '' %}
+<meta property="og:image" content="{{ page.cover | absolute_url }}" />
+<meta property="og:image:alt" content="{{ page.cover_alt | default: page.title | escape }}" />
+<meta name="twitter:card" content="summary_large_image" />
+{% else %}
+<meta name="twitter:card" content="summary" />
+{% endif %}
+{% if page.layout == 'blog-post' %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />{% endif %}
+<script>
+  try {
+    document.documentElement.dataset.theme =
+      localStorage.getItem("theme") === "night" ? "night" : "day";
+  } catch {
+    document.documentElement.dataset.theme = "day";
+  }
+</script>
+<link rel="stylesheet" href="{{ '/style.css' | relative_url }}?v=20261022-blog" />
+<link rel="stylesheet" href="{{ '/blog.css' | relative_url }}?v=20261022" />
+<script defer src="{{ '/theme.js' | relative_url }}"></script>
+<script defer src="{{ '/blog.js' | relative_url }}?v=20261022"></script>
+{% if page.layout == 'blog-post' %}<script defer src="{{ '/comments.js' | relative_url }}?v=20261022"></script>{% endif %}

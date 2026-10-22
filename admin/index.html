@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>글쓰기 | Taeyun Roh</title>
+    <link rel="icon" type="image/png" href="/img/taeyun.png" />
+    <link rel="stylesheet" href="/style.css?v=20261022-blog" />
+    <link rel="stylesheet" href="/admin/admin.css?v=20261022" />
+    <script>
+      try { document.documentElement.dataset.theme = localStorage.getItem("theme") === "night" ? "night" : "day"; }
+      catch { document.documentElement.dataset.theme = "day"; }
+    </script>
+    <script defer src="/theme.js"></script>
+  </head>
+  <body class="sub-page writer-page">
+    <a class="skip-link" href="#main-content">본문으로 이동</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/index.html">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/index.html">Home</a>
+            <a href="/publications.html">Publications</a>
+            <a href="/news.html">News</a>
+            <a href="/blog.html">Blog</a>
+          </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
+        </div>
+      </header>
+      <main class="sub-main writer-main" id="main-content">
+        <section class="page-hero">
+          <p class="eyebrow">The writing desk</p>
+          <h1>생각을 글로.</h1>
+          <p class="page-intro">연구 노트, 실험에서 배운 점, 나누고 싶은 이야기.<br />글과 이미지를 올리고 블로그에 게시하세요.</p>
+          <div class="writer-actions">
+            <a class="button button-primary" href="https://app.pagescms.org/txxnrd/txxnrd.github.io/whynotwork/collection/posts/new" rel="noreferrer">GitHub로 로그인하고 글 쓰기 <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="https://app.pagescms.org/txxnrd/txxnrd.github.io/whynotwork/collection/posts" rel="noreferrer">기존 글 관리 <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="writer-service">글쓰기와 이미지 업로드는 <a href="https://pagescms.org/" rel="noreferrer">Pages CMS</a>에서 열립니다. 이 저장소에 쓰기 권한이 있는 계정만 글을 저장할 수 있습니다.</p>
+        </section>
+        <ol class="writer-steps" aria-label="게시 방법">
+          <li><span class="direction-number" aria-hidden="true">01</span><h2>작성하기</h2><p>제목과 본문을 입력하세요. 이미지 업로드, 링크, 목록과 코드 블록을 사용할 수 있습니다.</p></li>
+          <li><span class="direction-number" aria-hidden="true">02</span><h2>공개하고 저장하기</h2><p><strong>블로그에 공개</strong>를 켜고 <strong>Save</strong>를 누르세요. 저장한 글은 자동으로 GitHub에 반영됩니다.</p></li>
+          <li><span class="direction-number" aria-hidden="true">03</span><h2>게시된 글 확인하기</h2><p>사이트 갱신이 끝나면 글 목록에 나타납니다. <a href="/blog.html">블로그 보기 ↗</a>에서 확인하세요.</p></li>
+        </ol>
+        <aside class="writer-note">
+          <h2>저장하기 전에</h2>
+          <p>공개를 끈 글은 블로그에 표시되지 않지만, 원본은 공개 GitHub 저장소에 저장됩니다. 비공개 메모는 올리지 마세요.</p>
+          <p>처음 로그인할 때는 Pages CMS에 <strong>txxnrd.github.io</strong> 저장소를 연결해야 합니다. 게시 상태는 <a href="https://github.com/txxnrd/txxnrd.github.io/actions" rel="noreferrer">GitHub Actions</a>에서 확인할 수 있습니다.</p>
+        </aside>
+      </main>
+      <footer class="site-footer"><p>Taeyun Roh</p><a href="/blog.html">Back to blog <span aria-hidden="true">↗</span></a></footer>
+    </div>
+  </body>
+</html>

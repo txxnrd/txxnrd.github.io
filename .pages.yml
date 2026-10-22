@@ -1,0 +1,90 @@
+media:
+  input: assets/blog
+  output: /assets/blog
+  categories: [image]
+  extensions: [jpg, jpeg, png, webp, gif]
+  rename: safe
+
+settings:
+  content:
+    merge: true
+  commit:
+    templates:
+      create: "Add blog content: {path}"
+      update: "Update blog content: {path}"
+      delete: "Remove blog content: {path}"
+
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: create
+    operations:
+      create: true
+      rename: false
+      delete: true
+    view:
+      fields: [title, published, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 제목 / Title
+        type: string
+        required: true
+      - name: date
+        label: 날짜 / Date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: description
+        label: 한 줄 소개 / Description
+        type: text
+        description: 글 목록과 검색 결과에 표시됩니다.
+      - name: tags
+        label: 태그 / Tags
+        type: string
+        list: true
+      - name: cover
+        label: 대표 이미지 / Cover image
+        type: image
+      - name: cover_alt
+        label: 이미지 설명 / Image description
+        type: string
+        description: 대표 이미지의 내용을 설명해 주세요.
+      - name: lang
+        label: 언어 / Language
+        type: select
+        default: ko
+        options:
+          values:
+            - { name: ko, label: 한국어 }
+            - { name: en, label: English }
+      - name: published
+        label: 블로그에 공개 / Publish on site
+        type: boolean
+        default: false
+        description: 켜고 Save를 누르면 블로그에 게시됩니다. 꺼도 글 원본은 공개 GitHub 저장소에 저장됩니다.
+      - name: comment_id
+        label: Comment identifier
+        type: uuid
+        hidden: true
+        readonly: true
+        options:
+          editable: false
+          generate: false
+      - name: body
+        label: 본문 / Body
+        type: rich-text
+        required: true
+        options:
+          format: markdown

@@ -1,0 +1,14 @@
+<header class="site-header">
+  <a href="{{ '/index.html' | relative_url }}" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+  <div class="site-header-actions">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="{{ '/index.html' | relative_url }}">Home</a>
+      <a href="{{ '/publications.html' | relative_url }}">Publications</a>
+      <a href="{{ '/news.html' | relative_url }}">News</a>
+      <a href="{{ '/blog.html' | relative_url }}" class="is-active" aria-current="{% if page.layout == 'blog-post' %}location{% else %}page{% endif %}">Blog</a>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false" title="Switch to dark theme">
+      <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+    </button>
+  </div>
+</header>
