@@ -30,7 +30,8 @@ when its display date or title changes. Each post also has a generated
 Comments use giscus and GitHub Discussions. The `Comments` discussion category
 uses the Announcement format; visitors can reply through GitHub sign-in.
 
-To finish connecting comments:
+Pages CMS and giscus are connected to this repository. To reconnect comments
+after migrating the repository:
 
 1. Install the official giscus GitHub App for this repository only.
 2. Select this repository and the `Comments` category at https://giscus.app/.

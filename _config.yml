@@ -41,11 +41,11 @@ defaults:
       published: false
 
 comments:
-  enabled: false
+  enabled: true
   repo: txxnrd/txxnrd.github.io
-  repo_id: ""
+  repo_id: R_kgDOJrp_uA
   category: Comments
-  category_id: ""
+  category_id: DIC_kwDOJrp_uM4DJXZG
 
 exclude:
   - node_modules
