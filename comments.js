@@ -105,5 +105,5 @@
   }, { once: true });
 
   host.append(mount, fallback);
-  mount.appendChild(script);
+  host.appendChild(script);
 })();
