@@ -3,6 +3,7 @@
   <head>
     <title>CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents | Taeyun Roh</title>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/img/taeyun.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -44,30 +45,37 @@
     />
 
     <script>
-      document.documentElement.dataset.theme =
-        localStorage.getItem("theme") === "night" ? "night" : "day";
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("theme") === "night" ? "night" : "day";
+      } catch {
+        document.documentElement.dataset.theme = "day";
+      }
     </script>
 
-    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css?v=20261022-teal2" />
     <script defer src="/theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
-      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
-        fetchRemoteConfig: true,
-        autocapture: true,
-      });
-      amplitude.track("CLAG Project");
+      if (window.amplitude) {
+        window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+          fetchRemoteConfig: true,
+          autocapture: true,
+        });
+        window.amplitude.track("CLAG Project");
+      }
     </script>
   </head>
   <body class="sub-page project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a href="/index.html" class="site-logo">Taeyun Roh</a>
+        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
         <div class="site-header-actions">
           <nav class="site-nav" aria-label="Primary">
             <a href="/index.html">Home</a>
-            <a href="/news.html">News</a>
             <a href="/publications.html">Publications</a>
+            <a href="/news.html">News</a>
           </nav>
           <button
             class="theme-toggle"
@@ -82,7 +90,7 @@
         </div>
       </header>
 
-      <main class="sub-main">
+      <main class="sub-main" id="main-content">
         <section class="project-hero">
           <div class="project-hero-copy">
             <p class="eyebrow">Findings of ACL 2026</p>

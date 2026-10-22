@@ -1,54 +1,62 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <title>News | Taeyun Roh</title>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/img/taeyun.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Recent news and milestones from Taeyun Roh."
     />
     <script>
-      document.documentElement.dataset.theme =
-        localStorage.getItem("theme") === "night" ? "night" : "day";
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("theme") === "night" ? "night" : "day";
+      } catch {
+        document.documentElement.dataset.theme = "day";
+      }
     </script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css?v=20261022-teal2" />
     <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
-      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
-        fetchRemoteConfig: true,
-        autocapture: true,
-      });
-      amplitude.track("news");
+      if (window.amplitude) {
+        window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+          fetchRemoteConfig: true,
+          autocapture: true,
+        });
+        window.amplitude.track("news");
+      }
     </script>
   </head>
   <body class="sub-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a href="/index.html" class="site-logo">Taeyun Roh</a>
+        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
         <div class="site-header-actions">
           <nav class="site-nav" aria-label="Primary">
             <a href="/index.html">Home</a>
-            <a href="/news.html" class="is-active">News</a>
             <a href="/publications.html">Publications</a>
+            <a href="/news.html" class="is-active" aria-current="page">News</a>
           </nav>
           <button
             class="theme-toggle"
             type="button"
             data-theme-toggle
-            aria-label="밤 테마로 전환"
+            aria-label="Switch to dark theme"
             aria-pressed="false"
-            title="밤 모드"
+            title="Switch to dark theme"
           >
-            <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
           </button>
         </div>
       </header>
 
-      <main class="sub-main">
+      <main class="sub-main" id="main-content">
         <section class="page-hero">
-          <p class="eyebrow">Updates</p>
+          <p class="eyebrow">Research &amp; milestones</p>
           <h1>News</h1>
           <p class="page-intro">
             Recent milestones, awards, presentations, and project updates.
@@ -63,7 +71,7 @@
 
         <details class="news-archive">
           <summary>
-            <span>Undergraduate News</span>
+            <span>Earlier updates</span>
             <span class="news-archive-count">6 updates</span>
           </summary>
           <section
@@ -73,16 +81,13 @@
           ></section>
         </details>
       </main>
+      <footer class="site-footer">
+        <p>Taeyun Roh</p>
+        <p>AI agents · Memory · Visual reasoning</p>
+      </footer>
     </div>
 
     <script>
-      function imageExists(imageUrl, callback) {
-        const img = new Image();
-        img.onload = () => callback(true);
-        img.onerror = () => callback(false);
-        img.src = imageUrl;
-      }
-
       function addNewsItem(
         containerId,
         localPath,
@@ -100,7 +105,24 @@
         preview.className = "news-card-media";
         const img = document.createElement("img");
         img.alt = title;
-        preview.appendChild(img);
+        img.loading = "lazy";
+        img.decoding = "async";
+        let triedFallback = false;
+        img.addEventListener("error", () => {
+          if (imageLink && !triedFallback) {
+            triedFallback = true;
+            img.src = imageLink;
+          } else {
+            preview.remove();
+            newsItem.classList.add("news-card-without-image");
+          }
+        });
+        if (localPath || imageLink) {
+          img.src = localPath || imageLink;
+          preview.appendChild(img);
+        } else {
+          newsItem.classList.add("news-card-without-image");
+        }
 
         const newsContent = document.createElement("div");
         newsContent.className = "news-card-body";
@@ -119,14 +141,20 @@
         newsContent.appendChild(newsDate);
         newsContent.appendChild(newsTitle);
         newsContent.appendChild(newsDescription);
+        if (postLink) {
+          const sourceLink = document.createElement("a");
+          sourceLink.className = "text-link";
+          sourceLink.href = postLink;
+          sourceLink.target = "_blank";
+          sourceLink.rel = "noopener noreferrer";
+          sourceLink.textContent = "View announcement ↗";
+          sourceLink.setAttribute("aria-label", `View announcement: ${title}`);
+          newsContent.appendChild(sourceLink);
+        }
 
-        newsItem.appendChild(preview);
+        if (localPath || imageLink) newsItem.appendChild(preview);
         newsItem.appendChild(newsContent);
         newsContainer.appendChild(newsItem);
-
-        imageExists(localPath, (exists) => {
-          img.src = exists ? localPath : imageLink;
-        });
       }
 
       addNewsItem(
@@ -134,7 +162,7 @@
         "./img/SRA.png",
         "",
         "Joining Samsung Research America as an AI Research Intern",
-        "I will be staying in Mountain View this fall working on memory systems for AI agents",
+        "I will be staying in Mountain View this fall, working on memory systems for AI agents.",
         "Fall 2026",
         "https://lnkd.in/p/gpwSCMm8",
       );

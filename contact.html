@@ -1,81 +1,78 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Blog - txxnrd.github.io</title>
+    <title>Contact | Taeyun Roh</title>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/img/taeyun.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="description" content="Contact Taeyun Roh about AI agents, memory systems, and visually grounded reasoning." />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("theme") === "night" ? "night" : "day";
+      } catch {
+        document.documentElement.dataset.theme = "day";
+      }
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css?v=20261022-teal2" />
+    <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
-      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
-        fetchRemoteConfig: true,
-        autocapture: true,
-      });
-    </script>
-    <script>
-      amplitude.track("Contact");
+      if (window.amplitude) {
+        window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+          fetchRemoteConfig: true,
+          autocapture: true,
+        });
+        window.amplitude.track("Contact");
+      }
     </script>
   </head>
-  <body>
-    <header
-      class="header"
-      style="
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        background: #000;
-      "
-    >
-      <!-- 1) 왼쪽 끝: 로고 -->
-      <a href="/index.html" class="logo" style="color: #fff">
-        txxnrd.github.io
-      </a>
-
-      <!-- 2) 오른쪽 영역을 하나의 div로 감싸고, margin-left:auto; 로 우측 정렬 -->
-      <div
-        style="display: flex; align-items: center; margin-left: auto; gap: 10px"
-      >
-        <!-- 체크박스: 햄버거 메뉴 토글 -->
-        <input
-          class="menu-btn"
-          type="checkbox"
-          id="menu-btn"
-          style="display: none"
-        />
-
-        <!-- 언어 토글 버튼 -->
-        <!-- <button
-          id="langToggle"
-          style="background: none; border: none; cursor: pointer"
-        >
-          <img
-            id="langToggleImg"
-            src="img/world.png"
-            alt="Toggle Language"
-            style="width: 20px; height: 20px"
-          />
-        </button> -->
-
-        <!-- 햄버거 아이콘 (label) -->
-        <label class="menu-icon" for="menu-btn" style="cursor: pointer">
-          <span class="navicon"></span>
-        </label>
-
-        <!-- 실제 메뉴 -->
-        <ul class="menu" style="margin: 0; padding: 0; list-style: none">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/news.html">News</a></li>
-          <li><a href="/publications.html">Publications</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </header>
-    <main>
-      <div class="news-title">Contact</div>
-      <div class="blog-description">
-        Feel free to contact whenever you want by my email nrbsld@korea.ac.kr
-      </div>
-      <div id="blog-container"></div>
-    </main>
+  <body class="sub-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/index.html">Home</a>
+            <a href="/publications.html">Publications</a>
+            <a href="/news.html">News</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="Switch to dark theme"
+            aria-pressed="false"
+            title="Switch to dark theme"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+      <main class="sub-main" id="main-content">
+        <section class="page-hero">
+          <p class="eyebrow">Get in touch</p>
+          <h1>Contact</h1>
+          <p class="page-intro">
+            For research conversations and collaboration, reach me by email.
+          </p>
+          <a class="contact-email" href="mailto:nrbsld@korea.ac.kr">nrbsld@korea.ac.kr ↗</a>
+        </section>
+        <section aria-labelledby="elsewhere-title">
+          <p class="eyebrow" id="elsewhere-title">Elsewhere</p>
+          <div class="contact-links">
+            <a href="https://scholar.google.com/citations?user=eUIOjlEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+            <a href="https://github.com/txxnrd" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/taeyun-roh-018087233/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="CV.pdf">Curriculum vitae ↗</a>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <p>Taeyun Roh</p>
+        <p>AI agents · Memory · Visual reasoning</p>
+      </footer>
+    </div>
   </body>
 </html>

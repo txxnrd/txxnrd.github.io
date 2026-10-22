@@ -1,249 +1,253 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <title>Publications | Taeyun Roh</title>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/img/taeyun.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Publications and research manuscripts by Taeyun Roh."
-    />
+    <meta name="description" content="Publications and research manuscripts by Taeyun Roh." />
     <script>
-      document.documentElement.dataset.theme =
-        localStorage.getItem("theme") === "night" ? "night" : "day";
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("theme") === "night" ? "night" : "day";
+      } catch (_) {
+        document.documentElement.dataset.theme = "day";
+      }
     </script>
-    <link rel="stylesheet" type="text/css" href="style.css?v=20261013" />
+    <link rel="stylesheet" type="text/css" href="style.css?v=20261022-teal2" />
     <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
-      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
-        fetchRemoteConfig: true,
-        autocapture: true,
-      });
-      amplitude.track("Publication");
+      if (window.amplitude) {
+        window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+          fetchRemoteConfig: true,
+          autocapture: true,
+        });
+        amplitude.track("Publication");
+      }
     </script>
   </head>
-  <body class="sub-page">
+  <body class="sub-page publications-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a href="/index.html" class="site-logo">Taeyun Roh</a>
+        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
         <div class="site-header-actions">
           <nav class="site-nav" aria-label="Primary">
             <a href="/index.html">Home</a>
+            <a href="/publications.html" class="is-active" aria-current="page">Publications</a>
             <a href="/news.html">News</a>
-            <a href="/publications.html" class="is-active">Publications</a>
           </nav>
-          <button
-            class="theme-toggle"
-            type="button"
-            data-theme-toggle
-            aria-label="밤 테마로 전환"
-            aria-pressed="false"
-            title="밤 모드"
-          >
-            <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false" title="Switch to dark theme">
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
           </button>
         </div>
       </header>
 
-      <main class="sub-main">
+      <main class="sub-main" id="main-content">
         <section class="page-hero">
-          <p class="eyebrow">Research Output</p>
+          <p class="eyebrow">Research</p>
           <h1>Publications</h1>
-          <p class="page-intro">
-            Selected papers and manuscripts related to machine learning systems
-            and LLM-based agents.
-          </p>
+          <p class="page-intro">Papers on language agents, multimodal reasoning, and learning systems.</p>
         </section>
 
-        <section
-          class="stack-list"
-          id="publication-list"
-          aria-label="Publication list"
-        ></section>
+        <div class="publication-toolbar" hidden>
+          <div class="publication-filters" role="group" aria-label="Filter publications">
+            <button class="filter-button" type="button" data-publication-filter="all" aria-pressed="true" aria-controls="publication-list domestic-publications">All</button>
+            <button class="filter-button" type="button" data-publication-filter="published" aria-pressed="false" aria-label="Published and accepted papers" aria-controls="publication-list domestic-publications">Published</button>
+            <button class="filter-button" type="button" data-publication-filter="preprint" aria-pressed="false" aria-controls="publication-list domestic-publications">Preprints</button>
+          </div>
+          <p class="publication-count" role="status" aria-live="polite" aria-atomic="true">7 papers</p>
+        </div>
 
-        <details class="news-archive publication-archive">
+        <section class="stack-list publication-list" id="publication-list" aria-label="International publications and preprints">
+          <article class="publication-card" data-publication-type="preprint">
+            <a class="publication-figure" href="/switchmem/assets/framework.png" target="_blank" rel="noreferrer" aria-label="Enlarge figure: Learning How to Remember: Memory Modality Selection for GUI Agents">
+              <img src="/switchmem/assets/framework.png" alt="SwitchMem framework for choosing text or visual memories for GUI agents" width="1650" height="780" loading="lazy" decoding="async" />
+              <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
+            </a>
+            <div class="publication-copy">
+              <div class="publication-meta">
+                <span class="publication-venue venue-arxiv">arXiv preprint</span>
+                <span class="publication-status">Preprint</span>
+                <time class="publication-year" datetime="2026">2026</time>
+              </div>
+              <h2>Learning How to Remember: Memory Modality Selection for GUI Agents</h2>
+              <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Suhyeong Park, Gijin Kim, Wonjune Jang, Jaewoo Kang</p>
+              <div class="publication-actions">
+                <a class="publication-link" href="https://arxiv.org/abs/2610.17928" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+                <a class="publication-link" href="/switchmem/">Project <span aria-hidden="true">↗</span></a>
+                <a class="publication-link" href="https://github.com/dmis-lab/SwitchMem" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="publication-card" data-publication-type="preprint">
+            <a class="publication-figure" href="/img/publications/buzzy-framework.png" target="_blank" rel="noreferrer" aria-label="Enlarge figure: BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA">
+              <img src="/img/publications/buzzy-framework.png" alt="BUZZY framework for contrastive scoring of multimodal multiple-choice answers" width="1190" height="467" loading="lazy" decoding="async" />
+              <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
+            </a>
+            <div class="publication-copy">
+              <div class="publication-meta">
+                <span class="publication-venue venue-arxiv">arXiv preprint</span>
+                <span class="publication-status">Preprint</span>
+                <time class="publication-year" datetime="2026">2026</time>
+              </div>
+              <h2>BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</h2>
+              <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Suhyeong Park, Dongyoung Lee, Eunyeong Jo, Wonjune Jang, Junha Jung, Jaewoo Kang</p>
+              <div class="publication-actions">
+                <a class="publication-link" href="https://arxiv.org/abs/2603.28026" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+                <a class="publication-link" href="/buzzy/">Project <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="publication-card" data-publication-type="published">
+            <a class="publication-figure" href="/img/publications/mrpo-overview.png" target="_blank" rel="noreferrer" aria-label="Enlarge figure: Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning">
+              <img src="/img/publications/mrpo-overview.png" alt="MRPO framework with step-aware rewards for medical multimodal reasoning" width="1170" height="665" loading="lazy" decoding="async" />
+              <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
+            </a>
+            <div class="publication-copy">
+              <div class="publication-meta">
+                <span class="publication-venue venue-emnlp">EMNLP 2026 Main</span>
+                <span class="publication-status">Accepted</span>
+                <time class="publication-year" datetime="2026">2026</time>
+              </div>
+              <h2>Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</h2>
+              <p class="publication-authors">Junha Jung, Minbyul Jeong, Suhyeon Lim, Sungwook Jung, Jaehoon Yun, <strong class="author-highlight">Taeyun Roh</strong>, Mujeen Sung, Jaewoo Kang</p>
+              <div class="publication-actions">
+                <a class="publication-link" href="https://arxiv.org/abs/2606.31825" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+                <a class="publication-link" href="https://jungjunha.github.io/MRPO-page/">Project <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="publication-card" data-publication-type="published">
+            <a class="publication-figure" href="/img/publications/diabetes-framework.png" target="_blank" rel="noreferrer" aria-label="Enlarge figure: Distilling Expert-level Planning for Real-world Diabetes Prescribing">
+              <img src="/img/publications/diabetes-framework.png" alt="Expert planning distillation, search-augmented reinforcement learning, and clinical inference workflow for diabetes prescribing" width="1310" height="690" loading="lazy" decoding="async" />
+              <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
+            </a>
+            <div class="publication-copy">
+              <div class="publication-meta">
+                <span class="publication-venue venue-icml">ICML 2026 Workshop SD4H</span>
+                <span class="publication-status">Accepted</span>
+                <time class="publication-year" datetime="2026">2026</time>
+              </div>
+              <h2>Distilling Expert-level Planning for Real-world Diabetes Prescribing</h2>
+              <p class="publication-authors">Yein Park, Sihyeon Park, <strong class="author-highlight">Taeyun Roh</strong>, Mujeen Sung, Jaehoon Yun, Sooyeon Lee, Sanghoon Lee, Jaewoo Kang</p>
+              <div class="publication-actions">
+                <a class="publication-link" href="https://openreview.net/forum?id=WZvLoCILdg" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="publication-card" data-publication-type="published">
+            <a class="publication-figure" href="/img/clag-framework.png" target="_blank" rel="noreferrer" aria-label="Enlarge figure: CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents">
+              <img src="/img/clag-framework.png" alt="CLAG framework for agent-driven clustering and adaptive memory organization" width="1800" height="900" loading="lazy" decoding="async" />
+              <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
+            </a>
+            <div class="publication-copy">
+              <div class="publication-meta">
+                <span class="publication-venue venue-acl">ACL 2026 Findings</span>
+                <span class="publication-status">Published</span>
+                <time class="publication-year" datetime="2026">2026</time>
+              </div>
+              <h2>CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents</h2>
+              <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Wonjune Jang, Junha Jung, Jaewoo Kang</p>
+              <div class="publication-actions">
+                <a class="publication-link" href="https://arxiv.org/abs/2603.15421" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+                <a class="publication-link" href="/CLAG/">Project <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <details class="news-archive publication-archive" id="domestic-publications">
           <summary>
-            <span>Domestic</span>
-            <span class="news-archive-count">2 papers</span>
+            <span>Domestic publications</span>
+            <span class="news-archive-count">2 papers · 2024</span>
           </summary>
-          <section
-            class="stack-list"
-            id="domestic-publication-list"
-            aria-label="Domestic publication list"
-          ></section>
+          <section class="stack-list publication-list" id="domestic-publication-list" aria-label="Domestic publications">
+          <article class="publication-card" data-publication-type="published">
+            <a class="publication-figure" href="/img/publications/splitfed-comparison.png" target="_blank" rel="noreferrer" aria-label="Enlarge figure: Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning">
+              <img src="/img/publications/splitfed-comparison.png" alt="Comparison table of data and resource heterogeneity methods in split-federated learning" width="668" height="260" loading="lazy" decoding="async" />
+              <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
+            </a>
+            <div class="publication-copy">
+              <div class="publication-meta">
+                <span class="publication-venue venue-kiise">KIISE</span>
+                <span class="publication-status">Published</span>
+                <time class="publication-year" datetime="2024">2024</time>
+              </div>
+              <h2>Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning</h2>
+              <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Seungwoo Jung, Yeonho Yoo, Sunjae Park, Gyeongsik Yang, Chuck Yoo</p>
+              <div class="publication-actions">
+                <a class="publication-link" href="https://txxnrd.github.io/paper/splitfed.pdf" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="publication-card" data-publication-type="published">
+            <a class="publication-figure" href="/img/publications/secure-container.png" target="_blank" rel="noreferrer" aria-label="Enlarge figure: Exploring the Secure Container for Permissioned Blockchains">
+              <img src="/img/publications/secure-container.png" alt="Architecture comparison of virtual machines, native containers, and Kata containers" width="860" height="270" loading="lazy" decoding="async" />
+              <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
+            </a>
+            <div class="publication-copy">
+              <div class="publication-meta">
+                <span class="publication-venue venue-kics">KICS</span>
+                <span class="publication-status">Published</span>
+                <time class="publication-year" datetime="2024">2024</time>
+              </div>
+              <h2>Exploring the Secure Container for Permissioned Blockchains</h2>
+              <p class="publication-authors">Yunkyung Kang, <strong class="author-highlight">Taeyun Roh</strong>, Junseok Lee, Wonmi Choi, Yeonho Yoo, Gyeongsik Yang, Chuck Yoo</p>
+              <div class="publication-actions">
+                <a class="publication-link" href="https://txxnrd.github.io/paper/sec-container.pdf" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+          </section>
         </details>
       </main>
+
+      <footer class="site-footer">
+        <p>Taeyun Roh</p>
+        <a href="mailto:nrbsld@korea.ac.kr">Get in touch <span aria-hidden="true">↗</span></a>
+      </footer>
     </div>
 
     <script>
-      const publications = [
-        {
-          title:
-            "Learning How to Remember: Memory Modality Selection for GUI Agents",
-          authors:
-            "Taeyun Roh, Suhyeong Park, Gijin Kim, Wonjune Jang, Jaewoo Kang",
-          venue: "arXiv preprint",
-          venueClass: "arxiv",
-          year: 2026,
-          pdfLink: "https://arxiv.org/abs/2610.17928",
-          projectLink: "/switchmem/",
-          codeLink: "https://github.com/dmis-lab/SwitchMem",
-          status: "Preprint",
-          figure: "/switchmem/assets/framework.png",
-          figureAlt: "SwitchMem framework for choosing text or visual memories for GUI agents",
-          figureWidth: 1650,
-          figureHeight: 780,
-        },
-        {
-          title:
-            "BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA",
-          authors:
-            "Taeyun Roh, Suhyeong Park, Dongyoung Lee, Eunyeong Jo, Wonjune Jang, Junha Jung, Jaewoo Kang",
-          venue: "arXiv preprint",
-          venueClass: "arxiv",
-          year: 2026,
-          pdfLink: "https://arxiv.org/abs/2603.28026",
-          projectLink: "/buzzy/",
-          status: "Preprint",
-          figure: "/img/publications/buzzy-framework.png",
-          figureAlt: "BUZZY framework for contrastive scoring of multimodal multiple-choice answers",
-          figureWidth: 1190,
-          figureHeight: 467,
-        },
-        {
-          title:
-            "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning",
-          authors:
-            "Junha Jung, Minbyul Jeong, Suhyeon Lim, Sungwook Jung, Jaehoon Yun, Taeyun Roh, Mujeen Sung, Jaewoo Kang",
-          venue: "EMNLP 2026 Main",
-          venueClass: "emnlp",
-          year: 2026,
-          pdfLink: "https://arxiv.org/abs/2606.31825",
-          projectLink: "https://jungjunha.github.io/MRPO-page/",
-          status: "Accepted",
-          figure: "/img/publications/mrpo-overview.png",
-          figureAlt: "MRPO framework with step-aware rewards for medical multimodal reasoning",
-          figureWidth: 1170,
-          figureHeight: 665,
-        },
-        {
-          title:
-            "Distilling Expert-level Planning for Real-world Diabetes Prescribing",
-          authors:
-            "Yein Park, Sihyeon Park, Taeyun Roh, Mujeen Sung, Jaehoon Yun, Sooyeon Lee, Sanghoon Lee, Jaewoo Kang",
-          venue: "ICML 2026 Workshop SD4H",
-          venueClass: "icml",
-          year: 2026,
-          pdfLink: "https://openreview.net/forum?id=WZvLoCILdg",
-          status: "Accepted",
-          figure: "/img/publications/diabetes-framework.png",
-          figureAlt: "Expert planning distillation, search-augmented reinforcement learning, and clinical inference workflow for diabetes prescribing",
-          figureWidth: 1310,
-          figureHeight: 690,
-        },
-        {
-          title:
-            "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
-          authors: "Taeyun Roh, Wonjune Jang, Junha Jung, Jaewoo Kang",
-          venue: "ACL 2026 Findings",
-          venueClass: "acl",
-          year: 2026,
-          pdfLink: "https://arxiv.org/abs/2603.15421",
-          projectLink: "/CLAG/",
-          status: "Published",
-          figure: "/img/clag-framework.png",
-          figureAlt: "CLAG framework for agent-driven clustering and adaptive memory organization",
-          figureWidth: 1800,
-          figureHeight: 900,
-        },
-      ];
+      (() => {
+        const toolbar = document.querySelector(".publication-toolbar");
+        const buttons = [...toolbar.querySelectorAll("[data-publication-filter]")];
+        const papers = [...document.querySelectorAll("[data-publication-type]")];
+        const domestic = document.getElementById("domestic-publications");
+        const count = toolbar.querySelector(".publication-count");
+        let unfilteredDomesticOpen = domestic.open;
+        let currentFilter = "all";
 
-      const domesticPublications = [
-        {
-          title:
-            "Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning",
-          authors:
-            "Taeyun Roh, Seungwoo Jung, Yeonho Yoo, Sunjae Park, Gyeongsik Yang, Chuck Yoo",
-          venue: "KIISE",
-          venueClass: "kiise",
-          year: 2024,
-          pdfLink: "https://txxnrd.github.io/paper/splitfed.pdf",
-          status: "Published",
-          figure: "/img/publications/splitfed-comparison.png",
-          figureAlt: "Comparison table of data and resource heterogeneity methods in split-federated learning",
-          figureWidth: 668,
-          figureHeight: 260,
-        },
-        {
-          title: "Exploring the Secure Container for Permissioned Blockchains",
-          authors:
-            "Yunkyung Kang, Taeyun Roh, Junseok Lee, Wonmi Choi, Yeonho Yoo, Gyeongsik Yang, Chuck Yoo",
-          venue: "KICS",
-          venueClass: "kics",
-          year: 2024,
-          pdfLink: "https://txxnrd.github.io/paper/sec-container.pdf",
-          status: "Published",
-          figure: "/img/publications/secure-container.png",
-          figureAlt: "Architecture comparison of virtual machines, native containers, and Kata containers",
-          figureWidth: 860,
-          figureHeight: 270,
-        },
-      ];
+        function filterPublications(filter) {
+          if (currentFilter === "all") unfilteredDomesticOpen = domestic.open;
+          let visibleCount = 0;
+          papers.forEach((paper) => {
+            const visible = filter === "all" || paper.dataset.publicationType === filter;
+            paper.hidden = !visible;
+            if (visible) visibleCount += 1;
+          });
+          buttons.forEach((button) => {
+            button.setAttribute("aria-pressed", String(button.dataset.publicationFilter === filter));
+          });
+          domestic.hidden = ![...domestic.querySelectorAll("[data-publication-type]")].some((paper) => !paper.hidden);
+          domestic.open = filter === "published" || (filter === "all" && unfilteredDomesticOpen);
+          const label = filter === "published" ? "published or accepted papers" : filter === "preprint" ? "preprints" : "papers";
+          count.textContent = visibleCount + " " + label;
+          currentFilter = filter;
+        }
 
-      function renderPublication(pub, container) {
-        const item = document.createElement("article");
-        item.className = "publication-card";
-
-        const highlightedAuthors = pub.authors.replace(
-          /Taeyun Roh/g,
-          '<span class="author-highlight">Taeyun Roh</span>',
-        );
-        const publicationActions = [
-          pub.pdfLink
-            ? `<a class="publication-link" href="${pub.pdfLink}" target="_blank" rel="noreferrer">View Paper</a>`
-            : "",
-          pub.projectLink
-            ? `<a class="publication-link" href="${pub.projectLink}">Project Page</a>`
-            : "",
-          pub.codeLink
-            ? `<a class="publication-link" href="${pub.codeLink}" target="_blank" rel="noreferrer">GitHub</a>`
-            : "",
-        ]
-          .filter(Boolean)
-          .join("");
-
-        item.innerHTML = `
-        <div class="publication-header">
-          <p class="publication-status">${pub.status}</p>
-          <p class="publication-year">${pub.year}</p>
-        </div>
-        <div class="publication-copy">
-          <h2>${pub.title}</h2>
-          <p class="publication-authors">${highlightedAuthors}</p>
-          <div class="publication-meta">
-            <span class="publication-venue venue-${pub.venueClass}">${pub.venue}</span>
-          </div>
-          ${publicationActions ? `<div class="publication-actions">${publicationActions}</div>` : ``}
-        </div>
-        <a class="publication-figure" href="${pub.figure}" target="_blank" rel="noreferrer" aria-label="Enlarge figure: ${pub.title}">
-          <img src="${pub.figure}" alt="${pub.figureAlt}" width="${pub.figureWidth}" height="${pub.figureHeight}" loading="lazy" decoding="async" />
-          <span class="publication-figure-caption" aria-hidden="true">View figure ↗</span>
-        </a>
-      `;
-
-        container.appendChild(item);
-      }
-
-      const container = document.getElementById("publication-list");
-      const domesticContainer = document.getElementById(
-        "domestic-publication-list",
-      );
-
-      publications.forEach((pub) => renderPublication(pub, container));
-      domesticPublications.forEach((pub) =>
-        renderPublication(pub, domesticContainer),
-      );
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => filterPublications(button.dataset.publicationFilter));
+        });
+        toolbar.hidden = false;
+      })();
     </script>
   </body>
 </html>

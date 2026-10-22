@@ -1,88 +1,80 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Blog - txxnrd.github.io</title>
+    <title>Blog | Taeyun Roh</title>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/img/taeyun.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="description" content="Notes and writing by Taeyun Roh." />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("theme") === "night" ? "night" : "day";
+      } catch {
+        document.documentElement.dataset.theme = "day";
+      }
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css?v=20261022-teal2" />
+    <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
-      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
-        fetchRemoteConfig: true,
-        autocapture: true,
-      });
-    </script>
-    <script>
-      amplitude.track("Blog");
+      if (window.amplitude) {
+        window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+          fetchRemoteConfig: true,
+          autocapture: true,
+        });
+        window.amplitude.track("Blog");
+      }
     </script>
   </head>
-  <body>
-    <header class="header">
-      <a href="/index.html" class="logo">txxnrd.github.io</a>
-      <input class="menu-btn" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn"
-        ><span class="navicon"></span
-      ></label>
-      <ul class="menu">
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/news.html">News</a></li>
-        <li><a href="/blog.html">Blog</a></li>
-        <li><a href="/publications.html">Publications</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </header>
-    <main>
-      <div class="news-title">Blog</div>
-      <div class="blog-description">블로그 포스트를 확인해보세요!</div>
-      <div id="blog-container"></div>
-    </main>
-
-    <script src="postPage.js"></script>
-    <script>
-      function addBlogPost(title, summary, date, content) {
-        const blogContainer = document.getElementById("blog-container");
-
-        // 블로그 포스트 생성
-        const blogItem = document.createElement("div");
-        blogItem.className = "blog-item";
-
-        const blogTitle = document.createElement("h3");
-        blogTitle.textContent = title;
-
-        const blogSummary = document.createElement("p");
-        blogSummary.textContent = summary;
-
-        const blogDateContainer = document.createElement("div");
-        blogDateContainer.className = "blog-date-container";
-
-        const blogDate = document.createElement("small");
-        blogDate.textContent = date;
-
-        const arrowIcon = document.createElement("span");
-        arrowIcon.className = "arrow-icon";
-        arrowIcon.textContent = "\u2192";
-
-        // 블로그 포스트에 구성 요소 추가
-        blogItem.appendChild(blogTitle);
-        blogItem.appendChild(blogSummary);
-        blogItem.appendChild(blogDate);
-        blogDateContainer.appendChild(arrowIcon);
-        blogItem.appendChild(blogDateContainer);
-        blogContainer.appendChild(blogItem);
-
-        // 클릭 시 상세 페이지로 이동하는 기능 추가
-        blogItem.addEventListener("click", () => {
-          showBlogPost(title, summary, date, content);
-        });
-      }
-
-      // 블로그 포스트 추가
-      addBlogPost(
-        "Welcome to my website!",
-        "제 웹사이트에 오신 것을 환영합니다! 블로그 글은 차차 추가할 예정입니다.",
-        "2024-10",
-        "블로그 글 뭐 올릴까요? 추천해주세요!"
-      );
-    </script>
+  <body class="sub-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/index.html">Home</a>
+            <a href="/publications.html">Publications</a>
+            <a href="/news.html">News</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="Switch to dark theme"
+            aria-pressed="false"
+            title="Switch to dark theme"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+      <main class="sub-main" id="main-content">
+        <section class="page-hero">
+          <p class="eyebrow">Notes &amp; writing</p>
+          <h1>Blog</h1>
+          <p class="page-intro">
+            Notes from research and development.
+          </p>
+          <a class="text-link" href="https://taeng-develop.tistory.com" target="_blank" rel="noopener noreferrer">Visit my blog ↗</a>
+        </section>
+        <section id="blog-container" aria-label="Blog posts">
+          <article class="writing-entry">
+            <p class="news-card-date"><time datetime="2024-10">October 2024</time></p>
+            <h2>Welcome to my website!</h2>
+            <p lang="ko">제 웹사이트에 오신 것을 환영합니다! 블로그 글은 차차 추가할 예정입니다.</p>
+            <details class="writing-details">
+              <summary>Read note</summary>
+              <p lang="ko">블로그 글 뭐 올릴까요? 추천해주세요!</p>
+            </details>
+          </article>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <p>Taeyun Roh</p>
+        <p>AI agents · Memory · Visual reasoning</p>
+      </footer>
+    </div>
   </body>
 </html>

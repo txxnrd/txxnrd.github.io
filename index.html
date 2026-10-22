@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <title>Taeyun Roh | LLM Researcher</title>
     <meta charset="UTF-8" />
@@ -13,10 +13,10 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/jpeg" href="/img/taeyun.png" />
+    <link rel="icon" type="image/png" href="/img/taeyun.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/taeyun.png" />
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="/img/taeyun.png" />
-    <link rel="icon" type="image/jpeg" sizes="16x16" href="/img/taeyun.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/taeyun.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/taeyun.png" />
     <link rel="shortcut icon" href="/img/taeyun.png" />
 
     <meta
@@ -26,13 +26,10 @@
     <meta name="author" content="노태윤 (Taeyun Roh)" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://txxnrd.github.io/" />
-    <meta
-      name="naver-site-verification"
-      content="여기에_네이버_인증_코드_추가"
-    />
     <script>
-      document.documentElement.dataset.theme =
-        localStorage.getItem("theme") === "night" ? "night" : "day";
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("theme") === "night" ? "night" : "day";
+      } catch { document.documentElement.dataset.theme = "day"; }
     </script>
 
     <link rel="alternate" hreflang="ko" href="https://txxnrd.github.io/" />
@@ -105,259 +102,138 @@
       }
     </script>
 
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css?v=20261022-teal2" />
     <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
-      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+      window.amplitude?.init("aadb0be7966e3e2574b459f6db28be6f", {
         fetchRemoteConfig: true,
         autocapture: true,
       });
     </script>
   </head>
   <body class="home-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a href="/index.html" class="site-logo">Taeyun Roh</a>
+        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
         <div class="site-header-actions">
           <nav class="site-nav" aria-label="Primary">
-            <a href="/index.html" class="is-active">Home</a>
-            <a href="/news.html">News</a>
+            <a href="/index.html" class="is-active" aria-current="page">Home</a>
             <a href="/publications.html">Publications</a>
+            <a href="/news.html">News</a>
           </nav>
-          <button
-            class="theme-toggle"
-            type="button"
-            data-theme-toggle
-            aria-label="밤 테마로 전환"
-            aria-pressed="false"
-            title="밤 모드"
-          >
-            <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false" title="Switch to dark theme">
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
           </button>
         </div>
       </header>
 
-      <main class="home-main">
-        <section class="hero-card">
-          <div class="hero-copy">
-            <p class="eyebrow">LLM Researcher • AI Agents</p>
-            <h1 class="hero-title-compact">
-              ✋ Welcome to the Introduction Page of Taeyun Roh
-            </h1>
-            <p class="hero-text">
-              I am Taeyun Roh, an AI Research Intern at Samsung Research America
-              in Mountain View, California. I also conduct LLM research at Korea
-              University's
-              <a
-                href="https://dmis.korea.ac.kr/"
-                target="_blank"
-                rel="noreferrer"
-                >DMIS Lab</a
-              >
-              advised by
-              <a
-                href="https://dmis.korea.ac.kr/jaewoo-kang-p-i"
-                target="_blank"
-                rel="noreferrer"
-                >Prof. Jaewoo Kang</a
-              >. My research aims to develop AI agents that better understand
-              the world through effective memory organization and visually
-              grounded reasoning.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="CV.pdf">View CV</a>
-              <!-- <a
-                class="button button-secondary"
-                href="mailto:nrbsld@korea.ac.kr"
-                >Email Me</a
-              > -->
+      <main class="home-main" id="main-content">
+        <section class="profile-intro" aria-labelledby="profile-title">
+          <div class="intro-copy">
+            <p class="eyebrow">AI agents · Memory · Multimodal reasoning</p>
+            <div class="name-line">
+              <h1 id="profile-title">Taeyun Roh</h1>
+              <span class="korean-name" lang="ko">노태윤</span>
             </div>
-            <ul class="hero-metrics" aria-label="Profile summary">
-              <li>
-                <strong>Focus</strong>
-                <span>AI Agents</span>
-              </li>
-              <li>
-                <strong>Field</strong>
-                <span>Large Language Models</span>
-              </li>
-              <li>
-                <strong>Base</strong>
-                <span>Mountain View, CA</span>
-              </li>
-            </ul>
+            <p class="research-statement">Building agents that remember,<br class="desktop-break" /> reason, and act.</p>
+            <div class="intro-bio">
+              <p>I am an AI Research Intern at <strong>Samsung Research America</strong> in Mountain View, and a researcher at Korea University’s <a href="https://dmis.korea.ac.kr/" target="_blank" rel="noreferrer">DMIS Lab</a>, advised by <a href="https://dmis.korea.ac.kr/jaewoo-kang-p-i" target="_blank" rel="noreferrer">Prof. Jaewoo Kang</a>.</p>
+              <p>My research focuses on <strong>memory systems for AI agents</strong> and <strong>visually grounded reasoning</strong>. I study how agents can organize experience, recall the right evidence, and learn to make better decisions.</p>
+            </div>
+            <nav class="profile-links" aria-label="Academic and professional profiles">
+              <a href="CV.pdf" class="cv-link">Curriculum vitae <span aria-hidden="true">↗</span></a>
+              <a href="https://scholar.google.com/citations?user=eUIOjlEAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Scholar <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/txxnrd" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="https://www.linkedin.com/in/taeyun-roh-018087233/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a href="mailto:nrbsld@korea.ac.kr">Email <span aria-hidden="true">↗</span></a>
+            </nav>
           </div>
-
-          <aside class="profile-panel">
-            <img
-              class="profile-photo"
-              src="img/taeyun.png"
-              alt="Portrait of Taeyun Roh"
-              width="320"
-              height="320"
-            />
-            <div class="profile-meta">
-              <p class="profile-name">노태윤 · Taeyun Roh</p>
-              <p class="profile-role">LLM Researcher</p>
-              <p class="profile-contact">
-                <a href="mailto:nrbsld@korea.ac.kr">nrbsld@korea.ac.kr</a>
-              </p>
+          <aside class="profile-aside" aria-label="Portrait and affiliation">
+            <img class="profile-photo" src="img/taeyun.png" alt="Taeyun Roh at Korea University" width="1110" height="1042" fetchpriority="high" />
+            <div class="profile-caption">
+              <p>Samsung Research America</p>
+              <span>Mountain View, California</span>
+              <p>Korea University <span class="caption-dot" aria-hidden="true">·</span> DMIS Lab</p>
             </div>
           </aside>
         </section>
 
-        <section class="content-grid" aria-label="Introduction sections">
-          <article class="info-card info-card-wide research-interests">
-            <p class="card-label">Research Focus</p>
-            <div class="research-interests-intro">
-              <h2>Visual Memory Systems for AI Agents</h2>
-              <p>
-                I study AI agents that can organize useful memories, understand
-                visual evidence, and improve through post-training. These three
-                directions share one goal: building agents that remember what
-                matters and reason reliably before they act.
-              </p>
-            </div>
+        <section class="recent-news" aria-labelledby="recent-news-title">
+          <div class="section-side">
+            <h2 id="recent-news-title">Recently</h2>
+            <a class="text-link" href="/news.html">All updates <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul class="news-briefs">
+            <li><time datetime="2026-10">Oct 2026</time><p><a href="/switchmem/">SwitchMem</a> is out: learning when GUI agents should remember in text or images.</p></li>
+            <li><span class="news-brief-date">Fall 2026</span><p>Joined <strong>Samsung Research America</strong> to work on memory systems for AI agents.</p></li>
+            <li><time datetime="2026-07">Jul 2026</time><p>Presented <a href="/CLAG/">CLAG</a> at ACL 2026 Findings and our planning work at the ICML SD4H Workshop.</p></li>
+          </ul>
+        </section>
 
-            <div class="research-directions">
-              <section class="research-direction">
-                <p class="research-direction-label">01 · Memory Systems</p>
-                <h3>How can agents organize and reuse experience?</h3>
-                <p>
-                  <a href="/CLAG/">CLAG</a> (ACL 2026 Findings) augments AI
-                  agents with self-organizing memory, structuring past
-                  experiences for more focused retrieval and reuse.
-                </p>
-              </section>
+        <section class="selected-research" aria-labelledby="selected-title">
+          <div class="section-heading">
+            <div><p class="eyebrow">Selected work</p><h2 id="selected-title">Research</h2></div>
+            <a class="text-link" href="/publications.html">All publications <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="selected-work-list">
+            <article class="selected-work">
+              <a class="work-figure" href="/switchmem/" aria-label="SwitchMem project page"><img src="/switchmem/assets/framework.png" alt="SwitchMem learns to choose text or image memory for each GUI interaction step" width="1650" height="780" loading="lazy" /></a>
+              <div class="work-copy">
+                <p class="work-venue">Preprint <span>2026</span></p>
+                <h3><a href="/switchmem/">Learning How to Remember: Memory Modality Selection for GUI Agents</a></h3>
+                <p class="work-authors"><strong>Taeyun Roh</strong>, Suhyeong Park, Gijin Kim, Wonjune Jang, Jaewoo Kang</p>
+                <p class="work-description">Selecting the right memory representation for each step of a GUI agent’s interaction.</p>
+                <div class="work-links"><a href="https://arxiv.org/abs/2610.17928" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="/switchmem/">Project <span aria-hidden="true">↗</span></a><a href="https://github.com/dmis-lab/SwitchMem" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
+            <article class="selected-work">
+              <a class="work-figure" href="/CLAG/" aria-label="CLAG project page"><img src="/img/clag-framework.png" alt="CLAG organizes agent memories through adaptive clustering" width="1800" height="900" loading="lazy" /></a>
+              <div class="work-copy">
+                <p class="work-venue">ACL Findings <span>2026</span></p>
+                <h3><a href="/CLAG/">CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents</a></h3>
+                <p class="work-authors"><strong>Taeyun Roh</strong>, Wonjune Jang, Junha Jung, Jaewoo Kang</p>
+                <p class="work-description">Self-organizing memory that helps small language model agents retrieve and reuse experience.</p>
+                <div class="work-links"><a href="https://arxiv.org/abs/2603.15421" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="/CLAG/">Project <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
+            <article class="selected-work">
+              <a class="work-figure" href="/buzzy/" aria-label="BUZZY project page"><img src="/img/publications/buzzy-framework.png" alt="BUZZY contrasts multimodal and text-only scores to reduce text-induced bias" width="1190" height="467" loading="lazy" /></a>
+              <div class="work-copy">
+                <p class="work-venue">Preprint <span>2026</span></p>
+                <h3><a href="/buzzy/">BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</a></h3>
+                <p class="work-authors"><strong>Taeyun Roh</strong>, Suhyeong Park, Dongyoung Lee, Eunyeong Jo, Wonjune Jang, Junha Jung, Jaewoo Kang</p>
+                <p class="work-description">Grounding answers in visual evidence through training-free contrastive scoring.</p>
+                <div class="work-links"><a href="https://arxiv.org/abs/2603.28026" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="/buzzy/">Project <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
+            <article class="selected-work">
+              <a class="work-figure" href="https://jungjunha.github.io/MRPO-page/" target="_blank" rel="noreferrer" aria-label="Breaking Failure Cascades project page"><img src="/img/publications/mrpo-overview.png" alt="Step-aware rewards address cascading failures in medical multimodal reasoning" width="1170" height="665" loading="lazy" /></a>
+              <div class="work-copy">
+                <p class="work-venue">EMNLP Main <span>2026 · Accepted</span></p>
+                <h3><a href="https://jungjunha.github.io/MRPO-page/" target="_blank" rel="noreferrer">Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</a></h3>
+                <p class="work-authors">Junha Jung, Minbyul Jeong, Suhyeon Lim, Sungwook Jung, Jaehoon Yun, <strong>Taeyun Roh</strong>, Mujeen Sung, Jaewoo Kang</p>
+                <p class="work-description">Tailoring reinforcement learning to the steps where multimodal reasoning breaks down.</p>
+                <div class="work-links"><a href="https://arxiv.org/abs/2606.31825" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="https://jungjunha.github.io/MRPO-page/" target="_blank" rel="noreferrer">Project <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
+          </div>
+        </section>
 
-              <section class="research-direction">
-                <p class="research-direction-label">
-                  02 · Visual Understanding
-                </p>
-                <h3>How can agents reason from what they see?</h3>
-                <p>
-                  <a href="/buzzy/">BUZZY</a> (Preprint, 2026) uses contrastive
-                  scoring to suppress text-induced choice bias and ground
-                  answers in visual evidence without additional training.
-                  <a
-                    href="https://jungjunha.github.io/MRPO-page/"
-                    target="_blank"
-                    rel="noreferrer"
-                    >Breaking Failure Cascades</a
-                  >
-                  (EMNLP 2026 Main) extends this direction to medical multimodal
-                  reasoning.
-                </p>
-              </section>
-
-              <section class="research-direction">
-                <p class="research-direction-label">
-                  03 · Post-Training for Agents
-                </p>
-                <h3>How can agents learn to plan and use tools?</h3>
-                <p>
-                  <a
-                    href="https://openreview.net/forum?id=WZvLoCILdg"
-                    target="_blank"
-                    rel="noreferrer"
-                    >Distilling Expert-level Planning</a
-                  >
-                  (ICML Workshop 2026) uses reinforcement learning to improve
-                  tool use for real-world diabetes prescribing. In
-                  <a
-                    href="https://jungjunha.github.io/MRPO-page/"
-                    target="_blank"
-                    rel="noreferrer"
-                    >Breaking Failure Cascades</a
-                  >
-                  (EMNLP 2026 Main), step-aware reinforcement learning is
-                  tailored to multimodal reasoning failures.
-                </p>
-              </section>
-            </div>
-          </article>
-
-          <article class="info-card info-card-wide">
-            <p class="card-label">Connect</p>
-            <h2>Selected links</h2>
-            <div class="link-pills">
-              <a
-                href="https://github.com/txxnrd"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="link-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" class="link-icon-svg">
-                    <path
-                      d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.53.1.72-.23.72-.52v-1.82c-2.94.64-3.56-1.24-3.56-1.24-.48-1.21-1.17-1.53-1.17-1.53-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.62 2.46 1.15 3.06.88.09-.68.37-1.15.67-1.42-2.35-.27-4.81-1.17-4.81-5.22 0-1.15.41-2.08 1.08-2.81-.11-.27-.47-1.37.1-2.85 0 0 .88-.28 2.89 1.07a9.93 9.93 0 0 1 5.27 0c2-1.35 2.88-1.07 2.88-1.07.57 1.48.21 2.58.1 2.85.68.73 1.08 1.66 1.08 2.81 0 4.06-2.47 4.95-4.83 5.21.38.33.72.98.72 1.97v2.92c0 .29.19.63.73.52A10.5 10.5 0 0 0 12 1.5Z"
-                    />
-                  </svg>
-                </span>
-                <span>GitHub</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/taeyun-roh-018087233/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="link-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" class="link-icon-svg">
-                    <path
-                      d="M6.14 8.86A1.86 1.86 0 1 1 6.14 5.14a1.86 1.86 0 0 1 0 3.72Zm-1.6 1.56h3.2V20h-3.2v-9.58Zm5.2 0h3.06v1.31h.04c.43-.81 1.47-1.66 3.03-1.66 3.24 0 3.84 2.13 3.84 4.9V20h-3.2v-4.45c0-1.06-.02-2.42-1.48-2.42-1.48 0-1.71 1.16-1.71 2.35V20h-3.2v-9.58Z"
-                    />
-                  </svg>
-                </span>
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href="https://scholar.google.com/citations?user=eUIOjlEAAAAJ&hl=en"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="link-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" class="link-icon-svg">
-                    <path
-                      d="m12 3 9 5-9 5-9-5 9-5Zm-5.5 8.5V15c0 2.5 2.45 4.5 5.5 4.5s5.5-2 5.5-4.5v-3.5L12 14l-5.5-2.5Z"
-                    />
-                  </svg>
-                </span>
-                <span>Google Scholar</span>
-              </a>
-              <a
-                href="https://taeng-develop.tistory.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="link-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" class="link-icon-svg">
-                    <path
-                      d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Z"
-                    />
-                  </svg>
-                </span>
-                <span>Blog</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="info-card info-card-wide">
-            <p class="card-label">Overview</p>
-            <h2>Quick look at recent updates and research outputs</h2>
-            <p>
-              For a concise snapshot of ongoing work, check recent lab and
-              project updates in News, and browse full papers, preprints, and
-              publication records in Publications.
-            </p>
-            <div class="quick-actions">
-              <a class="button button-secondary" href="/publications.html"
-                >View Publications</a
-              >
-              <a class="button button-secondary" href="/news.html">View News</a>
-            </div>
-          </article>
+        <section class="research-agenda" aria-labelledby="agenda-title">
+          <div class="section-heading"><div><p class="eyebrow">Research directions</p><h2 id="agenda-title">From experience to action.</h2></div></div>
+          <div class="research-directions">
+            <article class="research-direction"><span class="direction-number">01</span><h3>Memory</h3><p>How should an agent organize experience and decide what to remember?</p><a class="text-link" href="/switchmem/">SwitchMem</a><span class="direction-divider"> / </span><a class="text-link" href="/CLAG/">CLAG</a></article>
+            <article class="research-direction"><span class="direction-number">02</span><h3>Visual reasoning</h3><p>How can an agent ground its decisions in what it actually sees?</p><a class="text-link" href="/buzzy/">BUZZY <span aria-hidden="true">↗</span></a></article>
+            <article class="research-direction"><span class="direction-number">03</span><h3>Learning to act</h3><p>How can post-training improve planning, tool use, and reliable reasoning?</p><a class="text-link" href="https://openreview.net/forum?id=WZvLoCILdg" target="_blank" rel="noreferrer">Expert-level planning <span aria-hidden="true">↗</span></a></article>
+          </div>
         </section>
       </main>
+      <footer class="site-footer">
+        <p>Taeyun Roh <span class="footer-separator">/</span> <span>AI agents · Memory · Visual reasoning</span></p>
+        <div class="footer-links"><a href="mailto:nrbsld@korea.ac.kr">Get in touch <span aria-hidden="true">↗</span></a><a href="https://taeng-develop.tistory.com" target="_blank" rel="noreferrer">Writing <span aria-hidden="true">↗</span></a></div>
+      </footer>
     </div>
   </body>
 </html>
