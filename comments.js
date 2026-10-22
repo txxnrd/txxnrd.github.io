@@ -60,7 +60,7 @@
     inputPosition: "top",
     theme: getTheme(),
     lang: "en",
-    loading: "lazy",
+    loading: "eager",
   });
 
   const getFrame = () => mount.querySelector("iframe.giscus-frame");
