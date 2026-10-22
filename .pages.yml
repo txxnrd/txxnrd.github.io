@@ -24,7 +24,8 @@ content:
     filename:
       # UUID filenames also work when the entire title is Korean.
       template: "{year}-{month}-{day}-{fields.comment_id}.md"
-      field: create
+      # Generate on Save, after the UUID field's default has initialized.
+      field: false
     operations:
       create: true
       rename: false
