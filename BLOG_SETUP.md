@@ -24,6 +24,9 @@ there is no scheduled publishing job.
 Filenames stay fixed after creation. `/blog/:path/` keeps a post's URL stable
 when its display date or title changes. Each post also has a generated
 `comment_id`; keep this value when editing so its comment thread remains linked.
+New filenames use this UUID so Korean-only titles cannot create empty or
+colliding slugs. Manually created posts should use a quoted `YYYY-MM-DD` date
+to match the editor's date format.
 
 ## Comments
 

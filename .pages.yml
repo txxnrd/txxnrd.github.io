@@ -22,7 +22,8 @@ content:
     format: yaml-frontmatter
     subfolders: false
     filename:
-      template: "{year}-{month}-{day}-{primary}.md"
+      # UUID filenames also work when the entire title is Korean.
+      template: "{year}-{month}-{day}-{fields.comment_id}.md"
       field: create
     operations:
       create: true
