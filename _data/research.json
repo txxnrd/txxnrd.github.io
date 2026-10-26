@@ -1,0 +1,340 @@
+[
+  {
+    "id": "switchmem",
+    "arxiv": "2610.17928",
+    "path": "/switchmem/",
+    "short_name": "SwitchMem",
+    "title": "Learning How to Remember: Memory Modality Selection for GUI Agents",
+    "authors": [
+      "Taeyun Roh",
+      "Suhyeong Park",
+      "Gijin Kim",
+      "Wonjune Jang",
+      "Jaewoo Kang"
+    ],
+    "citation_authors": [
+      "Roh, Taeyun",
+      "Park, Suhyeong",
+      "Kim, Gijin",
+      "Jang, Wonjune",
+      "Kang, Jaewoo"
+    ],
+    "date": "2026-10-13",
+    "updated": "2026-10-13",
+    "abstract": "Recent advances in vision-language models (VLMs) have substantially improved the capabilities of GUI agents, while memory augmentation has emerged as a promising approach for reusing knowledge from past interactions. However, existing memory augmented GUI agents typically adopt a fixed representation strategy, providing retrieved experience as a static modality. It remains unclear whether a single memory modality is consistently optimal, or how modality preference changes across interaction steps. In this work, we conduct a systematic study of memory modality in VLM based GUI agents. Across GUI benchmarks, we find that the preferred memory representation is strongly step dependent. Motivated by the finding, we introduce SwitchMem, a routing framework that dynamically selects between textual and visual memory representations at each step. Across three GUI benchmarks, SwitchMem outperforms memory augmented baselines that rely on static memory representations. Our findings validate our claim that memory modality is a step dependent decision rather than a fixed design choice. Code and project resources are available at https://txxnrd.github.io/switchmem",
+    "summary": "Text or image memory, selected for each GUI interaction step.",
+    "image": "/switchmem/assets/framework.png",
+    "keywords": [
+      "GUI agents",
+      "agent memory",
+      "memory modality selection"
+    ],
+    "source_url": "https://arxiv.org/abs/2610.17928",
+    "pdf_source": "https://arxiv.org/pdf/2610.17928",
+    "doi": "10.48550/arXiv.2610.17928",
+    "language": "en",
+    "venue": "arXiv preprint",
+    "status": "Preprint",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "local_pdf": "/paper/switchmem.pdf",
+    "code_url": "https://github.com/dmis-lab/SwitchMem"
+  },
+  {
+    "id": "buzzy",
+    "arxiv": "2603.28026",
+    "path": "/buzzy/",
+    "short_name": "BUZZY",
+    "title": "BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA",
+    "authors": [
+      "Taeyun Roh",
+      "Suhyeong Park",
+      "Dongyoung Lee",
+      "Wonjune Jang",
+      "Junha Jung",
+      "Eunyeong Jo",
+      "Jaewoo Kang"
+    ],
+    "citation_authors": [
+      "Roh, Taeyun",
+      "Park, Suhyeong",
+      "Lee, Dongyoung",
+      "Jang, Wonjune",
+      "Jung, Junha",
+      "Jo, Eunyeong",
+      "Kang, Jaewoo"
+    ],
+    "date": "2026-03-30",
+    "updated": "2026-09-04",
+    "abstract": "Multimodal multiple-choice question answering (MCQA) provides a standardized and objectively measurable setting for evaluating vision-language models (VLMs). However, because the MCQA format incorporates the candidate choices into the input context, it introduces several unintended biases. Previous work has primarily focused on structural biases, such as preferences for certain choices. Instead, we argue that the choices act as textual priors, causing models to favor linguistically plausible options regardless of the visual content. We hypothesize and empirically verify that a model genuinely relies on visual evidence only when its multimodal distribution significantly diverges from its text-only distribution. Based on this observation we propose BUZZY, a training-free decoding method that corrects multimodal predictions by subtracting the text-only distribution. Experiments with five VLMs on five multimodal MCQA benchmarks demonstrate that BUZZY achieves the highest average accuracy among state-of-the-art methods while reducing inference latency by over 28% compared to prior contrastive decoding approaches. Overall, these results suggest that amplifying the visual signal by penalizing text-only preferences is key to efficient and robust multimodal MCQA reasoning. Code and additional resources are provided https://txxnrd.github.io/buzzy/.",
+    "summary": "Training-free contrastive scoring reduces text-induced bias in multimodal multiple-choice QA.",
+    "image": "/img/publications/buzzy-framework.png",
+    "keywords": [
+      "multimodal reasoning",
+      "visual grounding",
+      "contrastive scoring"
+    ],
+    "source_url": "https://arxiv.org/abs/2603.28026",
+    "pdf_source": "https://arxiv.org/pdf/2603.28026",
+    "doi": "10.48550/arXiv.2603.28026",
+    "language": "en",
+    "venue": "arXiv preprint",
+    "status": "Preprint",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "local_pdf": "/paper/buzzy.pdf",
+    "code_url": "https://github.com/dmis-lab/Buzzy"
+  },
+  {
+    "id": "mrpo",
+    "arxiv": "2606.31825",
+    "path": "/research/mrpo/",
+    "short_name": "MRPO",
+    "title": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning",
+    "authors": [
+      "Junha Jung",
+      "Minbyul Jeong",
+      "Suhyeon Lim",
+      "Sungwook Jung",
+      "Jaehoon Yun",
+      "Taeyun Roh",
+      "Mujeen Sung",
+      "Jaewoo Kang"
+    ],
+    "citation_authors": [
+      "Jung, Junha",
+      "Jeong, Minbyul",
+      "Lim, Suhyeon",
+      "Jung, Sungwook",
+      "Yun, Jaehoon",
+      "Roh, Taeyun",
+      "Sung, Mujeen",
+      "Kang, Jaewoo"
+    ],
+    "date": "2026-06-30",
+    "updated": "2026-09-24",
+    "abstract": "Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cascading errors from early-stage reasoning failures are a leading cause of incorrect predictions in medical visual question answering (VQA) benchmarks. Motivated by this, we propose Medical Reasoning-aware Policy Optimization (MRPO), an RL algorithm that incorporates step-wise process rewards. When the final answer is incorrect, MRPO assigns exponentially larger penalties to tokens in earlier invalid reasoning steps, breaking failure cascades without compromising successful paths. Across four multimodal LLM backbones, MRPO consistently outperforms standard GRPO and a recent RL baseline, and on Qwen3-VL-8B-Thinking even surpasses substantially larger medical MLLMs such as HuatuoGPT-Vision-34B by 4.59 points. Moreover, MRPO reduces early-stage reasoning failures from 58.6% to 13.4%, showing that targeted mitigation of cascading failures improves both reasoning quality and final answer accuracy. Our code is available at https://github.com/dmis-lab/MRPO",
+    "summary": "Step-aware reinforcement learning reduces cascading errors in medical multimodal reasoning.",
+    "image": "/img/publications/mrpo-overview.png",
+    "keywords": [
+      "medical visual question answering",
+      "reinforcement learning",
+      "multimodal reasoning"
+    ],
+    "source_url": "https://arxiv.org/abs/2606.31825",
+    "pdf_source": "https://arxiv.org/pdf/2606.31825",
+    "doi": "10.48550/arXiv.2606.31825",
+    "language": "en",
+    "venue": "EMNLP 2026 Main",
+    "status": "Accepted",
+    "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "project_url": "https://jungjunha.github.io/MRPO-page/",
+    "code_url": "https://github.com/dmis-lab/MRPO"
+  },
+  {
+    "id": "bioasq14b",
+    "arxiv": "2607.06452",
+    "path": "/research/bioasq14b/",
+    "short_name": "BioASQ 14b",
+    "title": "From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b",
+    "authors": [
+      "Taeyun Roh",
+      "Eunha Lee",
+      "Wonjune Jang",
+      "Sohyun Chung",
+      "Junha Jung",
+      "Jaewoo Kang"
+    ],
+    "citation_authors": [
+      "Roh, Taeyun",
+      "Lee, Eunha",
+      "Jang, Wonjune",
+      "Chung, Sohyun",
+      "Jung, Junha",
+      "Kang, Jaewoo"
+    ],
+    "date": "2026-07-07",
+    "updated": "2026-07-07",
+    "abstract": "Biomedical question answering requires not only accurate extraction of information from scientific literature but also reliable integration of evidence across multiple documents. This study presents a question-type-specific large language model (LLM) framework for BioASQ 14b Task B, designed to improve answer robustness and evidence grounding in biomedical question answering. Rather than applying a single prompting strategy to all questions, the framework selects different inference procedures for yes/no, factoid, and list questions according to their distinct reasoning and evaluation requirements. For yes/no questions, snippet shuffling and self-reflection are used to reduce sensitivity to evidence ordering and improve decision stability. For factoid questions, full-snippet input is combined with chain-of-thought-based in-context learning to support accurate biomedical entity identification. For list questions, a multi-agent architecture is employed, in which evidence extraction, candidate generation, answer verification, and final aggregation are handled collaboratively. Preliminary experiments on BioASQ 13b were used to identify effective inference strategies for each question type, and the resulting framework was subsequently evaluated in the official BioASQ 14b Task B challenge. In the official evaluation, our framework showed competitive performance across multiple batches and achieved first place in the factoid subtask of Batch 4. These results demonstrate the effectiveness of combining question-type-specific inference, ensemble prediction, and agent-based verification for reliable biomedical question answering.",
+    "summary": "Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration.",
+    "image": "/img/taeyun.png",
+    "keywords": [
+      "biomedical question answering",
+      "LLM agents",
+      "evidence grounding"
+    ],
+    "source_url": "https://arxiv.org/abs/2607.06452",
+    "pdf_source": "https://arxiv.org/pdf/2607.06452",
+    "doi": "10.48550/arXiv.2607.06452",
+    "language": "en",
+    "venue": "arXiv preprint",
+    "status": "Preprint",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "local_pdf": "/paper/bioasq14b.pdf"
+  },
+  {
+    "id": "diabetes-planning",
+    "path": "/research/diabetes-planning/",
+    "short_name": "Expert-level planning",
+    "title": "Distilling Expert-level Planning for Real-world Diabetes Prescribing",
+    "authors": [
+      "Yein Park",
+      "Sihyeon Park",
+      "Taeyun Roh",
+      "Mujeen Sung",
+      "Jaehoon Yun",
+      "Sooyeon Lee",
+      "Sanghoon Lee",
+      "Jaewoo Kang"
+    ],
+    "citation_authors": [
+      "Park, Yein",
+      "Park, Sihyeon",
+      "Roh, Taeyun",
+      "Sung, Mujeen",
+      "Yun, Jaehoon",
+      "Lee, Sooyeon",
+      "Lee, Sanghoon",
+      "Kang, Jaewoo"
+    ],
+    "date": "2026",
+    "abstract": "Real-world prescribing is constrained not only by clinical appropriateness but also by reimbursement policy, prior treatment history, and patient preference, which remain under-modeled in exam-style medical QA training and evaluation. We present a practical framework for expert-usable clinical agents for diabetes prescribing that combines expert planning distillation—distilling an expert prescribing workflow from patient assessment and safety checks to candidate regimen selection and reimbursement verification—with dynamic search over guidelines, reimbursement criteria, drug information, and up-to-date references. To evaluate real-world prescribability, we construct an EMR-derived diabetes prescribing benchmark from 170 de-identified real-world patient cases and evaluate on 340 test instances with a clinician-aligned, reimbursement-aware rubric. On this benchmark, our expert planning distillation and dynamic search improve reimbursement-aware prescribing quality over general and biomedical baselines and approach the performance of frontier proprietary models.",
+    "summary": "Expert planning distillation and dynamic search for reimbursement-aware diabetes prescribing.",
+    "image": "/img/publications/diabetes-framework.png",
+    "keywords": [
+      "clinical agents",
+      "planning distillation",
+      "diabetes prescribing"
+    ],
+    "source_url": "https://openreview.net/forum?id=WZvLoCILdg",
+    "pdf_source": "https://openreview.net/pdf?id=WZvLoCILdg",
+    "language": "en",
+    "venue": "ICML 2026 Workshop on Structured Data for Health",
+    "status": "Accepted"
+  },
+  {
+    "id": "clag",
+    "arxiv": "2603.15421",
+    "path": "/CLAG/",
+    "short_name": "CLAG",
+    "title": "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
+    "authors": [
+      "Taeyun Roh",
+      "Wonjune Jang",
+      "Junha Jung",
+      "Jaewoo Kang"
+    ],
+    "citation_authors": [
+      "Roh, Taeyun",
+      "Jang, Wonjune",
+      "Jung, Junha",
+      "Kang, Jaewoo"
+    ],
+    "date": "2026-07",
+    "abstract": "Large language model agents heavily rely on external memory to support knowledge reuse and complex reasoning tasks. Yet most memory systems store experiences in a single global retrieval pool which can gradually dilute or corrupt stored knowledge. This problem is especially pronounced for small language models (SLMs), which are highly vulnerable to irrelevant context. We introduce CLAG, a CLustering-based AGentic memory framework where an SLM agent actively organizes memory by clustering. CLAG employs an SLM-driven router to assign incoming memories to semantically coherent clusters and autonomously generates cluster-specific profiles, including topic summaries and descriptive tags, to establish each cluster as a self-contained functional unit. By performing localized evolution within these structured neighborhoods, CLAG effectively reduces cross-topic interference and enhances internal memory density. During retrieval, the framework utilizes a two-stage process that first filters relevant clusters via their profiles, thereby excluding distractors and reducing the search space. Experiments on multiple QA datasets with three SLM backbones show that CLAG consistently improves answer quality and robustness over prior memory systems for agents, remaining lightweight and efficient.",
+    "summary": "Agent-driven clustering organizes memory for small language model agents.",
+    "image": "/img/clag-framework.png",
+    "keywords": [
+      "agent memory",
+      "small language models",
+      "memory organization"
+    ],
+    "source_url": "https://aclanthology.org/2026.findings-acl.824/",
+    "pdf_source": "https://arxiv.org/pdf/2603.15421",
+    "doi": "10.18653/v1/2026.findings-acl.824",
+    "language": "en",
+    "venue": "Findings of the Association for Computational Linguistics: ACL 2026",
+    "status": "Published",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "local_pdf": "/paper/clag.pdf",
+    "pages": [
+      "16707",
+      "16726"
+    ],
+    "code_url": "https://github.com/dmis-lab/CLAG"
+  },
+  {
+    "id": "split-federated-learning",
+    "path": "/research/split-federated-learning/",
+    "short_name": "Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning",
+    "title": "분할-연합학습의 데이터, 자원 이질성 극복을 위한 연구 동향 분석",
+    "english_title": "Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning",
+    "authors": [
+      "노태윤",
+      "정승우",
+      "유연호",
+      "박선재",
+      "양경식",
+      "유혁"
+    ],
+    "citation_authors": [
+      "노태윤",
+      "정승우",
+      "유연호",
+      "박선재",
+      "양경식",
+      "유혁"
+    ],
+    "abstract": "사물인터넷의 발전으로, 엣지 장치에서 생성된 데이터를 안전하게 인공지능 모델 학습에 활용하는 분할-연합학습이 주목받고 있다. 분할-연합학습은 데이터가 중앙 서버로 수집되지 않으므로 프라이버시 측면에서 유리하지만, 각 장치의 데이터 이질성과 자원 이질성으로 인해 학습 속도 저하와 자원 비효율성 문제가 발생한다. 이를 해결하기 위한 다양한 연구가 제안되어, 특정 상황에서의 문제를 해결할 수 있음을 보였다. 본 연구는 현재 시점까지 제안된 상기 기법들을 비교 분석하고, 최신 연구에서도 해결되지 않은 세 가지 주요 문제를 확인한다. 이를 기반으로 연구가 필요한 향후 과제를 제시한다.",
+    "date": "2024",
+    "summary": "A survey of data and resource heterogeneity in split-federated learning.",
+    "venue": "2024 한국소프트웨어종합학술대회 (KSC 2024)",
+    "status": "Published",
+    "pages": [
+      "1364",
+      "1366"
+    ],
+    "image": "/img/publications/splitfed-comparison.png",
+    "keywords": [
+      "split-federated learning",
+      "data heterogeneity",
+      "resource heterogeneity"
+    ],
+    "language": "ko",
+    "source_url": "https://txxnrd.github.io/paper/splitfed.pdf",
+    "pdf_source": "https://txxnrd.github.io/paper/splitfed.pdf",
+    "local_pdf": "/paper/splitfed.pdf"
+  },
+  {
+    "id": "secure-container",
+    "path": "/research/secure-container/",
+    "short_name": "Exploring the Secure Container for Permissioned Blockchains",
+    "title": "허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구",
+    "english_title": "Exploring the Secure Container for Permissioned Blockchains",
+    "authors": [
+      "강윤경",
+      "노태윤",
+      "이준석",
+      "최원미",
+      "유연호",
+      "양경식",
+      "유혁"
+    ],
+    "citation_authors": [
+      "강윤경",
+      "노태윤",
+      "이준석",
+      "최원미",
+      "유연호",
+      "양경식",
+      "유혁"
+    ],
+    "abstract": "허가형 블록체인은 허가된 특정 참여자만이 접근할 수 있도록 설계된 블록체인으로 의료, 금융 서비스 등 데이터의 무결성, 보안성이 중요한 비즈니스에서 널리 사용되고 있다. 허가형 블록체인은 참여자들의 신원을 서로 확인하고 요청받은 거래를 스마트 컨트랙트를 통해 검증함으로써 블록체인의 무결성을 보장한다. 대표적인 허가형 블록체인 플랫폼인 하이퍼레저 패브릭은 참여하는 노드들의 독립성을 보장하기 위해 각 노드들이 독립된 환경에서 스마트 컨트랙트를 실행하게 한다. 특히, 최신 하이퍼레저 패브릭에서는 빠른 배포와 높은 블록체인 성능을 보장하기 위해 각 노드를 도커 컨테이너로 배포한다. 그러나 도커 컨테이너 사용은 완전한 격리를 제공하지 못하는 한계가 있다. 본 논문에서는 블록체인 노드를 경량성과 격리성 모두 제공하는 보안 컨테이너로 사용하는 방안을 제안한다.",
+    "date": "2024",
+    "summary": "Secure containers combine isolation and lightweight deployment for permissioned blockchain nodes.",
+    "venue": "2024년도 한국통신학회 하계종합학술발표회",
+    "status": "Published",
+    "pages": [
+      "1853",
+      "1854"
+    ],
+    "image": "/img/publications/secure-container.png",
+    "keywords": [
+      "permissioned blockchains",
+      "secure containers",
+      "Hyperledger Fabric"
+    ],
+    "language": "ko",
+    "source_url": "https://txxnrd.github.io/paper/sec-container.pdf",
+    "pdf_source": "https://txxnrd.github.io/paper/sec-container.pdf",
+    "local_pdf": "/paper/sec-container.pdf"
+  }
+]

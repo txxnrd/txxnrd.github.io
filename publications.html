@@ -5,7 +5,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/img/taeyun.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Publications and research manuscripts by Taeyun Roh." />
+    <meta name="description" content="Papers by Taeyun Roh (노태윤) on AI agent memory, GUI agents, multimodal reasoning, biomedical QA, and clinical planning. Read abstracts, PDFs, and BibTeX." />
+    <link rel="canonical" href="https://txxnrd.github.io/publications.html" />
+    <meta name="author" content="Taeyun Roh" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Research Publications | Taeyun Roh (노태윤)" />
+    <meta property="og:description" content="AI agent memory, multimodal reasoning, biomedical QA, and clinical planning. Abstracts, papers, code, and citations." />
+    <meta property="og:url" content="https://txxnrd.github.io/publications.html" />
+    <meta property="og:image" content="https://txxnrd.github.io/img/taeyun.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Research Publications | Taeyun Roh" />
+    <meta name="twitter:description" content="AI agent memory, multimodal reasoning, and language model systems. Read papers and download citations." />
+    <meta name="twitter:image" content="https://txxnrd.github.io/img/taeyun.png" />
     <script>
       try {
         document.documentElement.dataset.theme =
@@ -14,7 +26,7 @@
         document.documentElement.dataset.theme = "day";
       }
     </script>
-    <link rel="stylesheet" type="text/css" href="style.css?v=20261022-blog" />
+    <link rel="stylesheet" type="text/css" href="style.css?v=20261025-research" />
     <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
@@ -26,15 +38,541 @@
         amplitude.track("Publication");
       }
     </script>
-  </head>
+  <!-- research:collection:start -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://txxnrd.github.io/publications.html#collection",
+  "url": "https://txxnrd.github.io/publications.html",
+  "name": "Publications by Taeyun Roh",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 8,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/switchmem/#article",
+          "name": "Learning How to Remember: Memory Modality Selection for GUI Agents",
+          "headline": "Learning How to Remember: Memory Modality Selection for GUI Agents",
+          "url": "https://txxnrd.github.io/switchmem/",
+          "mainEntityOfPage": "https://txxnrd.github.io/switchmem/",
+          "description": "Text or image memory, selected for each GUI interaction step.",
+          "abstract": "Recent advances in vision-language models (VLMs) have substantially improved the capabilities of GUI agents, while memory augmentation has emerged as a promising approach for reusing knowledge from past interactions. However, existing memory augmented GUI agents typically adopt a fixed representation strategy, providing retrieved experience as a static modality. It remains unclear whether a single memory modality is consistently optimal, or how modality preference changes across interaction steps. In this work, we conduct a systematic study of memory modality in VLM based GUI agents. Across GUI benchmarks, we find that the preferred memory representation is strongly step dependent. Motivated by the finding, we introduce SwitchMem, a routing framework that dynamically selects between textual and visual memory representations at each step. Across three GUI benchmarks, SwitchMem outperforms memory augmented baselines that rely on static memory representations. Our findings validate our claim that memory modality is a step dependent decision rather than a fixed design choice. Code and project resources are available at https://txxnrd.github.io/switchmem",
+          "inLanguage": "en",
+          "image": "https://txxnrd.github.io/switchmem/assets/framework.png",
+          "keywords": [
+            "GUI agents",
+            "agent memory",
+            "memory modality selection"
+          ],
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Taeyun Roh",
+              "@id": "https://txxnrd.github.io/#person",
+              "url": "https://txxnrd.github.io/"
+            },
+            {
+              "@type": "Person",
+              "name": "Suhyeong Park"
+            },
+            {
+              "@type": "Person",
+              "name": "Gijin Kim"
+            },
+            {
+              "@type": "Person",
+              "name": "Wonjune Jang"
+            },
+            {
+              "@type": "Person",
+              "name": "Jaewoo Kang"
+            }
+          ],
+          "sameAs": [
+            "https://arxiv.org/abs/2610.17928",
+            "https://doi.org/10.48550/arXiv.2610.17928"
+          ],
+          "datePublished": "2026-10-13",
+          "dateModified": "2026-10-13",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.48550/arXiv.2610.17928"
+          },
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "encoding": {
+            "@type": "MediaObject",
+            "encodingFormat": "application/pdf",
+            "contentUrl": "https://txxnrd.github.io/paper/switchmem.pdf"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/buzzy/#article",
+          "name": "BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA",
+          "headline": "BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA",
+          "url": "https://txxnrd.github.io/buzzy/",
+          "mainEntityOfPage": "https://txxnrd.github.io/buzzy/",
+          "description": "Training-free contrastive scoring reduces text-induced bias in multimodal multiple-choice QA.",
+          "abstract": "Multimodal multiple-choice question answering (MCQA) provides a standardized and objectively measurable setting for evaluating vision-language models (VLMs). However, because the MCQA format incorporates the candidate choices into the input context, it introduces several unintended biases. Previous work has primarily focused on structural biases, such as preferences for certain choices. Instead, we argue that the choices act as textual priors, causing models to favor linguistically plausible options regardless of the visual content. We hypothesize and empirically verify that a model genuinely relies on visual evidence only when its multimodal distribution significantly diverges from its text-only distribution. Based on this observation we propose BUZZY, a training-free decoding method that corrects multimodal predictions by subtracting the text-only distribution. Experiments with five VLMs on five multimodal MCQA benchmarks demonstrate that BUZZY achieves the highest average accuracy among state-of-the-art methods while reducing inference latency by over 28% compared to prior contrastive decoding approaches. Overall, these results suggest that amplifying the visual signal by penalizing text-only preferences is key to efficient and robust multimodal MCQA reasoning. Code and additional resources are provided https://txxnrd.github.io/buzzy/.",
+          "inLanguage": "en",
+          "image": "https://txxnrd.github.io/img/publications/buzzy-framework.png",
+          "keywords": [
+            "multimodal reasoning",
+            "visual grounding",
+            "contrastive scoring"
+          ],
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Taeyun Roh",
+              "@id": "https://txxnrd.github.io/#person",
+              "url": "https://txxnrd.github.io/"
+            },
+            {
+              "@type": "Person",
+              "name": "Suhyeong Park"
+            },
+            {
+              "@type": "Person",
+              "name": "Dongyoung Lee"
+            },
+            {
+              "@type": "Person",
+              "name": "Wonjune Jang"
+            },
+            {
+              "@type": "Person",
+              "name": "Junha Jung"
+            },
+            {
+              "@type": "Person",
+              "name": "Eunyeong Jo"
+            },
+            {
+              "@type": "Person",
+              "name": "Jaewoo Kang"
+            }
+          ],
+          "sameAs": [
+            "https://arxiv.org/abs/2603.28026",
+            "https://doi.org/10.48550/arXiv.2603.28026"
+          ],
+          "datePublished": "2026-03-30",
+          "dateModified": "2026-09-04",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.48550/arXiv.2603.28026"
+          },
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "encoding": {
+            "@type": "MediaObject",
+            "encodingFormat": "application/pdf",
+            "contentUrl": "https://txxnrd.github.io/paper/buzzy.pdf"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/mrpo/#article",
+          "name": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning",
+          "headline": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning",
+          "url": "https://txxnrd.github.io/research/mrpo/",
+          "mainEntityOfPage": "https://txxnrd.github.io/research/mrpo/",
+          "description": "Step-aware reinforcement learning reduces cascading errors in medical multimodal reasoning.",
+          "abstract": "Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cascading errors from early-stage reasoning failures are a leading cause of incorrect predictions in medical visual question answering (VQA) benchmarks. Motivated by this, we propose Medical Reasoning-aware Policy Optimization (MRPO), an RL algorithm that incorporates step-wise process rewards. When the final answer is incorrect, MRPO assigns exponentially larger penalties to tokens in earlier invalid reasoning steps, breaking failure cascades without compromising successful paths. Across four multimodal LLM backbones, MRPO consistently outperforms standard GRPO and a recent RL baseline, and on Qwen3-VL-8B-Thinking even surpasses substantially larger medical MLLMs such as HuatuoGPT-Vision-34B by 4.59 points. Moreover, MRPO reduces early-stage reasoning failures from 58.6% to 13.4%, showing that targeted mitigation of cascading failures improves both reasoning quality and final answer accuracy. Our code is available at https://github.com/dmis-lab/MRPO",
+          "inLanguage": "en",
+          "image": "https://txxnrd.github.io/img/publications/mrpo-overview.png",
+          "keywords": [
+            "medical visual question answering",
+            "reinforcement learning",
+            "multimodal reasoning"
+          ],
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Junha Jung"
+            },
+            {
+              "@type": "Person",
+              "name": "Minbyul Jeong"
+            },
+            {
+              "@type": "Person",
+              "name": "Suhyeon Lim"
+            },
+            {
+              "@type": "Person",
+              "name": "Sungwook Jung"
+            },
+            {
+              "@type": "Person",
+              "name": "Jaehoon Yun"
+            },
+            {
+              "@type": "Person",
+              "name": "Taeyun Roh",
+              "@id": "https://txxnrd.github.io/#person",
+              "url": "https://txxnrd.github.io/"
+            },
+            {
+              "@type": "Person",
+              "name": "Mujeen Sung"
+            },
+            {
+              "@type": "Person",
+              "name": "Jaewoo Kang"
+            }
+          ],
+          "sameAs": [
+            "https://arxiv.org/abs/2606.31825",
+            "https://doi.org/10.48550/arXiv.2606.31825"
+          ],
+          "datePublished": "2026-06-30",
+          "dateModified": "2026-09-24",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.48550/arXiv.2606.31825"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/bioasq14b/#article",
+          "name": "From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b",
+          "headline": "From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b",
+          "url": "https://txxnrd.github.io/research/bioasq14b/",
+          "mainEntityOfPage": "https://txxnrd.github.io/research/bioasq14b/",
+          "description": "Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration.",
+          "abstract": "Biomedical question answering requires not only accurate extraction of information from scientific literature but also reliable integration of evidence across multiple documents. This study presents a question-type-specific large language model (LLM) framework for BioASQ 14b Task B, designed to improve answer robustness and evidence grounding in biomedical question answering. Rather than applying a single prompting strategy to all questions, the framework selects different inference procedures for yes/no, factoid, and list questions according to their distinct reasoning and evaluation requirements. For yes/no questions, snippet shuffling and self-reflection are used to reduce sensitivity to evidence ordering and improve decision stability. For factoid questions, full-snippet input is combined with chain-of-thought-based in-context learning to support accurate biomedical entity identification. For list questions, a multi-agent architecture is employed, in which evidence extraction, candidate generation, answer verification, and final aggregation are handled collaboratively. Preliminary experiments on BioASQ 13b were used to identify effective inference strategies for each question type, and the resulting framework was subsequently evaluated in the official BioASQ 14b Task B challenge. In the official evaluation, our framework showed competitive performance across multiple batches and achieved first place in the factoid subtask of Batch 4. These results demonstrate the effectiveness of combining question-type-specific inference, ensemble prediction, and agent-based verification for reliable biomedical question answering.",
+          "inLanguage": "en",
+          "image": "https://txxnrd.github.io/img/taeyun.png",
+          "keywords": [
+            "biomedical question answering",
+            "LLM agents",
+            "evidence grounding"
+          ],
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Taeyun Roh",
+              "@id": "https://txxnrd.github.io/#person",
+              "url": "https://txxnrd.github.io/"
+            },
+            {
+              "@type": "Person",
+              "name": "Eunha Lee"
+            },
+            {
+              "@type": "Person",
+              "name": "Wonjune Jang"
+            },
+            {
+              "@type": "Person",
+              "name": "Sohyun Chung"
+            },
+            {
+              "@type": "Person",
+              "name": "Junha Jung"
+            },
+            {
+              "@type": "Person",
+              "name": "Jaewoo Kang"
+            }
+          ],
+          "sameAs": [
+            "https://arxiv.org/abs/2607.06452",
+            "https://doi.org/10.48550/arXiv.2607.06452"
+          ],
+          "datePublished": "2026-07-07",
+          "dateModified": "2026-07-07",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.48550/arXiv.2607.06452"
+          },
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "encoding": {
+            "@type": "MediaObject",
+            "encodingFormat": "application/pdf",
+            "contentUrl": "https://txxnrd.github.io/paper/bioasq14b.pdf"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/diabetes-planning/#article",
+          "name": "Distilling Expert-level Planning for Real-world Diabetes Prescribing",
+          "headline": "Distilling Expert-level Planning for Real-world Diabetes Prescribing",
+          "url": "https://txxnrd.github.io/research/diabetes-planning/",
+          "mainEntityOfPage": "https://txxnrd.github.io/research/diabetes-planning/",
+          "description": "Expert planning distillation and dynamic search for reimbursement-aware diabetes prescribing.",
+          "abstract": "Real-world prescribing is constrained not only by clinical appropriateness but also by reimbursement policy, prior treatment history, and patient preference, which remain under-modeled in exam-style medical QA training and evaluation. We present a practical framework for expert-usable clinical agents for diabetes prescribing that combines expert planning distillation—distilling an expert prescribing workflow from patient assessment and safety checks to candidate regimen selection and reimbursement verification—with dynamic search over guidelines, reimbursement criteria, drug information, and up-to-date references. To evaluate real-world prescribability, we construct an EMR-derived diabetes prescribing benchmark from 170 de-identified real-world patient cases and evaluate on 340 test instances with a clinician-aligned, reimbursement-aware rubric. On this benchmark, our expert planning distillation and dynamic search improve reimbursement-aware prescribing quality over general and biomedical baselines and approach the performance of frontier proprietary models.",
+          "inLanguage": "en",
+          "image": "https://txxnrd.github.io/img/publications/diabetes-framework.png",
+          "keywords": [
+            "clinical agents",
+            "planning distillation",
+            "diabetes prescribing"
+          ],
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Yein Park"
+            },
+            {
+              "@type": "Person",
+              "name": "Sihyeon Park"
+            },
+            {
+              "@type": "Person",
+              "name": "Taeyun Roh",
+              "@id": "https://txxnrd.github.io/#person",
+              "url": "https://txxnrd.github.io/"
+            },
+            {
+              "@type": "Person",
+              "name": "Mujeen Sung"
+            },
+            {
+              "@type": "Person",
+              "name": "Jaehoon Yun"
+            },
+            {
+              "@type": "Person",
+              "name": "Sooyeon Lee"
+            },
+            {
+              "@type": "Person",
+              "name": "Sanghoon Lee"
+            },
+            {
+              "@type": "Person",
+              "name": "Jaewoo Kang"
+            }
+          ],
+          "sameAs": [
+            "https://openreview.net/forum?id=WZvLoCILdg"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/CLAG/#article",
+          "name": "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
+          "headline": "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
+          "url": "https://txxnrd.github.io/CLAG/",
+          "mainEntityOfPage": "https://txxnrd.github.io/CLAG/",
+          "description": "Agent-driven clustering organizes memory for small language model agents.",
+          "abstract": "Large language model agents heavily rely on external memory to support knowledge reuse and complex reasoning tasks. Yet most memory systems store experiences in a single global retrieval pool which can gradually dilute or corrupt stored knowledge. This problem is especially pronounced for small language models (SLMs), which are highly vulnerable to irrelevant context. We introduce CLAG, a CLustering-based AGentic memory framework where an SLM agent actively organizes memory by clustering. CLAG employs an SLM-driven router to assign incoming memories to semantically coherent clusters and autonomously generates cluster-specific profiles, including topic summaries and descriptive tags, to establish each cluster as a self-contained functional unit. By performing localized evolution within these structured neighborhoods, CLAG effectively reduces cross-topic interference and enhances internal memory density. During retrieval, the framework utilizes a two-stage process that first filters relevant clusters via their profiles, thereby excluding distractors and reducing the search space. Experiments on multiple QA datasets with three SLM backbones show that CLAG consistently improves answer quality and robustness over prior memory systems for agents, remaining lightweight and efficient.",
+          "inLanguage": "en",
+          "image": "https://txxnrd.github.io/img/clag-framework.png",
+          "keywords": [
+            "agent memory",
+            "small language models",
+            "memory organization"
+          ],
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Taeyun Roh",
+              "@id": "https://txxnrd.github.io/#person",
+              "url": "https://txxnrd.github.io/"
+            },
+            {
+              "@type": "Person",
+              "name": "Wonjune Jang"
+            },
+            {
+              "@type": "Person",
+              "name": "Junha Jung"
+            },
+            {
+              "@type": "Person",
+              "name": "Jaewoo Kang"
+            }
+          ],
+          "sameAs": [
+            "https://aclanthology.org/2026.findings-acl.824/",
+            "https://doi.org/10.18653/v1/2026.findings-acl.824",
+            "https://arxiv.org/abs/2603.15421"
+          ],
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.18653/v1/2026.findings-acl.824"
+          },
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "encoding": {
+            "@type": "MediaObject",
+            "encodingFormat": "application/pdf",
+            "contentUrl": "https://txxnrd.github.io/paper/clag.pdf"
+          },
+          "pageStart": "16707",
+          "pageEnd": "16726"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/split-federated-learning/#article",
+          "name": "분할-연합학습의 데이터, 자원 이질성 극복을 위한 연구 동향 분석",
+          "headline": "분할-연합학습의 데이터, 자원 이질성 극복을 위한 연구 동향 분석",
+          "url": "https://txxnrd.github.io/research/split-federated-learning/",
+          "mainEntityOfPage": "https://txxnrd.github.io/research/split-federated-learning/",
+          "description": "A survey of data and resource heterogeneity in split-federated learning.",
+          "abstract": "사물인터넷의 발전으로, 엣지 장치에서 생성된 데이터를 안전하게 인공지능 모델 학습에 활용하는 분할-연합학습이 주목받고 있다. 분할-연합학습은 데이터가 중앙 서버로 수집되지 않으므로 프라이버시 측면에서 유리하지만, 각 장치의 데이터 이질성과 자원 이질성으로 인해 학습 속도 저하와 자원 비효율성 문제가 발생한다. 이를 해결하기 위한 다양한 연구가 제안되어, 특정 상황에서의 문제를 해결할 수 있음을 보였다. 본 연구는 현재 시점까지 제안된 상기 기법들을 비교 분석하고, 최신 연구에서도 해결되지 않은 세 가지 주요 문제를 확인한다. 이를 기반으로 연구가 필요한 향후 과제를 제시한다.",
+          "inLanguage": "ko",
+          "image": "https://txxnrd.github.io/img/publications/splitfed-comparison.png",
+          "keywords": [
+            "split-federated learning",
+            "data heterogeneity",
+            "resource heterogeneity"
+          ],
+          "author": [
+            {
+              "@type": "Person",
+              "name": "노태윤",
+              "@id": "https://txxnrd.github.io/#person",
+              "url": "https://txxnrd.github.io/"
+            },
+            {
+              "@type": "Person",
+              "name": "정승우"
+            },
+            {
+              "@type": "Person",
+              "name": "유연호"
+            },
+            {
+              "@type": "Person",
+              "name": "박선재"
+            },
+            {
+              "@type": "Person",
+              "name": "양경식"
+            },
+            {
+              "@type": "Person",
+              "name": "유혁"
+            }
+          ],
+          "sameAs": [
+            "https://txxnrd.github.io/paper/splitfed.pdf"
+          ],
+          "alternateName": "Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning",
+          "encoding": {
+            "@type": "MediaObject",
+            "encodingFormat": "application/pdf",
+            "contentUrl": "https://txxnrd.github.io/paper/splitfed.pdf"
+          },
+          "pageStart": "1364",
+          "pageEnd": "1366"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/secure-container/#article",
+          "name": "허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구",
+          "headline": "허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구",
+          "url": "https://txxnrd.github.io/research/secure-container/",
+          "mainEntityOfPage": "https://txxnrd.github.io/research/secure-container/",
+          "description": "Secure containers combine isolation and lightweight deployment for permissioned blockchain nodes.",
+          "abstract": "허가형 블록체인은 허가된 특정 참여자만이 접근할 수 있도록 설계된 블록체인으로 의료, 금융 서비스 등 데이터의 무결성, 보안성이 중요한 비즈니스에서 널리 사용되고 있다. 허가형 블록체인은 참여자들의 신원을 서로 확인하고 요청받은 거래를 스마트 컨트랙트를 통해 검증함으로써 블록체인의 무결성을 보장한다. 대표적인 허가형 블록체인 플랫폼인 하이퍼레저 패브릭은 참여하는 노드들의 독립성을 보장하기 위해 각 노드들이 독립된 환경에서 스마트 컨트랙트를 실행하게 한다. 특히, 최신 하이퍼레저 패브릭에서는 빠른 배포와 높은 블록체인 성능을 보장하기 위해 각 노드를 도커 컨테이너로 배포한다. 그러나 도커 컨테이너 사용은 완전한 격리를 제공하지 못하는 한계가 있다. 본 논문에서는 블록체인 노드를 경량성과 격리성 모두 제공하는 보안 컨테이너로 사용하는 방안을 제안한다.",
+          "inLanguage": "ko",
+          "image": "https://txxnrd.github.io/img/publications/secure-container.png",
+          "keywords": [
+            "permissioned blockchains",
+            "secure containers",
+            "Hyperledger Fabric"
+          ],
+          "author": [
+            {
+              "@type": "Person",
+              "name": "강윤경"
+            },
+            {
+              "@type": "Person",
+              "name": "노태윤",
+              "@id": "https://txxnrd.github.io/#person",
+              "url": "https://txxnrd.github.io/"
+            },
+            {
+              "@type": "Person",
+              "name": "이준석"
+            },
+            {
+              "@type": "Person",
+              "name": "최원미"
+            },
+            {
+              "@type": "Person",
+              "name": "유연호"
+            },
+            {
+              "@type": "Person",
+              "name": "양경식"
+            },
+            {
+              "@type": "Person",
+              "name": "유혁"
+            }
+          ],
+          "sameAs": [
+            "https://txxnrd.github.io/paper/sec-container.pdf"
+          ],
+          "alternateName": "Exploring the Secure Container for Permissioned Blockchains",
+          "encoding": {
+            "@type": "MediaObject",
+            "encodingFormat": "application/pdf",
+            "contentUrl": "https://txxnrd.github.io/paper/sec-container.pdf"
+          },
+          "pageStart": "1853",
+          "pageEnd": "1854"
+        }
+      }
+    ]
+  }
+}
+</script>
+<!-- research:collection:end -->
+</head>
   <body class="sub-page publications-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <a href="/" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
         <div class="site-header-actions">
           <nav class="site-nav" aria-label="Primary">
-            <a href="/index.html">Home</a>
+            <a href="/">Home</a>
             <a href="/publications.html" class="is-active" aria-current="page">Publications</a>
             <a href="/news.html">News</a>
             <a href="/blog.html">Blog</a>
@@ -49,7 +587,8 @@
         <section class="page-hero">
           <p class="eyebrow">Research</p>
           <h1>Publications</h1>
-          <p class="page-intro">Papers on language agents, multimodal reasoning, and learning systems.</p>
+          <p class="page-intro">Papers on language agents, multimodal reasoning, and learning systems by Taeyun Roh (노태윤).</p>
+          <nav class="publication-downloads" aria-label="Publication resources"><a href="/publications.bib" download>Download all BibTeX ↗</a><a href="https://scholar.google.com/citations?user=eUIOjlEAAAAJ&amp;hl=en">Google Scholar ↗</a></nav>
         </section>
 
         <div class="publication-toolbar" hidden>
@@ -58,7 +597,7 @@
             <button class="filter-button" type="button" data-publication-filter="published" aria-pressed="false" aria-label="Published and accepted papers" aria-controls="publication-list domestic-publications">Published</button>
             <button class="filter-button" type="button" data-publication-filter="preprint" aria-pressed="false" aria-controls="publication-list domestic-publications">Preprints</button>
           </div>
-          <p class="publication-count" role="status" aria-live="polite" aria-atomic="true">7 papers</p>
+          <p class="publication-count" role="status" aria-live="polite" aria-atomic="true">8 papers</p>
         </div>
 
         <section class="stack-list publication-list" id="publication-list" aria-label="International publications and preprints">
@@ -73,9 +612,12 @@
                 <span class="publication-status">Preprint</span>
                 <time class="publication-year" datetime="2026">2026</time>
               </div>
-              <h2>Learning How to Remember: Memory Modality Selection for GUI Agents</h2>
+              <h2><a href="/switchmem/">Learning How to Remember: Memory Modality Selection for GUI Agents</a></h2>
               <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Suhyeong Park, Gijin Kim, Wonjune Jang, Jaewoo Kang</p>
+              <p class="publication-summary">Text or image memory, selected for each GUI interaction step.</p>
               <div class="publication-actions">
+                <a class="publication-link" href="/switchmem/#abstract">Abstract ↗</a>
+                <a class="publication-link" href="/citations/switchmem.bib" download>BibTeX ↗</a>
                 <a class="publication-link" href="https://arxiv.org/abs/2610.17928" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
                 <a class="publication-link" href="/switchmem/">Project <span aria-hidden="true">↗</span></a>
                 <a class="publication-link" href="https://github.com/dmis-lab/SwitchMem" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a>
@@ -94,9 +636,12 @@
                 <span class="publication-status">Preprint</span>
                 <time class="publication-year" datetime="2026">2026</time>
               </div>
-              <h2>BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</h2>
-              <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Suhyeong Park, Dongyoung Lee, Eunyeong Jo, Wonjune Jang, Junha Jung, Jaewoo Kang</p>
+              <h2><a href="/buzzy/">BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</a></h2>
+              <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Suhyeong Park, Dongyoung Lee, Wonjune Jang, Junha Jung, Eunyeong Jo, Jaewoo Kang</p>
+              <p class="publication-summary">Training-free contrastive scoring reduces text-induced bias in multimodal multiple-choice QA.</p>
               <div class="publication-actions">
+                <a class="publication-link" href="/buzzy/#abstract">Abstract ↗</a>
+                <a class="publication-link" href="/citations/buzzy.bib" download>BibTeX ↗</a>
                 <a class="publication-link" href="https://arxiv.org/abs/2603.28026" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
                 <a class="publication-link" href="/buzzy/">Project <span aria-hidden="true">↗</span></a>
               </div>
@@ -114,12 +659,25 @@
                 <span class="publication-status">Accepted</span>
                 <time class="publication-year" datetime="2026">2026</time>
               </div>
-              <h2>Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</h2>
+              <h2><a href="/research/mrpo/">Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</a></h2>
               <p class="publication-authors">Junha Jung, Minbyul Jeong, Suhyeon Lim, Sungwook Jung, Jaehoon Yun, <strong class="author-highlight">Taeyun Roh</strong>, Mujeen Sung, Jaewoo Kang</p>
+              <p class="publication-summary">Step-aware reinforcement learning reduces cascading errors in medical multimodal reasoning.</p>
               <div class="publication-actions">
+                <a class="publication-link" href="/research/mrpo/#abstract">Abstract ↗</a>
+                <a class="publication-link" href="/citations/mrpo.bib" download>BibTeX ↗</a>
                 <a class="publication-link" href="https://arxiv.org/abs/2606.31825" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
                 <a class="publication-link" href="https://jungjunha.github.io/MRPO-page/">Project <span aria-hidden="true">↗</span></a>
               </div>
+            </div>
+          </article>
+
+          <article class="publication-card" data-publication-type="preprint">
+            <a class="publication-figure publication-text-figure" href="/research/bioasq14b/" aria-label="BioASQ 14b paper abstract"><span>BioASQ 14b</span><small>Yes/no · Factoid · List<br />Evidence → Agents → Answers</small></a>
+            <div class="publication-copy"><div class="publication-meta"><span class="publication-venue venue-arxiv">arXiv preprint</span><span class="publication-status">Preprint</span><time class="publication-year" datetime="2026">2026</time></div>
+              <h2><a href="/research/bioasq14b/">From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b</a></h2>
+              <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Eunha Lee, Wonjune Jang, Sohyun Chung, Junha Jung, Jaewoo Kang</p>
+              <p class="publication-summary">Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration.</p>
+              <div class="publication-actions"><a class="publication-link" href="https://arxiv.org/abs/2607.06452">Paper ↗</a><a class="publication-link" href="/research/bioasq14b/#abstract">Abstract ↗</a><a class="publication-link" href="/citations/bioasq14b.bib" download>BibTeX ↗</a></div>
             </div>
           </article>
 
@@ -134,9 +692,12 @@
                 <span class="publication-status">Accepted</span>
                 <time class="publication-year" datetime="2026">2026</time>
               </div>
-              <h2>Distilling Expert-level Planning for Real-world Diabetes Prescribing</h2>
+              <h2><a href="/research/diabetes-planning/">Distilling Expert-level Planning for Real-world Diabetes Prescribing</a></h2>
               <p class="publication-authors">Yein Park, Sihyeon Park, <strong class="author-highlight">Taeyun Roh</strong>, Mujeen Sung, Jaehoon Yun, Sooyeon Lee, Sanghoon Lee, Jaewoo Kang</p>
+              <p class="publication-summary">Expert planning distillation and dynamic search for reimbursement-aware diabetes prescribing.</p>
               <div class="publication-actions">
+                <a class="publication-link" href="/research/diabetes-planning/#abstract">Abstract ↗</a>
+                <a class="publication-link" href="/citations/diabetes-planning.bib" download>BibTeX ↗</a>
                 <a class="publication-link" href="https://openreview.net/forum?id=WZvLoCILdg" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
               </div>
             </div>
@@ -153,10 +714,13 @@
                 <span class="publication-status">Published</span>
                 <time class="publication-year" datetime="2026">2026</time>
               </div>
-              <h2>CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents</h2>
+              <h2><a href="/CLAG/">CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents</a></h2>
               <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Wonjune Jang, Junha Jung, Jaewoo Kang</p>
+              <p class="publication-summary">Agent-driven clustering organizes memory for small language model agents.</p>
               <div class="publication-actions">
-                <a class="publication-link" href="https://arxiv.org/abs/2603.15421" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+                <a class="publication-link" href="/CLAG/#abstract">Abstract ↗</a>
+                <a class="publication-link" href="/citations/clag.bib" download>BibTeX ↗</a>
+                <a class="publication-link" href="https://aclanthology.org/2026.findings-acl.824/" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
                 <a class="publication-link" href="/CLAG/">Project <span aria-hidden="true">↗</span></a>
               </div>
             </div>
@@ -180,9 +744,13 @@
                 <span class="publication-status">Published</span>
                 <time class="publication-year" datetime="2024">2024</time>
               </div>
-              <h2>Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning</h2>
+              <h2><a href="/research/split-federated-learning/">Analysis on Research for Data and Resource Heterogeneity in Split-Federated Learning</a></h2>
+              <p class="publication-summary" lang="ko">분할-연합학습의 데이터, 자원 이질성 극복을 위한 연구 동향 분석</p>
               <p class="publication-authors"><strong class="author-highlight">Taeyun Roh</strong>, Seungwoo Jung, Yeonho Yoo, Sunjae Park, Gyeongsik Yang, Chuck Yoo</p>
+              <p class="publication-summary">A survey of data and resource heterogeneity in split-federated learning.</p>
               <div class="publication-actions">
+                <a class="publication-link" href="/research/split-federated-learning/#abstract">Abstract ↗</a>
+                <a class="publication-link" href="/citations/split-federated-learning.bib" download>BibTeX ↗</a>
                 <a class="publication-link" href="https://txxnrd.github.io/paper/splitfed.pdf" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
               </div>
             </div>
@@ -199,9 +767,13 @@
                 <span class="publication-status">Published</span>
                 <time class="publication-year" datetime="2024">2024</time>
               </div>
-              <h2>Exploring the Secure Container for Permissioned Blockchains</h2>
+              <h2><a href="/research/secure-container/">Exploring the Secure Container for Permissioned Blockchains</a></h2>
+              <p class="publication-summary" lang="ko">허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구</p>
               <p class="publication-authors">Yunkyung Kang, <strong class="author-highlight">Taeyun Roh</strong>, Junseok Lee, Wonmi Choi, Yeonho Yoo, Gyeongsik Yang, Chuck Yoo</p>
+              <p class="publication-summary">Secure containers combine isolation and lightweight deployment for permissioned blockchain nodes.</p>
               <div class="publication-actions">
+                <a class="publication-link" href="/research/secure-container/#abstract">Abstract ↗</a>
+                <a class="publication-link" href="/citations/secure-container.bib" download>BibTeX ↗</a>
                 <a class="publication-link" href="https://txxnrd.github.io/paper/sec-container.pdf" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
               </div>
             </div>

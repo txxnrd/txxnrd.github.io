@@ -405,6 +405,18 @@ strong { font-weight: 600; }
   margin-top: 16px;
 }
 
+.paper-breadcrumbs { margin-bottom: 24px; color: var(--muted); font-size: 13px; }
+.paper-breadcrumbs a { color: inherit; }
+.paper-source { font-size: 12px; line-height: 1.7; }
+.paper-related h2 { margin-bottom: 18px; }
+.paper-related ul { padding-left: 20px; line-height: 1.8; }
+.paper-related li + li { margin-top: 10px; }
+.publication-summary { margin: 0 0 16px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.publication-downloads { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; font-size: 13px; }
+.publication-text-figure { min-height: 145px; flex-direction: column; gap: 14px; padding: 24px; background: var(--bg-strong); color: var(--text); text-decoration: none; }
+.publication-text-figure > span { font-family: var(--serif); font-size: 27px; }
+.publication-text-figure small { color: var(--muted); font-size: 11px; line-height: 1.8; text-align: center; }
+
 .project-section-heading {
   max-width: 760px;
 }

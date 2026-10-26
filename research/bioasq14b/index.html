@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b | Taeyun Roh</title>
+    <meta name="description" content="Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration." />
+    <link rel="canonical" href="https://txxnrd.github.io/research/bioasq14b/" />
+    <link rel="icon" href="/img/taeyun.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b" />
+    <meta property="og:description" content="Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration." />
+    <meta property="og:url" content="https://txxnrd.github.io/research/bioasq14b/" />
+    <meta property="og:image" content="https://txxnrd.github.io/img/taeyun.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b" />
+    <meta name="twitter:description" content="Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration." />
+    <meta name="twitter:image" content="https://txxnrd.github.io/img/taeyun.png" />
+    <!-- research:metadata:start -->
+<meta name="citation_title" content="From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b" />
+<meta name="citation_author" content="Roh, Taeyun" />
+<meta name="citation_author" content="Lee, Eunha" />
+<meta name="citation_author" content="Jang, Wonjune" />
+<meta name="citation_author" content="Chung, Sohyun" />
+<meta name="citation_author" content="Jung, Junha" />
+<meta name="citation_author" content="Kang, Jaewoo" />
+<meta name="citation_publication_date" content="2026/07/07" />
+<meta name="citation_language" content="en" />
+<meta name="citation_abstract_html_url" content="https://txxnrd.github.io/research/bioasq14b/" />
+<meta name="citation_pdf_url" content="https://txxnrd.github.io/paper/bioasq14b.pdf" />
+<meta name="citation_arxiv_id" content="2607.06452" />
+<meta name="citation_doi" content="10.48550/arXiv.2607.06452" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://txxnrd.github.io/research/bioasq14b/#article",
+      "name": "From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b",
+      "headline": "From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b",
+      "url": "https://txxnrd.github.io/research/bioasq14b/",
+      "mainEntityOfPage": "https://txxnrd.github.io/research/bioasq14b/",
+      "description": "Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration.",
+      "abstract": "Biomedical question answering requires not only accurate extraction of information from scientific literature but also reliable integration of evidence across multiple documents. This study presents a question-type-specific large language model (LLM) framework for BioASQ 14b Task B, designed to improve answer robustness and evidence grounding in biomedical question answering. Rather than applying a single prompting strategy to all questions, the framework selects different inference procedures for yes/no, factoid, and list questions according to their distinct reasoning and evaluation requirements. For yes/no questions, snippet shuffling and self-reflection are used to reduce sensitivity to evidence ordering and improve decision stability. For factoid questions, full-snippet input is combined with chain-of-thought-based in-context learning to support accurate biomedical entity identification. For list questions, a multi-agent architecture is employed, in which evidence extraction, candidate generation, answer verification, and final aggregation are handled collaboratively. Preliminary experiments on BioASQ 13b were used to identify effective inference strategies for each question type, and the resulting framework was subsequently evaluated in the official BioASQ 14b Task B challenge. In the official evaluation, our framework showed competitive performance across multiple batches and achieved first place in the factoid subtask of Batch 4. These results demonstrate the effectiveness of combining question-type-specific inference, ensemble prediction, and agent-based verification for reliable biomedical question answering.",
+      "inLanguage": "en",
+      "image": "https://txxnrd.github.io/img/taeyun.png",
+      "keywords": [
+        "biomedical question answering",
+        "LLM agents",
+        "evidence grounding"
+      ],
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Taeyun Roh",
+          "@id": "https://txxnrd.github.io/#person",
+          "url": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Eunha Lee"
+        },
+        {
+          "@type": "Person",
+          "name": "Wonjune Jang"
+        },
+        {
+          "@type": "Person",
+          "name": "Sohyun Chung"
+        },
+        {
+          "@type": "Person",
+          "name": "Junha Jung"
+        },
+        {
+          "@type": "Person",
+          "name": "Jaewoo Kang"
+        }
+      ],
+      "sameAs": [
+        "https://arxiv.org/abs/2607.06452",
+        "https://doi.org/10.48550/arXiv.2607.06452"
+      ],
+      "datePublished": "2026-07-07",
+      "dateModified": "2026-07-07",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.48550/arXiv.2607.06452"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "encoding": {
+        "@type": "MediaObject",
+        "encodingFormat": "application/pdf",
+        "contentUrl": "https://txxnrd.github.io/paper/bioasq14b.pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Publications",
+          "item": "https://txxnrd.github.io/publications.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b",
+          "item": "https://txxnrd.github.io/research/bioasq14b/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- research:metadata:end -->
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') === 'night' ? 'night' : 'day'; } catch { document.documentElement.dataset.theme = 'day'; }</script>
+    <link rel="stylesheet" href="/style.css?v=20261025-research" />
+    <script defer src="/theme.js"></script>
+  </head>
+  <body class="sub-page project-page paper-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/publications.html">Publications</a>
+            <a href="/news.html">News</a>
+            <a href="/blog.html">Blog</a>
+          </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false" title="Switch to dark theme">
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+      <main class="sub-main" id="main-content">
+        <nav class="paper-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/publications.html">Publications</a></nav>
+        <section class="project-hero"><div class="project-hero-copy">
+          <p class="eyebrow">arXiv preprint · 2026 · Preprint</p>
+          <h1>From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b</h1>
+          <p class="project-authors"><a href="/" rel="author">Taeyun Roh</a>, Eunha Lee, Wonjune Jang, Sohyun Chung, Junha Jung, Jaewoo Kang</p>
+          <p class="page-intro">Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration.</p>
+          <div class="hero-actions"><a class="button button-primary" href="/paper/bioasq14b.pdf">Read PDF ↗</a><a class="button button-secondary" href="#citation">Cite this paper ↓</a></div>
+        </div></section>
+        <section class="project-section project-two-column" aria-labelledby="abstract-title" id="abstract">
+  <div><p class="card-label">Paper</p><h2 id="abstract-title">Abstract</h2></div>
+  <div class="project-text"><p lang="en">Biomedical question answering requires not only accurate extraction of information from scientific literature but also reliable integration of evidence across multiple documents. This study presents a question-type-specific large language model (LLM) framework for BioASQ 14b Task B, designed to improve answer robustness and evidence grounding in biomedical question answering. Rather than applying a single prompting strategy to all questions, the framework selects different inference procedures for yes/no, factoid, and list questions according to their distinct reasoning and evaluation requirements. For yes/no questions, snippet shuffling and self-reflection are used to reduce sensitivity to evidence ordering and improve decision stability. For factoid questions, full-snippet input is combined with chain-of-thought-based in-context learning to support accurate biomedical entity identification. For list questions, a multi-agent architecture is employed, in which evidence extraction, candidate generation, answer verification, and final aggregation are handled collaboratively. Preliminary experiments on BioASQ 13b were used to identify effective inference strategies for each question type, and the resulting framework was subsequently evaluated in the official BioASQ 14b Task B challenge. In the official evaluation, our framework showed competitive performance across multiple batches and achieved first place in the factoid subtask of Batch 4. These results demonstrate the effectiveness of combining question-type-specific inference, ensemble prediction, and agent-based verification for reliable biomedical question answering.</p><p class="paper-source">Source: <a href="https://arxiv.org/abs/2607.06452">arXiv:2607.06452</a>. Version dated <time datetime="2026-07-07">2026-07-07</time>. Author manuscript reproduced unchanged under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p></div>
+</section>
+        <section class="project-section" aria-labelledby="cite-title" id="citation">
+  <div class="project-section-heading"><p class="card-label">Resources</p><h2 id="cite-title">Read and cite this paper</h2></div>
+  <div class="hero-actions"><a class="button button-secondary" href="https://arxiv.org/abs/2607.06452">Publication record <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/paper/bioasq14b.pdf">Read PDF <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/citations/bioasq14b.bib">Download BibTeX <span aria-hidden="true">↗</span></a></div>
+  <pre class="citation-block"><code>@article{bioasq14b2026,
+  title = {From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b},
+  author = {Roh, Taeyun and Lee, Eunha and Jang, Wonjune and Chung, Sohyun and Jung, Junha and Kang, Jaewoo},
+  year = {2026},
+  journal = {arXiv preprint},
+  eprint = {2607.06452},
+  archivePrefix = {arXiv},
+  doi = {10.48550/arXiv.2607.06452},
+  url = {https://arxiv.org/abs/2607.06452}
+}</code></pre>
+</section>
+        <section class="project-section paper-related" aria-labelledby="related-title"><h2 id="related-title">Related research</h2><ul><li><a href="/switchmem/">Learning How to Remember: Memory Modality Selection for GUI Agents</a></li><li><a href="/buzzy/">BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</a></li><li><a href="/research/mrpo/">Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</a></li></ul><a class="text-link" href="/publications.html">All publications ↗</a></section>
+      </main>
+      <footer class="site-footer"><a href="/">Taeyun Roh · 노태윤</a><a href="/publications.html">All publications ↗</a></footer>
+    </div>
+  </body>
+</html>

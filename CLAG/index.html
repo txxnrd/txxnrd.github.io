@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <title>CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents | Taeyun Roh</title>
     <meta charset="UTF-8" />
@@ -53,7 +53,7 @@
       }
     </script>
 
-    <link rel="stylesheet" type="text/css" href="/style.css?v=20261022-blog" />
+    <link rel="stylesheet" type="text/css" href="/style.css?v=20261025-research" />
     <script defer src="/theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
@@ -65,15 +65,116 @@
         window.amplitude.track("CLAG Project");
       }
     </script>
-  </head>
+  <!-- research:metadata:start -->
+<meta name="citation_title" content="CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents" />
+<meta name="citation_author" content="Roh, Taeyun" />
+<meta name="citation_author" content="Jang, Wonjune" />
+<meta name="citation_author" content="Jung, Junha" />
+<meta name="citation_author" content="Kang, Jaewoo" />
+<meta name="citation_publication_date" content="2026/07" />
+<meta name="citation_language" content="en" />
+<meta name="citation_abstract_html_url" content="https://txxnrd.github.io/CLAG/" />
+<meta name="citation_pdf_url" content="https://txxnrd.github.io/paper/clag.pdf" />
+<meta name="citation_arxiv_id" content="2603.15421" />
+<meta name="citation_doi" content="10.18653/v1/2026.findings-acl.824" />
+<meta name="citation_conference_title" content="Findings of the Association for Computational Linguistics: ACL 2026" />
+<meta name="citation_firstpage" content="16707" />
+<meta name="citation_lastpage" content="16726" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://txxnrd.github.io/CLAG/#article",
+      "name": "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
+      "headline": "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
+      "url": "https://txxnrd.github.io/CLAG/",
+      "mainEntityOfPage": "https://txxnrd.github.io/CLAG/",
+      "description": "Agent-driven clustering organizes memory for small language model agents.",
+      "abstract": "Large language model agents heavily rely on external memory to support knowledge reuse and complex reasoning tasks. Yet most memory systems store experiences in a single global retrieval pool which can gradually dilute or corrupt stored knowledge. This problem is especially pronounced for small language models (SLMs), which are highly vulnerable to irrelevant context. We introduce CLAG, a CLustering-based AGentic memory framework where an SLM agent actively organizes memory by clustering. CLAG employs an SLM-driven router to assign incoming memories to semantically coherent clusters and autonomously generates cluster-specific profiles, including topic summaries and descriptive tags, to establish each cluster as a self-contained functional unit. By performing localized evolution within these structured neighborhoods, CLAG effectively reduces cross-topic interference and enhances internal memory density. During retrieval, the framework utilizes a two-stage process that first filters relevant clusters via their profiles, thereby excluding distractors and reducing the search space. Experiments on multiple QA datasets with three SLM backbones show that CLAG consistently improves answer quality and robustness over prior memory systems for agents, remaining lightweight and efficient.",
+      "inLanguage": "en",
+      "image": "https://txxnrd.github.io/img/clag-framework.png",
+      "keywords": [
+        "agent memory",
+        "small language models",
+        "memory organization"
+      ],
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Taeyun Roh",
+          "@id": "https://txxnrd.github.io/#person",
+          "url": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Wonjune Jang"
+        },
+        {
+          "@type": "Person",
+          "name": "Junha Jung"
+        },
+        {
+          "@type": "Person",
+          "name": "Jaewoo Kang"
+        }
+      ],
+      "sameAs": [
+        "https://aclanthology.org/2026.findings-acl.824/",
+        "https://doi.org/10.18653/v1/2026.findings-acl.824",
+        "https://arxiv.org/abs/2603.15421"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.18653/v1/2026.findings-acl.824"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "encoding": {
+        "@type": "MediaObject",
+        "encodingFormat": "application/pdf",
+        "contentUrl": "https://txxnrd.github.io/paper/clag.pdf"
+      },
+      "pageStart": "16707",
+      "pageEnd": "16726"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Publications",
+          "item": "https://txxnrd.github.io/publications.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents",
+          "item": "https://txxnrd.github.io/CLAG/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- research:metadata:end -->
+</head>
   <body class="sub-page project-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <a href="/" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
         <div class="site-header-actions">
           <nav class="site-nav" aria-label="Primary">
-            <a href="/index.html">Home</a>
+            <a href="/">Home</a>
             <a href="/publications.html">Publications</a>
             <a href="/news.html">News</a>
             <a href="/blog.html">Blog</a>
@@ -184,6 +285,12 @@
           </figure>
         </section>
 
+        <!-- research:abstract:start -->
+<section class="project-section project-two-column" aria-labelledby="abstract-title" id="abstract">
+  <div><p class="card-label">Paper</p><h2 id="abstract-title">Abstract</h2></div>
+  <div class="project-text"><p lang="en">Large language model agents heavily rely on external memory to support knowledge reuse and complex reasoning tasks. Yet most memory systems store experiences in a single global retrieval pool which can gradually dilute or corrupt stored knowledge. This problem is especially pronounced for small language models (SLMs), which are highly vulnerable to irrelevant context. We introduce CLAG, a CLustering-based AGentic memory framework where an SLM agent actively organizes memory by clustering. CLAG employs an SLM-driven router to assign incoming memories to semantically coherent clusters and autonomously generates cluster-specific profiles, including topic summaries and descriptive tags, to establish each cluster as a self-contained functional unit. By performing localized evolution within these structured neighborhoods, CLAG effectively reduces cross-topic interference and enhances internal memory density. During retrieval, the framework utilizes a two-stage process that first filters relevant clusters via their profiles, thereby excluding distractors and reducing the search space. Experiments on multiple QA datasets with three SLM backbones show that CLAG consistently improves answer quality and robustness over prior memory systems for agents, remaining lightweight and efficient.</p><p class="paper-source">Source: <a href="https://aclanthology.org/2026.findings-acl.824/">Findings of the Association for Computational Linguistics: ACL 2026</a>. Author manuscript: <a href="https://arxiv.org/abs/2603.15421">arXiv:2603.15421</a>. Author manuscript reproduced unchanged under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p></div>
+</section>
+<!-- research:abstract:end -->
         <section class="project-section project-two-column">
           <div>
             <p class="card-label">Problem</p>
@@ -585,19 +692,26 @@
           </div>
         </section>
 
-        <section class="project-section">
-          <div class="project-section-heading">
-            <p class="card-label">Resources</p>
-            <h2>Citation</h2>
-          </div>
-          <pre class="citation-block"><code>@article{roh2026clag,
-  title={CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents},
-  author={Roh, Taeyun and Jang, Wonjune and Jung, Junha and Kang, Jaewoo},
-  journal={arXiv preprint arXiv:2603.15421},
-  year={2026}
+
+      <!-- research:resources:start -->
+<section class="project-section" aria-labelledby="cite-title" id="citation">
+  <div class="project-section-heading"><p class="card-label">Resources</p><h2 id="cite-title">Read and cite this paper</h2></div>
+  <div class="hero-actions"><a class="button button-secondary" href="https://aclanthology.org/2026.findings-acl.824/">Publication record <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/paper/clag.pdf">Read PDF <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/citations/clag.bib">Download BibTeX <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="https://github.com/dmis-lab/CLAG">Code <span aria-hidden="true">↗</span></a></div>
+  <pre class="citation-block"><code>@inproceedings{clag2026,
+  title = {CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents},
+  author = {Roh, Taeyun and Jang, Wonjune and Jung, Junha and Kang, Jaewoo},
+  year = {2026},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2026},
+  eprint = {2603.15421},
+  archivePrefix = {arXiv},
+  doi = {10.18653/v1/2026.findings-acl.824},
+  pages = {16707--16726},
+  url = {https://aclanthology.org/2026.findings-acl.824/}
 }</code></pre>
-        </section>
-      </main>
+</section>
+<section class="project-section paper-related" aria-labelledby="related-title"><h2 id="related-title">Related research</h2><ul><li><a href="/switchmem/">Learning How to Remember: Memory Modality Selection for GUI Agents</a></li><li><a href="/buzzy/">BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</a></li><li><a href="/research/mrpo/">Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</a></li></ul><a class="text-link" href="/publications.html">All publications ↗</a></section>
+<!-- research:resources:end -->
+</main>
     </div>
   </body>
 </html>

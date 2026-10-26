@@ -1,0 +1,89 @@
+Research discoverability maintenance
+
+Publications: https://txxnrd.github.io/publications.html
+Sitemap: https://txxnrd.github.io/sitemap.xml
+All citations: https://txxnrd.github.io/publications.bib
+
+Update workflow
+
+1. Verify titles, author order, dates, abstracts, and DOI against the published
+   record or latest public author manuscript. Edit _data/research.json.
+2. Run: python3 tools/build_research.py
+   This refreshes eight paper pages, citation metadata, JSON-LD, and BibTeX.
+   Existing project narratives outside the research:* markers remain editable.
+3. When adding a paper, also add its visible card to publications.html, update
+   the visible count, and add its canonical URL to sitemap.xml. The generator
+   does not maintain the hand-authored publication list or sitemap.
+4. Change sitemap lastmod only when the corresponding content changes.
+5. Review the diff, check links, preview desktop/mobile, and deploy through the
+   existing GitHub Pages branch. Never stage unrelated local research files.
+
+PDF provenance
+
+The following PDFs are unchanged public author manuscripts licensed CC BY 4.0:
+  paper/switchmem.pdf  https://arxiv.org/pdf/2610.17928v1
+  paper/clag.pdf       https://arxiv.org/pdf/2603.15421v2
+  paper/buzzy.pdf      https://arxiv.org/pdf/2603.28026v4
+  paper/bioasq14b.pdf  https://arxiv.org/pdf/2607.06452v1
+
+The existing splitfed.pdf and sec-container.pdf remain unchanged.
+MRPO and the diabetes paper link to their existing public hosts; no new copy
+was published without a verified redistribution license. The local PDFs and
+abstract pages share a domain, as required by Scholar's PDF metadata guidance.
+
+Search Console follow-up (requires the existing site's owner account)
+
+The Google account currently signed into Chrome could not access the existing
+https://txxnrd.github.io/ Search Console property. No new owner was added.
+
+1. Open https://search.google.com/search-console and select that property using
+   its existing owner account.
+2. Under Sitemaps, submit https://txxnrd.github.io/sitemap.xml.
+3. Inspect the homepage, publication list, /switchmem/, /CLAG/, /buzzy/, and the
+   five /research/ URLs, then request indexing once for each changed page.
+4. Use Performance to compare impressions, clicks, queries, and indexed pages
+   over the next few weeks. A submission is a crawl hint, not a ranking promise.
+
+Scholar profile
+
+BUZZY's profile title and author list were corrected to the current arXiv v4
+record on 2026-10-25. This edits the author's profile; Scholar's underlying
+cluster may still display the earlier SCICON title until Google recrawls it.
+Check the paper by exact title later, rather than creating a duplicate entry.
+
+Further distribution
+
+Use each paper's stable project/abstract URL in existing author profiles,
+repository READMEs, and public posts where appropriate. The CLAG citation now
+uses the published ACL Anthology DOI and page range. Coordinate changes to
+coauthor-owned project pages with their owners. No messages or social posts
+were sent by this task.
+
+Ready-to-use short descriptions
+
+SwitchMem: How should GUI agents remember an experience: text or images?
+SwitchMem selects the memory representation for each interaction step.
+https://txxnrd.github.io/switchmem/
+
+CLAG: Small language model agents can organize their own memories through
+clustering, narrowing retrieval to relevant experience. ACL 2026 Findings.
+https://txxnrd.github.io/CLAG/
+
+BUZZY: Answer choices can bias multimodal reasoning toward plausible text.
+BUZZY uses training-free contrastive scoring to emphasize visual evidence.
+https://txxnrd.github.io/buzzy/
+
+BioASQ 14b: Different biomedical question types need different inference
+strategies. Our pipelines combine voting, evidence grounding, and agents.
+https://txxnrd.github.io/research/bioasq14b/
+
+Official guidance
+
+Google Scholar inclusion and citation metadata:
+https://scholar.google.com/intl/en/scholar/inclusion.html
+Google Search Essentials:
+https://developers.google.com/search/docs/essentials
+Building and submitting sitemaps:
+https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+Requesting recrawling:
+https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl

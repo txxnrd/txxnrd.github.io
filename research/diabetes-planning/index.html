@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distilling Expert-level Planning for Real-world Diabetes Prescribing | Taeyun Roh</title>
+    <meta name="description" content="Expert planning distillation and dynamic search for reimbursement-aware diabetes prescribing." />
+    <link rel="canonical" href="https://txxnrd.github.io/research/diabetes-planning/" />
+    <link rel="icon" href="/img/taeyun.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Distilling Expert-level Planning for Real-world Diabetes Prescribing" />
+    <meta property="og:description" content="Expert planning distillation and dynamic search for reimbursement-aware diabetes prescribing." />
+    <meta property="og:url" content="https://txxnrd.github.io/research/diabetes-planning/" />
+    <meta property="og:image" content="https://txxnrd.github.io/img/publications/diabetes-framework.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Distilling Expert-level Planning for Real-world Diabetes Prescribing" />
+    <meta name="twitter:description" content="Expert planning distillation and dynamic search for reimbursement-aware diabetes prescribing." />
+    <meta name="twitter:image" content="https://txxnrd.github.io/img/publications/diabetes-framework.png" />
+    <!-- research:metadata:start -->
+<meta name="citation_title" content="Distilling Expert-level Planning for Real-world Diabetes Prescribing" />
+<meta name="citation_author" content="Park, Yein" />
+<meta name="citation_author" content="Park, Sihyeon" />
+<meta name="citation_author" content="Roh, Taeyun" />
+<meta name="citation_author" content="Sung, Mujeen" />
+<meta name="citation_author" content="Yun, Jaehoon" />
+<meta name="citation_author" content="Lee, Sooyeon" />
+<meta name="citation_author" content="Lee, Sanghoon" />
+<meta name="citation_author" content="Kang, Jaewoo" />
+<meta name="citation_publication_date" content="2026" />
+<meta name="citation_language" content="en" />
+<meta name="citation_abstract_html_url" content="https://txxnrd.github.io/research/diabetes-planning/" />
+<meta name="citation_conference_title" content="ICML 2026 Workshop on Structured Data for Health" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://txxnrd.github.io/research/diabetes-planning/#article",
+      "name": "Distilling Expert-level Planning for Real-world Diabetes Prescribing",
+      "headline": "Distilling Expert-level Planning for Real-world Diabetes Prescribing",
+      "url": "https://txxnrd.github.io/research/diabetes-planning/",
+      "mainEntityOfPage": "https://txxnrd.github.io/research/diabetes-planning/",
+      "description": "Expert planning distillation and dynamic search for reimbursement-aware diabetes prescribing.",
+      "abstract": "Real-world prescribing is constrained not only by clinical appropriateness but also by reimbursement policy, prior treatment history, and patient preference, which remain under-modeled in exam-style medical QA training and evaluation. We present a practical framework for expert-usable clinical agents for diabetes prescribing that combines expert planning distillation—distilling an expert prescribing workflow from patient assessment and safety checks to candidate regimen selection and reimbursement verification—with dynamic search over guidelines, reimbursement criteria, drug information, and up-to-date references. To evaluate real-world prescribability, we construct an EMR-derived diabetes prescribing benchmark from 170 de-identified real-world patient cases and evaluate on 340 test instances with a clinician-aligned, reimbursement-aware rubric. On this benchmark, our expert planning distillation and dynamic search improve reimbursement-aware prescribing quality over general and biomedical baselines and approach the performance of frontier proprietary models.",
+      "inLanguage": "en",
+      "image": "https://txxnrd.github.io/img/publications/diabetes-framework.png",
+      "keywords": [
+        "clinical agents",
+        "planning distillation",
+        "diabetes prescribing"
+      ],
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Yein Park"
+        },
+        {
+          "@type": "Person",
+          "name": "Sihyeon Park"
+        },
+        {
+          "@type": "Person",
+          "name": "Taeyun Roh",
+          "@id": "https://txxnrd.github.io/#person",
+          "url": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Mujeen Sung"
+        },
+        {
+          "@type": "Person",
+          "name": "Jaehoon Yun"
+        },
+        {
+          "@type": "Person",
+          "name": "Sooyeon Lee"
+        },
+        {
+          "@type": "Person",
+          "name": "Sanghoon Lee"
+        },
+        {
+          "@type": "Person",
+          "name": "Jaewoo Kang"
+        }
+      ],
+      "sameAs": [
+        "https://openreview.net/forum?id=WZvLoCILdg"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Publications",
+          "item": "https://txxnrd.github.io/publications.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Distilling Expert-level Planning for Real-world Diabetes Prescribing",
+          "item": "https://txxnrd.github.io/research/diabetes-planning/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- research:metadata:end -->
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') === 'night' ? 'night' : 'day'; } catch { document.documentElement.dataset.theme = 'day'; }</script>
+    <link rel="stylesheet" href="/style.css?v=20261025-research" />
+    <script defer src="/theme.js"></script>
+  </head>
+  <body class="sub-page project-page paper-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/publications.html">Publications</a>
+            <a href="/news.html">News</a>
+            <a href="/blog.html">Blog</a>
+          </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false" title="Switch to dark theme">
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+      <main class="sub-main" id="main-content">
+        <nav class="paper-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/publications.html">Publications</a></nav>
+        <section class="project-hero"><div class="project-hero-copy">
+          <p class="eyebrow">ICML 2026 Workshop on Structured Data for Health · 2026 · Accepted</p>
+          <h1>Distilling Expert-level Planning for Real-world Diabetes Prescribing</h1>
+          <p class="project-authors">Yein Park, Sihyeon Park, <a href="/" rel="author">Taeyun Roh</a>, Mujeen Sung, Jaehoon Yun, Sooyeon Lee, Sanghoon Lee, Jaewoo Kang</p>
+          <p class="page-intro">Expert planning distillation and dynamic search for reimbursement-aware diabetes prescribing.</p>
+          <div class="hero-actions"><a class="button button-primary" href="https://openreview.net/pdf?id=WZvLoCILdg">Read PDF ↗</a><a class="button button-secondary" href="#citation">Cite this paper ↓</a></div>
+        </div></section>
+        <section class="project-section project-two-column" aria-labelledby="abstract-title" id="abstract">
+  <div><p class="card-label">Paper</p><h2 id="abstract-title">Abstract</h2></div>
+  <div class="project-text"><p lang="en">Real-world prescribing is constrained not only by clinical appropriateness but also by reimbursement policy, prior treatment history, and patient preference, which remain under-modeled in exam-style medical QA training and evaluation. We present a practical framework for expert-usable clinical agents for diabetes prescribing that combines expert planning distillation—distilling an expert prescribing workflow from patient assessment and safety checks to candidate regimen selection and reimbursement verification—with dynamic search over guidelines, reimbursement criteria, drug information, and up-to-date references. To evaluate real-world prescribability, we construct an EMR-derived diabetes prescribing benchmark from 170 de-identified real-world patient cases and evaluate on 340 test instances with a clinician-aligned, reimbursement-aware rubric. On this benchmark, our expert planning distillation and dynamic search improve reimbursement-aware prescribing quality over general and biomedical baselines and approach the performance of frontier proprietary models.</p><p class="paper-source">Source: <a href="https://openreview.net/forum?id=WZvLoCILdg">ICML 2026 Workshop on Structured Data for Health</a>.</p></div>
+</section>
+        <section class="project-section" aria-labelledby="cite-title" id="citation">
+  <div class="project-section-heading"><p class="card-label">Resources</p><h2 id="cite-title">Read and cite this paper</h2></div>
+  <div class="hero-actions"><a class="button button-secondary" href="https://openreview.net/forum?id=WZvLoCILdg">Publication record <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="https://openreview.net/pdf?id=WZvLoCILdg">Read PDF <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/citations/diabetes-planning.bib">Download BibTeX <span aria-hidden="true">↗</span></a></div>
+  <pre class="citation-block"><code>@inproceedings{diabetesplanning2026,
+  title = {Distilling Expert-level Planning for Real-world Diabetes Prescribing},
+  author = {Park, Yein and Park, Sihyeon and Roh, Taeyun and Sung, Mujeen and Yun, Jaehoon and Lee, Sooyeon and Lee, Sanghoon and Kang, Jaewoo},
+  year = {2026},
+  booktitle = {ICML 2026 Workshop on Structured Data for Health},
+  url = {https://openreview.net/forum?id=WZvLoCILdg}
+}</code></pre>
+</section>
+        <section class="project-section paper-related" aria-labelledby="related-title"><h2 id="related-title">Related research</h2><ul><li><a href="/switchmem/">Learning How to Remember: Memory Modality Selection for GUI Agents</a></li><li><a href="/buzzy/">BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</a></li><li><a href="/research/mrpo/">Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</a></li></ul><a class="text-link" href="/publications.html">All publications ↗</a></section>
+      </main>
+      <footer class="site-footer"><a href="/">Taeyun Roh · 노태윤</a><a href="/publications.html">All publications ↗</a></footer>
+    </div>
+  </body>
+</html>

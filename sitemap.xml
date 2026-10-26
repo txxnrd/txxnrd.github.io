@@ -3,54 +3,20 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://txxnrd.github.io/</loc>
-        <lastmod>2026-08-26</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://txxnrd.github.io/news.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://txxnrd.github.io/publications.html</loc>
-        <lastmod>2026-08-26</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://txxnrd.github.io/CLAG/</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://txxnrd.github.io/buzzy/</loc>
-        <lastmod>2026-08-26</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://txxnrd.github.io/blog.html</loc>
-        <lastmod>2025-09-16</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://txxnrd.github.io/contact.html</loc>
-        <lastmod>2025-09-16</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
+  <url><loc>https://txxnrd.github.io/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/publications.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/news.html</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://txxnrd.github.io/blog.html</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://txxnrd.github.io/contact.html</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://txxnrd.github.io/switchmem/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/buzzy/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/research/mrpo/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/research/bioasq14b/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/research/diabetes-planning/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/CLAG/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/research/split-federated-learning/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://txxnrd.github.io/research/secure-container/</loc><lastmod>2026-10-25</lastmod></url>
 {% for post in site.posts %}
-    <url>
-        <loc>{{ post.url | absolute_url | xml_escape }}</loc>
-        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
+  <url><loc>{{ post.url | absolute_url | xml_escape }}</loc><lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod></url>
 {% endfor %}
 </urlset>

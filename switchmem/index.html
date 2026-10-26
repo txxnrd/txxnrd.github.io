@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SwitchMem: Learning How to Remember | GUI Agent Memory</title>
+    <title>Learning How to Remember: Memory Modality Selection for GUI Agents | SwitchMem</title>
     <meta name="description" content="SwitchMem learns to select textual or visual memory at each GUI interaction step, improving a frozen agent across AITW, LearnGUI, and MobileMiniWoB++." />
     <meta name="keywords" content="SwitchMem, GUI agents, agent memory, memory modality selection, vision-language models, D-CoE" />
     <meta name="author" content="Taeyun Roh, Suhyeong Park, Gijin Kim, Wonjune Jang, Jaewoo Kang" />
@@ -27,18 +27,120 @@
         document.documentElement.dataset.theme = "day";
       }
     </script>
-    <link rel="stylesheet" href="/style.css?v=20261022-blog" />
+    <link rel="stylesheet" href="/style.css?v=20261025-research" />
     <link rel="stylesheet" href="/switchmem/switchmem.css" />
     <script defer src="/theme.js"></script>
-  </head>
+  <!-- research:metadata:start -->
+<meta name="citation_title" content="Learning How to Remember: Memory Modality Selection for GUI Agents" />
+<meta name="citation_author" content="Roh, Taeyun" />
+<meta name="citation_author" content="Park, Suhyeong" />
+<meta name="citation_author" content="Kim, Gijin" />
+<meta name="citation_author" content="Jang, Wonjune" />
+<meta name="citation_author" content="Kang, Jaewoo" />
+<meta name="citation_publication_date" content="2026/10/13" />
+<meta name="citation_language" content="en" />
+<meta name="citation_abstract_html_url" content="https://txxnrd.github.io/switchmem/" />
+<meta name="citation_pdf_url" content="https://txxnrd.github.io/paper/switchmem.pdf" />
+<meta name="citation_arxiv_id" content="2610.17928" />
+<meta name="citation_doi" content="10.48550/arXiv.2610.17928" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://txxnrd.github.io/switchmem/#article",
+      "name": "Learning How to Remember: Memory Modality Selection for GUI Agents",
+      "headline": "Learning How to Remember: Memory Modality Selection for GUI Agents",
+      "url": "https://txxnrd.github.io/switchmem/",
+      "mainEntityOfPage": "https://txxnrd.github.io/switchmem/",
+      "description": "Text or image memory, selected for each GUI interaction step.",
+      "abstract": "Recent advances in vision-language models (VLMs) have substantially improved the capabilities of GUI agents, while memory augmentation has emerged as a promising approach for reusing knowledge from past interactions. However, existing memory augmented GUI agents typically adopt a fixed representation strategy, providing retrieved experience as a static modality. It remains unclear whether a single memory modality is consistently optimal, or how modality preference changes across interaction steps. In this work, we conduct a systematic study of memory modality in VLM based GUI agents. Across GUI benchmarks, we find that the preferred memory representation is strongly step dependent. Motivated by the finding, we introduce SwitchMem, a routing framework that dynamically selects between textual and visual memory representations at each step. Across three GUI benchmarks, SwitchMem outperforms memory augmented baselines that rely on static memory representations. Our findings validate our claim that memory modality is a step dependent decision rather than a fixed design choice. Code and project resources are available at https://txxnrd.github.io/switchmem",
+      "inLanguage": "en",
+      "image": "https://txxnrd.github.io/switchmem/assets/framework.png",
+      "keywords": [
+        "GUI agents",
+        "agent memory",
+        "memory modality selection"
+      ],
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Taeyun Roh",
+          "@id": "https://txxnrd.github.io/#person",
+          "url": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Suhyeong Park"
+        },
+        {
+          "@type": "Person",
+          "name": "Gijin Kim"
+        },
+        {
+          "@type": "Person",
+          "name": "Wonjune Jang"
+        },
+        {
+          "@type": "Person",
+          "name": "Jaewoo Kang"
+        }
+      ],
+      "sameAs": [
+        "https://arxiv.org/abs/2610.17928",
+        "https://doi.org/10.48550/arXiv.2610.17928"
+      ],
+      "datePublished": "2026-10-13",
+      "dateModified": "2026-10-13",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.48550/arXiv.2610.17928"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "encoding": {
+        "@type": "MediaObject",
+        "encodingFormat": "application/pdf",
+        "contentUrl": "https://txxnrd.github.io/paper/switchmem.pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Publications",
+          "item": "https://txxnrd.github.io/publications.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Learning How to Remember: Memory Modality Selection for GUI Agents",
+          "item": "https://txxnrd.github.io/switchmem/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- research:metadata:end -->
+</head>
   <body class="sub-page project-page switchmem-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <a href="/" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
         <div class="site-header-actions">
           <nav class="site-nav" aria-label="Primary">
-            <a href="/index.html">Home</a>
+            <a href="/">Home</a>
             <a href="/publications.html">Publications</a>
             <a href="/news.html">News</a>
             <a href="/blog.html">Blog</a>
@@ -109,6 +211,12 @@
           </nav>
         </section>
 
+        <!-- research:abstract:start -->
+<section class="project-section project-two-column" aria-labelledby="abstract-title" id="abstract">
+  <div><p class="card-label">Paper</p><h2 id="abstract-title">Abstract</h2></div>
+  <div class="project-text"><p lang="en">Recent advances in vision-language models (VLMs) have substantially improved the capabilities of GUI agents, while memory augmentation has emerged as a promising approach for reusing knowledge from past interactions. However, existing memory augmented GUI agents typically adopt a fixed representation strategy, providing retrieved experience as a static modality. It remains unclear whether a single memory modality is consistently optimal, or how modality preference changes across interaction steps. In this work, we conduct a systematic study of memory modality in VLM based GUI agents. Across GUI benchmarks, we find that the preferred memory representation is strongly step dependent. Motivated by the finding, we introduce SwitchMem, a routing framework that dynamically selects between textual and visual memory representations at each step. Across three GUI benchmarks, SwitchMem outperforms memory augmented baselines that rely on static memory representations. Our findings validate our claim that memory modality is a step dependent decision rather than a fixed design choice. Code and project resources are available at https://txxnrd.github.io/switchmem</p><p class="paper-source">Source: <a href="https://arxiv.org/abs/2610.17928">arXiv:2610.17928</a>. Version dated <time datetime="2026-10-13">2026-10-13</time>. Author manuscript reproduced unchanged under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p></div>
+</section>
+<!-- research:abstract:end -->
         <section class="project-section project-two-column" aria-labelledby="problem-title">
           <div>
             <p class="card-label">Problem</p>
@@ -378,7 +486,24 @@
             </div>
           </div>
         </section>
-      </main>
+      <!-- research:resources:start -->
+<section class="project-section" aria-labelledby="cite-title" id="citation">
+  <div class="project-section-heading"><p class="card-label">Resources</p><h2 id="cite-title">Read and cite this paper</h2></div>
+  <div class="hero-actions"><a class="button button-secondary" href="https://arxiv.org/abs/2610.17928">Publication record <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/paper/switchmem.pdf">Read PDF <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/citations/switchmem.bib">Download BibTeX <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="https://github.com/dmis-lab/SwitchMem">Code <span aria-hidden="true">↗</span></a></div>
+  <pre class="citation-block"><code>@article{switchmem2026,
+  title = {Learning How to Remember: Memory Modality Selection for GUI Agents},
+  author = {Roh, Taeyun and Park, Suhyeong and Kim, Gijin and Jang, Wonjune and Kang, Jaewoo},
+  year = {2026},
+  journal = {arXiv preprint},
+  eprint = {2610.17928},
+  archivePrefix = {arXiv},
+  doi = {10.48550/arXiv.2610.17928},
+  url = {https://arxiv.org/abs/2610.17928}
+}</code></pre>
+</section>
+<section class="project-section paper-related" aria-labelledby="related-title"><h2 id="related-title">Related research</h2><ul><li><a href="/CLAG/">CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents</a></li><li><a href="/buzzy/">BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</a></li><li><a href="/research/mrpo/">Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning</a></li></ul><a class="text-link" href="/publications.html">All publications ↗</a></section>
+<!-- research:resources:end -->
+</main>
       <footer class="project-footer"><a href="#project-title">Back to top ↑</a><span>SwitchMem &middot; Learning How to Remember</span></footer>
     </div>
   </body>

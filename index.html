@@ -9,7 +9,7 @@
     />
     <meta
       name="description"
-      content="Taeyun Roh is an LLM researcher focused on AI agents and practical language model systems."
+      content="Research by Taeyun Roh (노태윤) on AI agent memory, GUI agents, and multimodal reasoning. Papers, open-source code, and project resources."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -24,7 +24,7 @@
       content="노태윤, Taeyun Roh, Korea University, AI Agent, LLM Researcher, Machine Learning, Large Language Models, Agentic AI, Information Retrieval"
     />
     <meta name="author" content="노태윤 (Taeyun Roh)" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://txxnrd.github.io/" />
     <script>
       try {
@@ -32,15 +32,8 @@
       } catch { document.documentElement.dataset.theme = "day"; }
     </script>
 
-    <link rel="alternate" hreflang="ko" href="https://txxnrd.github.io/" />
-    <link rel="alternate" hreflang="en" href="https://txxnrd.github.io/" />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://txxnrd.github.io/"
-    />
-
-    <meta property="og:title" content="Taeyun Roh | LLM Researcher" />
+<link rel="alternate" hreflang="en" href="https://txxnrd.github.io/" />
+<meta property="og:title" content="Taeyun Roh | LLM Researcher" />
     <meta
       property="og:description"
       content="LLM researcher focused on AI agents and practical language model systems."
@@ -52,8 +45,8 @@
     <meta property="og:url" content="https://txxnrd.github.io/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Taeyun Roh" />
-    <meta property="og:locale" content="ko_KR" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale" content="en_US" />
+
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Taeyun Roh | LLM Researcher" />
@@ -67,42 +60,110 @@
     />
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "노태윤",
-        "alternateName": ["Taeyun Roh", "Tae Yun Roh", "Roh Taeyun"],
-        "url": "https://txxnrd.github.io/",
-        "image": "https://txxnrd.github.io/img/taeyun.png",
-        "email": "nrbsld@korea.ac.kr",
-        "jobTitle": "AI Research Intern",
-        "description": "LLM researcher focused on AI agents and practical language model systems.",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Samsung Research America"
-        },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Korea University",
-          "alternateName": "고려대학교"
-        },
-        "sameAs": [
-          "https://github.com/txxnrd",
-          "https://www.linkedin.com/in/taeyun-roh-018087233/",
-          "https://taeng-develop.tistory.com",
-          "https://blog.naver.com/nrbsld237"
-        ],
-        "knowsAbout": [
-          "Large Language Models",
-          "AI Agents",
-          "Agentic AI",
-          "Machine Learning",
-          "Information Retrieval"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://txxnrd.github.io/#profile",
+      "url": "https://txxnrd.github.io/",
+      "mainEntity": {
+        "@id": "https://txxnrd.github.io/#person"
       }
+    },
+    {
+      "@type": "Person",
+      "name": "Taeyun Roh",
+      "alternateName": [
+        "노태윤",
+        "Tae Yun Roh",
+        "Roh Taeyun"
+      ],
+      "url": "https://txxnrd.github.io/",
+      "image": "https://txxnrd.github.io/img/taeyun.png",
+      "email": "nrbsld@korea.ac.kr",
+      "jobTitle": "AI Research Intern",
+      "description": "LLM researcher focused on AI agents and practical language model systems.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Samsung Research America"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Korea University",
+        "alternateName": "고려대학교"
+      },
+      "sameAs": [
+        "https://github.com/txxnrd",
+        "https://www.linkedin.com/in/taeyun-roh-018087233/",
+        "https://taeng-develop.tistory.com",
+        "https://blog.naver.com/nrbsld237",
+        "https://scholar.google.com/citations?user=eUIOjlEAAAAJ"
+      ],
+      "knowsAbout": [
+        "Large Language Models",
+        "AI Agents",
+        "Agentic AI",
+        "Machine Learning",
+        "Information Retrieval"
+      ],
+      "@id": "https://txxnrd.github.io/#person",
+      "subjectOf": [
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/switchmem/#article",
+          "url": "https://txxnrd.github.io/switchmem/",
+          "name": "Learning How to Remember: Memory Modality Selection for GUI Agents"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/buzzy/#article",
+          "url": "https://txxnrd.github.io/buzzy/",
+          "name": "BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/mrpo/#article",
+          "url": "https://txxnrd.github.io/research/mrpo/",
+          "name": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/bioasq14b/#article",
+          "url": "https://txxnrd.github.io/research/bioasq14b/",
+          "name": "From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/diabetes-planning/#article",
+          "url": "https://txxnrd.github.io/research/diabetes-planning/",
+          "name": "Distilling Expert-level Planning for Real-world Diabetes Prescribing"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/CLAG/#article",
+          "url": "https://txxnrd.github.io/CLAG/",
+          "name": "CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/split-federated-learning/#article",
+          "url": "https://txxnrd.github.io/research/split-federated-learning/",
+          "name": "분할-연합학습의 데이터, 자원 이질성 극복을 위한 연구 동향 분석"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://txxnrd.github.io/research/secure-container/#article",
+          "url": "https://txxnrd.github.io/research/secure-container/",
+          "name": "허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구"
+        }
+      ]
+    }
+  ]
+}
     </script>
 
-    <link rel="stylesheet" type="text/css" href="style.css?v=20261022-blog" />
+    <link rel="stylesheet" type="text/css" href="style.css?v=20261025-research" />
     <script defer src="theme.js"></script>
     <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
     <script>
@@ -116,10 +177,10 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a href="/index.html" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <a href="/" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
         <div class="site-header-actions">
           <nav class="site-nav" aria-label="Primary">
-            <a href="/index.html" class="is-active" aria-current="page">Home</a>
+            <a href="/" class="is-active" aria-current="page">Home</a>
             <a href="/publications.html">Publications</a>
             <a href="/news.html">News</a>
             <a href="/blog.html">Blog</a>
@@ -196,7 +257,7 @@
                 <h3><a href="/CLAG/">CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents</a></h3>
                 <p class="work-authors"><strong>Taeyun Roh</strong>, Wonjune Jang, Junha Jung, Jaewoo Kang</p>
                 <p class="work-description">Self-organizing memory that helps small language model agents retrieve and reuse experience.</p>
-                <div class="work-links"><a href="https://arxiv.org/abs/2603.15421" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="/CLAG/">Project <span aria-hidden="true">↗</span></a></div>
+                <div class="work-links"><a href="https://aclanthology.org/2026.findings-acl.824/" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="/CLAG/">Project <span aria-hidden="true">↗</span></a></div>
               </div>
             </article>
             <article class="selected-work">
@@ -204,7 +265,7 @@
               <div class="work-copy">
                 <p class="work-venue">Preprint <span>2026</span></p>
                 <h3><a href="/buzzy/">BUZZY: Contrastive Scoring to Mitigate Text-Induced Bias in Multimodal Multiple-Choice QA</a></h3>
-                <p class="work-authors"><strong>Taeyun Roh</strong>, Suhyeong Park, Dongyoung Lee, Eunyeong Jo, Wonjune Jang, Junha Jung, Jaewoo Kang</p>
+                <p class="work-authors"><strong>Taeyun Roh</strong>, Suhyeong Park, Dongyoung Lee, Wonjune Jang, Junha Jung, Eunyeong Jo, Jaewoo Kang</p>
                 <p class="work-description">Grounding answers in visual evidence through training-free contrastive scoring.</p>
                 <div class="work-links"><a href="https://arxiv.org/abs/2603.28026" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="/buzzy/">Project <span aria-hidden="true">↗</span></a></div>
               </div>

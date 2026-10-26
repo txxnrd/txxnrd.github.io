@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구 | Taeyun Roh</title>
+    <meta name="description" content="Secure containers combine isolation and lightweight deployment for permissioned blockchain nodes." />
+    <link rel="canonical" href="https://txxnrd.github.io/research/secure-container/" />
+    <link rel="icon" href="/img/taeyun.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구" />
+    <meta property="og:description" content="Secure containers combine isolation and lightweight deployment for permissioned blockchain nodes." />
+    <meta property="og:url" content="https://txxnrd.github.io/research/secure-container/" />
+    <meta property="og:image" content="https://txxnrd.github.io/img/publications/secure-container.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구" />
+    <meta name="twitter:description" content="Secure containers combine isolation and lightweight deployment for permissioned blockchain nodes." />
+    <meta name="twitter:image" content="https://txxnrd.github.io/img/publications/secure-container.png" />
+    <!-- research:metadata:start -->
+<meta name="citation_title" content="허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구" />
+<meta name="citation_author" content="강윤경" />
+<meta name="citation_author" content="노태윤" />
+<meta name="citation_author" content="이준석" />
+<meta name="citation_author" content="최원미" />
+<meta name="citation_author" content="유연호" />
+<meta name="citation_author" content="양경식" />
+<meta name="citation_author" content="유혁" />
+<meta name="citation_publication_date" content="2024" />
+<meta name="citation_language" content="ko" />
+<meta name="citation_abstract_html_url" content="https://txxnrd.github.io/research/secure-container/" />
+<meta name="citation_pdf_url" content="https://txxnrd.github.io/paper/sec-container.pdf" />
+<meta name="citation_conference_title" content="2024년도 한국통신학회 하계종합학술발표회" />
+<meta name="citation_firstpage" content="1853" />
+<meta name="citation_lastpage" content="1854" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://txxnrd.github.io/research/secure-container/#article",
+      "name": "허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구",
+      "headline": "허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구",
+      "url": "https://txxnrd.github.io/research/secure-container/",
+      "mainEntityOfPage": "https://txxnrd.github.io/research/secure-container/",
+      "description": "Secure containers combine isolation and lightweight deployment for permissioned blockchain nodes.",
+      "abstract": "허가형 블록체인은 허가된 특정 참여자만이 접근할 수 있도록 설계된 블록체인으로 의료, 금융 서비스 등 데이터의 무결성, 보안성이 중요한 비즈니스에서 널리 사용되고 있다. 허가형 블록체인은 참여자들의 신원을 서로 확인하고 요청받은 거래를 스마트 컨트랙트를 통해 검증함으로써 블록체인의 무결성을 보장한다. 대표적인 허가형 블록체인 플랫폼인 하이퍼레저 패브릭은 참여하는 노드들의 독립성을 보장하기 위해 각 노드들이 독립된 환경에서 스마트 컨트랙트를 실행하게 한다. 특히, 최신 하이퍼레저 패브릭에서는 빠른 배포와 높은 블록체인 성능을 보장하기 위해 각 노드를 도커 컨테이너로 배포한다. 그러나 도커 컨테이너 사용은 완전한 격리를 제공하지 못하는 한계가 있다. 본 논문에서는 블록체인 노드를 경량성과 격리성 모두 제공하는 보안 컨테이너로 사용하는 방안을 제안한다.",
+      "inLanguage": "ko",
+      "image": "https://txxnrd.github.io/img/publications/secure-container.png",
+      "keywords": [
+        "permissioned blockchains",
+        "secure containers",
+        "Hyperledger Fabric"
+      ],
+      "author": [
+        {
+          "@type": "Person",
+          "name": "강윤경"
+        },
+        {
+          "@type": "Person",
+          "name": "노태윤",
+          "@id": "https://txxnrd.github.io/#person",
+          "url": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "이준석"
+        },
+        {
+          "@type": "Person",
+          "name": "최원미"
+        },
+        {
+          "@type": "Person",
+          "name": "유연호"
+        },
+        {
+          "@type": "Person",
+          "name": "양경식"
+        },
+        {
+          "@type": "Person",
+          "name": "유혁"
+        }
+      ],
+      "sameAs": [
+        "https://txxnrd.github.io/paper/sec-container.pdf"
+      ],
+      "alternateName": "Exploring the Secure Container for Permissioned Blockchains",
+      "encoding": {
+        "@type": "MediaObject",
+        "encodingFormat": "application/pdf",
+        "contentUrl": "https://txxnrd.github.io/paper/sec-container.pdf"
+      },
+      "pageStart": "1853",
+      "pageEnd": "1854"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://txxnrd.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Publications",
+          "item": "https://txxnrd.github.io/publications.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구",
+          "item": "https://txxnrd.github.io/research/secure-container/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- research:metadata:end -->
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') === 'night' ? 'night' : 'day'; } catch { document.documentElement.dataset.theme = 'day'; }</script>
+    <link rel="stylesheet" href="/style.css?v=20261025-research" />
+    <script defer src="/theme.js"></script>
+  </head>
+  <body class="sub-page project-page paper-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="/" class="site-logo">Taeyun Roh<span class="logo-period" aria-hidden="true">.</span></a>
+        <div class="site-header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/publications.html">Publications</a>
+            <a href="/news.html">News</a>
+            <a href="/blog.html">Blog</a>
+          </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false" title="Switch to dark theme">
+            <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+      <main class="sub-main" id="main-content">
+        <nav class="paper-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/publications.html">Publications</a></nav>
+        <section class="project-hero"><div class="project-hero-copy">
+          <p class="eyebrow">2024년도 한국통신학회 하계종합학술발표회 · 2024 · Published</p>
+          <h1>허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구</h1><p class="page-intro" lang="en">Exploring the Secure Container for Permissioned Blockchains</p>
+          <p class="project-authors">강윤경, <a href="/" rel="author">노태윤</a>, 이준석, 최원미, 유연호, 양경식, 유혁</p>
+          <p class="page-intro">Secure containers combine isolation and lightweight deployment for permissioned blockchain nodes.</p>
+          <div class="hero-actions"><a class="button button-primary" href="/paper/sec-container.pdf">Read PDF ↗</a><a class="button button-secondary" href="#citation">Cite this paper ↓</a></div>
+        </div></section>
+        <section class="project-section project-two-column" aria-labelledby="abstract-title" id="abstract">
+  <div><p class="card-label">Paper</p><h2 id="abstract-title">Abstract</h2></div>
+  <div class="project-text"><p lang="ko">허가형 블록체인은 허가된 특정 참여자만이 접근할 수 있도록 설계된 블록체인으로 의료, 금융 서비스 등 데이터의 무결성, 보안성이 중요한 비즈니스에서 널리 사용되고 있다. 허가형 블록체인은 참여자들의 신원을 서로 확인하고 요청받은 거래를 스마트 컨트랙트를 통해 검증함으로써 블록체인의 무결성을 보장한다. 대표적인 허가형 블록체인 플랫폼인 하이퍼레저 패브릭은 참여하는 노드들의 독립성을 보장하기 위해 각 노드들이 독립된 환경에서 스마트 컨트랙트를 실행하게 한다. 특히, 최신 하이퍼레저 패브릭에서는 빠른 배포와 높은 블록체인 성능을 보장하기 위해 각 노드를 도커 컨테이너로 배포한다. 그러나 도커 컨테이너 사용은 완전한 격리를 제공하지 못하는 한계가 있다. 본 논문에서는 블록체인 노드를 경량성과 격리성 모두 제공하는 보안 컨테이너로 사용하는 방안을 제안한다.</p><p class="paper-source">Source: <a href="https://txxnrd.github.io/paper/sec-container.pdf">2024년도 한국통신학회 하계종합학술발표회</a>.</p></div>
+</section>
+        <section class="project-section" aria-labelledby="cite-title" id="citation">
+  <div class="project-section-heading"><p class="card-label">Resources</p><h2 id="cite-title">Read and cite this paper</h2></div>
+  <div class="hero-actions"><a class="button button-secondary" href="https://txxnrd.github.io/paper/sec-container.pdf">Publication record <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/paper/sec-container.pdf">Read PDF <span aria-hidden="true">↗</span></a> <a class="button button-secondary" href="/citations/secure-container.bib">Download BibTeX <span aria-hidden="true">↗</span></a></div>
+  <pre class="citation-block"><code>@inproceedings{securecontainer2024,
+  title = {허가형 블록체인을 위한 보안 컨테이너 활용 방안 연구},
+  author = {강윤경 and 노태윤 and 이준석 and 최원미 and 유연호 and 양경식 and 유혁},
+  year = {2024},
+  booktitle = {2024년도 한국통신학회 하계종합학술발표회},
+  pages = {1853--1854},
+  url = {https://txxnrd.github.io/paper/sec-container.pdf}
+}</code></pre>
+</section>
+        <section class="project-section paper-related" aria-labelledby="related-title"><h2 id="related-title">Related research</h2><ul><li><a href="/research/split-federated-learning/">분할-연합학습의 데이터, 자원 이질성 극복을 위한 연구 동향 분석</a></li></ul><a class="text-link" href="/publications.html">All publications ↗</a></section>
+      </main>
+      <footer class="site-footer"><a href="/">Taeyun Roh · 노태윤</a><a href="/publications.html">All publications ↗</a></footer>
+    </div>
+  </body>
+</html>
