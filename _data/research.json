@@ -130,47 +130,6 @@
     "code_url": "https://github.com/dmis-lab/MRPO"
   },
   {
-    "id": "bioasq14b",
-    "arxiv": "2607.06452",
-    "path": "/research/bioasq14b/",
-    "short_name": "BioASQ 14b",
-    "title": "From Voting to Agent Collaboration: Answer-Type-Aware LLM Pipelines for BioASQ 14b",
-    "authors": [
-      "Taeyun Roh",
-      "Eunha Lee",
-      "Wonjune Jang",
-      "Sohyun Chung",
-      "Junha Jung",
-      "Jaewoo Kang"
-    ],
-    "citation_authors": [
-      "Roh, Taeyun",
-      "Lee, Eunha",
-      "Jang, Wonjune",
-      "Chung, Sohyun",
-      "Jung, Junha",
-      "Kang, Jaewoo"
-    ],
-    "date": "2026-07-07",
-    "updated": "2026-07-07",
-    "abstract": "Biomedical question answering requires not only accurate extraction of information from scientific literature but also reliable integration of evidence across multiple documents. This study presents a question-type-specific large language model (LLM) framework for BioASQ 14b Task B, designed to improve answer robustness and evidence grounding in biomedical question answering. Rather than applying a single prompting strategy to all questions, the framework selects different inference procedures for yes/no, factoid, and list questions according to their distinct reasoning and evaluation requirements. For yes/no questions, snippet shuffling and self-reflection are used to reduce sensitivity to evidence ordering and improve decision stability. For factoid questions, full-snippet input is combined with chain-of-thought-based in-context learning to support accurate biomedical entity identification. For list questions, a multi-agent architecture is employed, in which evidence extraction, candidate generation, answer verification, and final aggregation are handled collaboratively. Preliminary experiments on BioASQ 13b were used to identify effective inference strategies for each question type, and the resulting framework was subsequently evaluated in the official BioASQ 14b Task B challenge. In the official evaluation, our framework showed competitive performance across multiple batches and achieved first place in the factoid subtask of Batch 4. These results demonstrate the effectiveness of combining question-type-specific inference, ensemble prediction, and agent-based verification for reliable biomedical question answering.",
-    "summary": "Answer-type-aware language model pipelines combine evidence grounding, voting, and agent collaboration.",
-    "image": "/img/taeyun.png",
-    "keywords": [
-      "biomedical question answering",
-      "LLM agents",
-      "evidence grounding"
-    ],
-    "source_url": "https://arxiv.org/abs/2607.06452",
-    "pdf_source": "https://arxiv.org/pdf/2607.06452",
-    "doi": "10.48550/arXiv.2607.06452",
-    "language": "en",
-    "venue": "arXiv preprint",
-    "status": "Preprint",
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "local_pdf": "/paper/bioasq14b.pdf"
-  },
-  {
     "id": "diabetes-planning",
     "path": "/research/diabetes-planning/",
     "short_name": "Expert-level planning",

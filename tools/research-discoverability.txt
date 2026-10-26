@@ -9,7 +9,7 @@ Update workflow
 1. Verify titles, author order, dates, abstracts, and DOI against the published
    record or latest public author manuscript. Edit _data/research.json.
 2. Run: python3 tools/build_research.py
-   This refreshes eight paper pages, citation metadata, JSON-LD, and BibTeX.
+   This refreshes seven paper pages, citation metadata, JSON-LD, and BibTeX.
    Existing project narratives outside the research:* markers remain editable.
 3. When adding a paper, also add its visible card to publications.html, update
    the visible count, and add its canonical URL to sitemap.xml. The generator
@@ -24,7 +24,6 @@ The following PDFs are unchanged public author manuscripts licensed CC BY 4.0:
   paper/switchmem.pdf  https://arxiv.org/pdf/2610.17928v1
   paper/clag.pdf       https://arxiv.org/pdf/2603.15421v2
   paper/buzzy.pdf      https://arxiv.org/pdf/2603.28026v4
-  paper/bioasq14b.pdf  https://arxiv.org/pdf/2607.06452v1
 
 The existing splitfed.pdf and sec-container.pdf remain unchanged.
 MRPO and the diabetes paper link to their existing public hosts; no new copy
@@ -72,10 +71,6 @@ https://txxnrd.github.io/CLAG/
 BUZZY: Answer choices can bias multimodal reasoning toward plausible text.
 BUZZY uses training-free contrastive scoring to emphasize visual evidence.
 https://txxnrd.github.io/buzzy/
-
-BioASQ 14b: Different biomedical question types need different inference
-strategies. Our pipelines combine voting, evidence grounding, and agents.
-https://txxnrd.github.io/research/bioasq14b/
 
 Official guidance
 
