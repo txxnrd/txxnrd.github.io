@@ -1,0 +1,2 @@
+# Preserve downloaded papers byte-for-byte and keep PDF data out of text diffs.
+*.pdf binary
